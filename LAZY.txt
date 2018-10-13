@@ -1,0 +1,25 @@
+Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Harvester1' );
+
+Game.creeps['Harv1'].memory.role = 'harvester';
+Game.creeps['Harv2'].memory.role = 'harvester';
+Game.creeps['Upgr1'].memory.role = 'upgrader';
+
+Game.creeps['Upgr1'].memory.upgrading = false;
+
+Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Builder4', { memory: { role: 'builder' }} );
+Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Harv2', { memory: { role: 'harvester' }} );
+Game.spawns['Spawn1'].spawnCreep( [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE],
+    'HarvesterBig',
+    { memory: { role: 'harvester' } } );
+
+Game.creeps['Builder161825'].suicide()
+
+
+
+Game.spawns['Spawn1'].spawnCreep( [WORK,WORK,CARRY,MOVE],
+    'BUILDER',
+    { memory: { role: 'builder' } } );
+
+
+Game.rooms['E18N6'].energyCapacityAvailable
+Game.rooms['E18N6'].find(FIND_SOURCES)
