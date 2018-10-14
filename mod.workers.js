@@ -30,6 +30,14 @@ var REPAIRER = {
   ],
   role: 'repairer'
 };
+var DEFENDER = {
+  desiredAmount: 1,
+  composition: [RANGED_ATTACK, RANGED_ATTACK,
+    TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
+    MOVE, MOVE, MOVE
+  ],
+  role: 'defender'
+};
 module.exports = {
   keepAlive: function() {
     for (var name in Memory.creeps) {
@@ -47,9 +55,11 @@ module.exports = {
       var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
       var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
       var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
-      console.log('H/B/U: ' + harvesters.length + '/' + HARVESTER.desiredAmount + ' | ' +
+      var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
+      console.log('H/B/U/R: ' + harvesters.length + '/' + HARVESTER.desiredAmount + ' | ' +
         builders.length + '/' + BUILDER.desiredAmount + ' | ' +
-        upgraders.length + '/' + UPGRADER.desiredAmount +
+        upgraders.length + '/' + UPGRADER.desiredAmount + ' | '+
+        repairers.length + '/' + REPAIRER.desiredAmount +
         '. Energy available: ' + Game.rooms['E18N6'].energyAvailable + '/' +
         Game.rooms['E18N6'].energyCapacityAvailable);
 
