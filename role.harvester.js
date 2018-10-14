@@ -2,6 +2,7 @@ var roleHarvester = {
 
     /** @param {Creep} creep **/
     run: function(creep) {
+      creep.say('H' + creep.memory.orderNumber);
       if (!creep.memory.harvesting && creep.carry.energy == 0){
           creep.memory.harvesting = true;
           creep.say('🔄 harvest');
@@ -27,7 +28,7 @@ var roleHarvester = {
                     creep.moveTo(targets[0], {visualizePathStyle: {stroke: '#ffffff'}});
                 }
             } else {
-                creep.moveTo(25, 25, {visualizePathStyle: {stroke: '#ffffff'}});
+                creep.moveTo(24, 31, {visualizePathStyle: {stroke: '#ffffff'}});
             }
         }
 	}

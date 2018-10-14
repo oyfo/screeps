@@ -1,5 +1,5 @@
 var HARVESTER = {
-  desiredAmount: 4,
+  desiredAmount: 3,
   composition: [WORK, WORK, WORK,
     CARRY, CARRY, CARRY,
     MOVE, MOVE
@@ -7,7 +7,7 @@ var HARVESTER = {
   role: 'harvester'
 };
 var BUILDER = {
-  desiredAmount: 2,
+  desiredAmount: 1,
   composition: [WORK, WORK, WORK,
     CARRY, CARRY, CARRY,
     MOVE, MOVE
@@ -15,7 +15,7 @@ var BUILDER = {
   role: 'builder'
 };
 var UPGRADER = {
-  desiredAmount: 5,
+  desiredAmount: 6,
   composition: [WORK, WORK, WORK,
     CARRY, CARRY, CARRY,
     MOVE, MOVE,
@@ -23,10 +23,10 @@ var UPGRADER = {
   role: 'upgrader'
 };
 var REPAIRER = {
-  desiredAmount: 0,
+  desiredAmount: 1,
   composition: [WORK, WORK, WORK,
-    CARRY,
-    MOVE, MOVE, MOVE
+    CARRY, CARRY,
+    MOVE, MOVE
   ],
   role: 'repairer'
 };
@@ -40,7 +40,6 @@ module.exports = {
     }
 
     if (Game.time % 5 == 0) {
-      spawnWorkerIfNeeded(HARVESTER);
       spawnWorkerIfNeeded(BUILDER);
       spawnWorkerIfNeeded(UPGRADER);
       spawnWorkerIfNeeded(REPAIRER);
