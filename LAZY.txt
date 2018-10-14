@@ -2,7 +2,7 @@ Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Harvester1' );
 
 Game.creeps['Harv1'].memory.role = 'harvester';
 Game.creeps['Harv2'].memory.role = 'harvester';
-Game.creeps['Upgr1'].memory.role = 'upgrader';
+Game.creeps['Upgrader'].memory.role = 'harvester';
 
 Game.creeps['Upgr1'].memory.upgrading = false;
 
