@@ -25,9 +25,9 @@ var roleRepairer = {
     } else {
       //BUILD
       var wallsToConstruct = creep.room.find(FIND_CONSTRUCTION_SITES, {
-      /*  filter: (structure) => {
-          return (structure.structureType === STRUCTURE_WALL || structure.structureType == STRUCTURE_RAMPART);
-        }*/
+        // filter: (structure) => {
+        //   return (structure.structureType === STRUCTURE_WALL || structure.structureType == STRUCTURE_RAMPART);
+        // }
       });
       if (wallsToConstruct.length > 0) {
         if (creep.build(wallsToConstruct[0]) == ERR_NOT_IN_RANGE) {
@@ -41,7 +41,7 @@ var roleRepairer = {
         //REPAIR
         var wallsToRepair = creep.room.find(FIND_STRUCTURES, {
           filter: (structure) => {
-            return ((structure.structureType === STRUCTURE_WALL || structure.structureType == STRUCTURE_RAMPART) && structure.hits < 5000);
+            return ((structure.structureType === STRUCTURE_WALL || structure.structureType == STRUCTURE_RAMPART|| structure.structureType == STRUCTURE_ROAD) && structure.hits < 3000);
           }
         });
         if (wallsToRepair.length > 0) {

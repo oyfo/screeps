@@ -1,34 +1,42 @@
 //module.exports = {
 var definitions = {
   HARVESTER: {
-    desiredAmount: 3,
-    composition: [WORK, WORK, WORK, WORK,
-      CARRY, CARRY, CARRY, CARRY, CARRY,
-      MOVE, MOVE, MOVE,
+    desiredAmount: 8,
+    composition: [WORK, WORK, WORK, WORK, WORK,
+      CARRY, CARRY, CARRY, CARRY,
+      MOVE, MOVE
     ],
     role: 'harvester'
+  },
+  DEPOSITOR: {
+    desiredAmount: 0,
+    composition: [WORK, WORK, WORK, WORK, WORK,
+      CARRY, CARRY, CARRY, CARRY,
+      MOVE, MOVE
+    ],
+    role: 'depositor'
   },
   BUILDER: {
     desiredAmount: 1,
     composition: [WORK, WORK, WORK, WORK,
-      CARRY, CARRY, CARRY, CARRY,
-      MOVE, MOVE, MOVE, MOVE
+      CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+      MOVE, MOVE,
     ],
     role: 'builder'
   },
   UPGRADER: {
-    desiredAmount: 5,
+    desiredAmount: 2,
     composition: [WORK, WORK, WORK, WORK,
-      CARRY, CARRY, CARRY, CARRY,
-      MOVE, MOVE, MOVE, MOVE
+      CARRY, CARRY, CARRY, CARRY, CARRY,
+      MOVE, MOVE, MOVE
     ],
     role: 'upgrader'
   },
   REPAIRER: {
-    desiredAmount: 1,
-    composition: [WORK, WORK, WORK, WORK,
+    desiredAmount: 0,
+    composition: [WORK, WORK, WORK, WORK, WORK,
       CARRY, CARRY, CARRY, CARRY,
-      MOVE, MOVE, MOVE, MOVE
+      MOVE, MOVE
     ],
     role: 'repairer'
   },

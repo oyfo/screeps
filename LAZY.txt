@@ -26,11 +26,13 @@ Game.rooms['E18N6'].find(FIND_SOURCES)
 
 
 TO DO:
--CREEP SPRAWN PRIORITIZATION
+-CREEP SPRAWN PRIORITIZATION  DONE
 -source priority for harvesters
 -creep unstuck - choose SOURCE
 -creep gather when attack
--towers
+-towers:
+  -defend
+  -repair
 -defenders
 -auto scale bodies
 
