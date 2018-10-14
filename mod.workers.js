@@ -1,69 +1,32 @@
-var HARVESTER = {
-  desiredAmount: 3,
-  composition: [WORK, WORK, WORK,
-    CARRY, CARRY, CARRY,
-    MOVE, MOVE
-  ],
-  role: 'harvester'
-};
-var BUILDER = {
-  desiredAmount: 1,
-  composition: [WORK, WORK, WORK,
-    CARRY, CARRY, CARRY,
-    MOVE, MOVE
-  ],
-  role: 'builder'
-};
-var UPGRADER = {
-  desiredAmount: 6,
-  composition: [WORK, WORK, WORK,
-    CARRY, CARRY, CARRY,
-    MOVE, MOVE,
-  ],
-  role: 'upgrader'
-};
-var REPAIRER = {
-  desiredAmount: 1,
-  composition: [WORK, WORK, WORK,
-    CARRY, CARRY,
-    MOVE, MOVE
-  ],
-  role: 'repairer'
-};
-var DEFENDER = {
-  desiredAmount: 1,
-  composition: [RANGED_ATTACK, RANGED_ATTACK,
-    TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
-    MOVE, MOVE, MOVE
-  ],
-  role: 'defender'
-};
+var creepsDefinitions = require('creeps.definitions');
+var HARVESTER = creepsDefinitions.HARVESTER;
+var BUILDER = creepsDefinitions.BUILDER;
+var UPGRADER = creepsDefinitions.UPGRADER;
+var REPAIRER = creepsDefinitions.REPAIRER;
+var DEFENDER = creepsDefinitions.DEFENDER;
+
 module.exports = {
   keepAlive: function() {
-    for (var name in Memory.creeps) {
-      if (!Game.creeps[name]) {
-        delete Memory.creeps[name];
-        console.log('Clearing non-existing creep memory:', name);
-      }
-    }
+    crearDeadCreepMemory();
 
     if (Game.time % 5 == 0) {
-      spawnWorkerIfNeeded(BUILDER);
+      manageCreepSpawnOrder(creepsDefinitions);
+      /*spawnWorkerIfNeeded(BUILDER);
       spawnWorkerIfNeeded(UPGRADER);
       spawnWorkerIfNeeded(REPAIRER);
-      spawnWorkerIfNeeded(HARVESTER);
-      var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+      spawnWorkerIfNeeded(HARVESTER);*/
+      /*var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
       var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
       var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
       var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
       console.log('H/B/U/R: ' + harvesters.length + '/' + HARVESTER.desiredAmount + ' | ' +
         builders.length + '/' + BUILDER.desiredAmount + ' | ' +
-        upgraders.length + '/' + UPGRADER.desiredAmount + ' | '+
+        upgraders.length + '/' + UPGRADER.desiredAmount + ' | ' +
         repairers.length + '/' + REPAIRER.desiredAmount +
         '. Energy available: ' + Game.rooms['E18N6'].energyAvailable + '/' +
-        Game.rooms['E18N6'].energyCapacityAvailable);
+        Game.rooms['E18N6'].energyCapacityAvailable);*/
 
-      if (Game.spawns['Spawn1'].spawning) {
+    /*  if (Game.spawns['Spawn1'].spawning) {
         var spawningCreep = Game.creeps[Game.spawns['Spawn1'].spawning.name];
         Game.spawns['Spawn1'].room.visual.text(
           '🛠️' + spawningCreep.memory.role,
@@ -72,7 +35,7 @@ module.exports = {
             align: 'left',
             opacity: 0.8
           });
-      }
+      }*/
     }
   }
 };
@@ -86,16 +49,13 @@ function findOrderNumber(workerType) {
   }
 };
 
-function spawnWorkerIfNeeded(workerType) {
+/*function spawnWorkerIfNeeded(workerType) {
   var listOfWorkers = _.filter(Game.creeps, (creep) => creep.memory.role == workerType.role);
   if (listOfWorkers.length < workerType.desiredAmount) {
     var orderNumber = findOrderNumber(workerType);
     var newName = workerType.role + orderNumber
-    console.log('Spawning new ' + workerType.role + ': ' + newName); // + '. Energy available: ' + Game.rooms['E18N6'].energyAvailable + '/' + Game.rooms['E18N6'].energyCapacityAvailable);
+    console.log('Spawning new ' + workerType.role + ': ' + newName);
     var composition = workerType.composition;
-    //for (var i = 0; i <(500 - Game.rooms['E18N6'].energyCapacityAvailable)/50; i++) {
-    //  composition.push('MOVE');
-    //}
     Game.spawns['Spawn1'].spawnCreep(composition, newName, {
       memory: {
         role: workerType.role,
@@ -103,6 +63,55 @@ function spawnWorkerIfNeeded(workerType) {
       }
     });
   }
+};*/
+
+function spawnWorker(workerType) {
+  var orderNumber = findOrderNumber(workerType);
+  var newName = workerType.role + orderNumber
+  console.log('Spawning new ' + workerType.role + ': ' + newName);
+  var composition = workerType.composition;
+  Game.spawns['Spawn1'].spawnCreep(composition, newName, {
+    memory: {
+      role: workerType.role,
+      orderNumber: orderNumber
+    }
+  });
+
 };
 
-Game.rooms['E18N6'].energyCapacityAvailable
+function crearDeadCreepMemory() {
+  for (var name in Memory.creeps) {
+    if (!Game.creeps[name]) {
+      delete Memory.creeps[name];
+      console.log('Clearing non-existing creep memory:', name);
+    }
+  }
+}
+
+function manageCreepSpawnOrder(creepsDefinitions) {
+  var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
+  var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
+  var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
+  var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
+  var defenders = _.filter(Game.creeps, (creep) => creep.memory.role == 'defender');
+  console.log(
+    'H:' + harvesters.length + '/' + creepsDefinitions.HARVESTER.desiredAmount + ' | ' +
+    'U:' + upgraders.length + '/' + creepsDefinitions.UPGRADER.desiredAmount + ' | ' +
+    'D:' + defenders.length + '/' + creepsDefinitions.DEFENDER.desiredAmount + ' | ' +
+    'R:' + repairers.length + '/' + creepsDefinitions.REPAIRER.desiredAmount + ' | ' +
+    'B:' + builders.length + '/' + creepsDefinitions.BUILDER.desiredAmount + ' | ' +
+    'Energy: ' + Game.rooms['E18N6'].energyAvailable + '/' + Game.rooms['E18N6'].energyCapacityAvailable
+  );
+
+  if (harvesters.length < creepsDefinitions.HARVESTER.desiredAmount) {
+    spawnWorker(creepsDefinitions.HARVESTER);
+  } else if (upgraders.length < creepsDefinitions.UPGRADER.desiredAmount) {
+    spawnWorker(creepsDefinitions.UPGRADER);
+  } else if (defenders.length < creepsDefinitions.DEFENDER.desiredAmount) {
+    spawnWorker(creepsDefinitions.DEFENDER);
+  } else if (repairers.length < creepsDefinitions.REPAIRER.desiredAmount) {
+    spawnWorker(creepsDefinitions.REPAIRER);
+  } else if (builders.length < creepsDefinitions.BUILDER.desiredAmount) {
+    spawnWorker(creepsDefinitions.BUILDER);
+  }
+}

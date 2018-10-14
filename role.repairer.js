@@ -11,7 +11,7 @@ var roleRepairer = {
       creep.memory.repairing = true;
       creep.say('🚧 repair');
     }
-    //creep.moveTo(21,26);
+    //creep.moveTo(22,26);
     //HARVERS
     if (!creep.memory.repairing) {
       var sources = creep.room.find(FIND_SOURCES);
@@ -24,10 +24,10 @@ var roleRepairer = {
       }
     } else {
       //BUILD
-    /*  var wallsToConstruct = creep.room.find(FIND_CONSTRUCTION_SITES, {
-        filter: (structure) => {
+      var wallsToConstruct = creep.room.find(FIND_CONSTRUCTION_SITES, {
+      /*  filter: (structure) => {
           return (structure.structureType === STRUCTURE_WALL || structure.structureType == STRUCTURE_RAMPART);
-        }
+        }*/
       });
       if (wallsToConstruct.length > 0) {
         if (creep.build(wallsToConstruct[0]) == ERR_NOT_IN_RANGE) {
@@ -37,7 +37,7 @@ var roleRepairer = {
             }
           });
         }
-      } else*/ {
+      } else {
         //REPAIR
         var wallsToRepair = creep.room.find(FIND_STRUCTURES, {
           filter: (structure) => {
