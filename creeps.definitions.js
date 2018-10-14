@@ -18,17 +18,17 @@ var definitions = {
   },
   BUILDER: {
     desiredAmount: 1,
-    composition: [WORK, WORK, WORK, WORK,
+    composition: [WORK, WORK, WORK,
       CARRY, CARRY, CARRY, CARRY, CARRY,
-      MOVE, MOVE,
+      MOVE, MOVE, MOVE, MOVE
     ],
     role: 'builder'
   },
   UPGRADER: {
-    desiredAmount: 4,
+    desiredAmount: 5,
     composition: [WORK, WORK, WORK, WORK,
       CARRY, CARRY, CARRY, CARRY,
-      MOVE, MOVE, MOVE
+      MOVE, MOVE, MOVE, MOVE
     ],
     role: 'upgrader'
   },
@@ -58,8 +58,8 @@ var definitions = {
   CARRIER: {
     desiredAmount: 2,
     composition: [WORK,
-        CARRY, CARRY, CARRY, CARRY,
-      MOVE, MOVE ,MOVE, MOVE
+        CARRY, CARRY, CARRY,
+      MOVE, MOVE ,MOVE, MOVE, MOVE
     ],
     role: 'carrier'
   },

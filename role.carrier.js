@@ -18,7 +18,7 @@ var roleCarrier = {
       var sources = creep.room.find(FIND_SOURCES);
       var droppedEnergy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES, {
         filter: (drop) => {
-          return (drop.amount > 70);
+          return (drop.amount > 60);
         }
       });
       if (droppedEnergy) {
@@ -39,7 +39,7 @@ var roleCarrier = {
         dropPoint = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
             return (structure.structureType == STRUCTURE_TOWER && structure.energy <
-              structure.energyCapacity);
+              structure.energyCapacity * 0.85);
           }
         });
       }
@@ -47,7 +47,7 @@ var roleCarrier = {
         dropPoint = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
             return ((structure.structureType == STRUCTURE_CONTAINER) &&
-              structure.store[RESOURCE_ENERGY] < structure.storeCapacity);
+              structure.store[RESOURCE_ENERGY] < structure.storeCapacity * 0.9);
           }
         });
       }

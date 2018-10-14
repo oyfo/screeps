@@ -8,11 +8,12 @@ Game.creeps['Upgr1'].memory.upgrading = false;
 
 Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Builder4', { memory: { role: 'builder' }} );
 Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Harv2', { memory: { role: 'harvester' }} );
-Game.spawns['Spawn1'].spawnCreep( [WORK,WORK,WORK,WORK,CARRY,MOVE,MOVE],
-    'HarvesterBig',
-    { memory: { role: 'harvester' } } );
 
-Game.creeps['Builder161825'].suicide()
+Game.spawns['Spawn1'].spawnCreep( [WORK,MOVE],
+    'HarvesterBig',
+    { memory: { role: 'staticHarvester' } } );
+
+Game.creeps['Harvester5'].suicide()
 
 
 

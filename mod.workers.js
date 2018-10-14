@@ -5,6 +5,32 @@ module.exports = {
     if (Game.time % 5 == 0) {
       crearDeadCreepMemory();
       manageCreepSpawn(creepsDefinitions);
+      if (Game.time % 600 == 0 && (Game.rooms['E18N6'].controller.level == 4)) {
+        var numberOfExtensions = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
+          filter: (structure) => {
+            return (structure.structureType == STRUCTURE_EXTENSION);
+          }
+        });
+        console.log(numberOfExtensions.length);
+        if (numberOfExtensions.length == 10){
+          Game.rooms['E18N6'].createConstructionSite(24,31, STRUCTURE_EXTENSION);
+        }
+        if (numberOfExtensions.length == 11){
+           Game.rooms['E18N6'].createConstructionSite(22,31, STRUCTURE_EXTENSION);
+        }
+        if (numberOfExtensions.length == 12){
+          Game.rooms['E18N6'].createConstructionSite(23,30, STRUCTURE_EXTENSION);
+        }
+        if (numberOfExtensions.length == 13){
+          Game.rooms['E18N6'].createConstructionSite(21,30, STRUCTURE_EXTENSION);
+        }
+        if (numberOfExtensions.length == 14){
+          Game.rooms['E18N6'].createConstructionSite(16,32, STRUCTURE_EXTENSION);
+        }
+        if (numberOfExtensions.length == 15){
+          Game.rooms['E18N6'].createConstructionSite(19,32, STRUCTURE_STORAGE);
+        }
+      }
     }
   }
 };
@@ -56,7 +82,8 @@ function manageCreepSpawn(creepsDefinitions) {
   var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
   var defenders = _.filter(Game.creeps, (creep) => creep.memory.role == 'defender');
   var depositors = _.filter(Game.creeps, (creep) => creep.memory.role == 'depositor');
-  var staticHarvester = _.filter(Game.creeps, (creep) => creep.memory.role == 'staticHarvester');
+  var staticHarvester = _.filter(Game.creeps, (creep) => creep.memory.role ==
+    'staticHarvester');
   var carriers = _.filter(Game.creeps, (creep) => creep.memory.role == 'carrier');
   console.log(
     'H:' + harvesters.length + '/' + creepsDefinitions.HARVESTER.desiredAmount + ' | ' +

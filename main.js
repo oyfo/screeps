@@ -36,6 +36,7 @@ module.exports.loop = function() {
       roleCarrier.run(creep);
     }
   }
+  //STRUCTURE_CONTROLLER
   /*  var containers = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
       filter: (structure) => {
         return (structure.structureType == STRUCTURE_CONTAINER);

@@ -20,11 +20,21 @@ module.exports = {
         var structuresToRepair = tower.room.find(FIND_STRUCTURES, {
           filter: (structure) => {
             return ((structure.structureType != STRUCTURE_WALL) && structure.hits <
-              structure.hitsMax)
+              structure.hitsMax);
           }
         });
+        if (structuresToRepair.length == 0) {
+          structuresToRepair = tower.room.find(FIND_STRUCTURES, {
+            filter: (structure) => {
+              return ((structure.structureType === STRUCTURE_WALL) && structure.hits < 8000);
+            }
+          });
+        }
+        //console.log(structuresToRepair)
         tower.repair(structuresToRepair[0]);
       });
     }
   }
 }
+
+//    ((structure.structureType === STRUCTURE_WALL) && structure.hits < 8000)
