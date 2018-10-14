@@ -23,3 +23,23 @@ Game.spawns['Spawn1'].spawnCreep( [WORK,WORK,CARRY,MOVE],
 
 Game.rooms['E18N6'].energyCapacityAvailable
 Game.rooms['E18N6'].find(FIND_SOURCES)
+
+
+TO DO:
+-CREEP SPRAWN PRIORITIZATION
+-source priority for harvesters
+-creep unstuck - choose SOURCE
+-creep gather when attack
+-towers
+-defenders
+-auto scale bodies
+
+
+
+/*for (var name in Memory.creeps) {
+  if (!Game.creeps[name]) {
+    delete Memory.creeps[name];
+    console.log('Clearing non-existing creep memory:', name);
+  }
+}*/
+Game.rooms['E18N6'].energyCapacityAvailable
