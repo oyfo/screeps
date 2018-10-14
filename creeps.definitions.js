@@ -1,7 +1,7 @@
 //module.exports = {
 var definitions = {
   HARVESTER: {
-    desiredAmount: 8,
+    desiredAmount: 0,
     composition: [WORK, WORK, WORK, WORK, WORK,
       CARRY, CARRY, CARRY, CARRY,
       MOVE, MOVE
@@ -19,15 +19,15 @@ var definitions = {
   BUILDER: {
     desiredAmount: 1,
     composition: [WORK, WORK, WORK, WORK,
-      CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+      CARRY, CARRY, CARRY, CARRY, CARRY,
       MOVE, MOVE,
     ],
     role: 'builder'
   },
   UPGRADER: {
-    desiredAmount: 2,
+    desiredAmount: 4,
     composition: [WORK, WORK, WORK, WORK,
-      CARRY, CARRY, CARRY, CARRY, CARRY,
+      CARRY, CARRY, CARRY, CARRY,
       MOVE, MOVE, MOVE
     ],
     role: 'upgrader'
@@ -47,6 +47,21 @@ var definitions = {
       MOVE, MOVE, MOVE, MOVE, MOVE
     ],
     role: 'defender'
-  }
+  },
+  STATIC_HARVESTER: {
+    desiredAmount: 2,
+    composition: [WORK, WORK, WORK, WORK, WORK,
+      MOVE
+    ],
+    role: 'staticHarvester'
+  },
+  CARRIER: {
+    desiredAmount: 2,
+    composition: [WORK,
+        CARRY, CARRY, CARRY, CARRY,
+      MOVE, MOVE ,MOVE, MOVE
+    ],
+    role: 'carrier'
+  },
 }
 module.exports = definitions;

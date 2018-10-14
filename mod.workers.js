@@ -56,6 +56,8 @@ function manageCreepSpawn(creepsDefinitions) {
   var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
   var defenders = _.filter(Game.creeps, (creep) => creep.memory.role == 'defender');
   var depositors = _.filter(Game.creeps, (creep) => creep.memory.role == 'depositor');
+  var staticHarvester = _.filter(Game.creeps, (creep) => creep.memory.role == 'staticHarvester');
+  var carriers = _.filter(Game.creeps, (creep) => creep.memory.role == 'carrier');
   console.log(
     'H:' + harvesters.length + '/' + creepsDefinitions.HARVESTER.desiredAmount + ' | ' +
     'U:' + upgraders.length + '/' + creepsDefinitions.UPGRADER.desiredAmount + ' | ' +
@@ -63,12 +65,17 @@ function manageCreepSpawn(creepsDefinitions) {
     'R:' + repairers.length + '/' + creepsDefinitions.REPAIRER.desiredAmount + ' | ' +
     'B:' + builders.length + '/' + creepsDefinitions.BUILDER.desiredAmount + ' | ' +
     'Dep:' + depositors.length + '/' + creepsDefinitions.DEPOSITOR.desiredAmount + ' | ' +
-    'Energy: ' + Game.rooms['E18N6'].energyAvailable + '/' + Game.rooms['E18N6'].energyCapacityAvailable + ' | ' +
+    'Energy: ' + Game.rooms['E18N6'].energyAvailable + '/' + Game.rooms['E18N6'].energyCapacityAvailable +
+    ' | ' +
     'Containers: ' + resources + '/' + containers.length * 2000
   );
 
   if (harvesters.length < creepsDefinitions.HARVESTER.desiredAmount) {
     spawnWorker(creepsDefinitions.HARVESTER);
+  } else if (carriers.length < creepsDefinitions.CARRIER.desiredAmount) {
+    spawnWorker(creepsDefinitions.CARRIER);
+  } else if (staticHarvester.length < creepsDefinitions.STATIC_HARVESTER.desiredAmount) {
+    spawnWorker(creepsDefinitions.STATIC_HARVESTER);
   } else if (upgraders.length < creepsDefinitions.UPGRADER.desiredAmount) {
     spawnWorker(creepsDefinitions.UPGRADER);
   } else if (defenders.length < creepsDefinitions.DEFENDER.desiredAmount) {

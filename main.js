@@ -5,6 +5,8 @@ var roleRepairer = require('role.repairer');
 var roleDepositor = require('role.depositor');
 var workers = require('mod.workers');
 var towers = require('tower');
+var roleStaticHarvester = require('role.staticHarvester');
+var roleCarrier = require('role.carrier');
 
 module.exports.loop = function() {
   workers.keepAlive();
@@ -27,16 +29,22 @@ module.exports.loop = function() {
     if (creep.memory.role == 'depositor') {
       roleDepositor.run(creep);
     }
-  }
-/*  var containers = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
-    filter: (structure) => {
-      return (structure.structureType == STRUCTURE_CONTAINER);
+    if (creep.memory.role == 'staticHarvester') {
+      roleStaticHarvester.run(creep);
     }
-  });
-  var resources = 0;
-  containers.forEach(container => {
-    resources = resources + container.store[RESOURCE_ENERGY];
-  })
-  console.log('Containers: ' + resources + '/' + containers.length * 2000);
-  //console.log(containers);*/
+    if (creep.memory.role == 'carrier') {
+      roleCarrier.run(creep);
+    }
+  }
+  /*  var containers = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
+      filter: (structure) => {
+        return (structure.structureType == STRUCTURE_CONTAINER);
+      }
+    });
+    var resources = 0;
+    containers.forEach(container => {
+      resources = resources + container.store[RESOURCE_ENERGY];
+    })
+    console.log('Containers: ' + resources + '/' + containers.length * 2000);
+    //console.log(containers);*/
 }
