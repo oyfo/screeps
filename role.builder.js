@@ -41,8 +41,7 @@ var roleBuilder = {
 function propritizedSources(creep) {
   var sources = creep.room.find(FIND_STRUCTURES, {
     filter: (structure) => {
-      return ((structure.structureType == STRUCTURE_CONTAINER && structure.store[
-        RESOURCE_ENERGY] >= creep.carryCapacity));
+      return ((structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] >= creep.carryCapacity) || (structure.structureType == STRUCTURE_STORAGE && structure.store[RESOURCE_ENERGY] >= creep.carryCapacity));
     }
   });
   return sources;

@@ -10,6 +10,6 @@ var roleStaticHarvester = {
       creep.moveTo(sources[creep.memory.orderNumber - 1], { visualizePathStyle: { stroke: '#ffaa00' } });
     }
   }
-}
+};
 
 module.exports = roleStaticHarvester;

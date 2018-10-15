@@ -9,7 +9,7 @@ var roleCarrier = {
     //creep.moveTo(24, 31, { visualizePathStyle: { stroke: '#ffffff' } });
     if (!creep.memory.picking && creep.carry.energy == 0) {
       creep.memory.picking = true;
-    }
+}
     if (creep.memory.picking && creep.carry.energy == creep.carryCapacity) {
       creep.memory.picking = false;
     }
@@ -46,8 +46,11 @@ var roleCarrier = {
       if (!dropPoint) {
         dropPoint = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
-            return ((structure.structureType == STRUCTURE_CONTAINER) &&
-              structure.store[RESOURCE_ENERGY] < structure.storeCapacity * 0.9);
+            return (
+              (structure.structureType == STRUCTURE_CONTAINER && (structure.store[RESOURCE_ENERGY] < structure.storeCapacity * 0.9))
+              ||
+              (structure.structureType == STRUCTURE_STORAGE && structure.store[RESOURCE_ENERGY] < structure.storeCapacity)
+            );
           }
         });
       }
@@ -58,6 +61,6 @@ var roleCarrier = {
       }
     }
   }
-}
+};
 
 module.exports = roleCarrier;

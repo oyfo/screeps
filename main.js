@@ -11,7 +11,7 @@ var roleCarrier = require('role.carrier');
 module.exports.loop = function() {
   workers.keepAlive();
   towers.behave();
-
+  
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];
     if (creep.memory.role == 'harvester') {
@@ -48,4 +48,4 @@ module.exports.loop = function() {
     })
     console.log('Containers: ' + resources + '/' + containers.length * 2000);
     //console.log(containers);*/
-}
+};

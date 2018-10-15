@@ -5,6 +5,7 @@ module.exports = {
     if (Game.time % 5 == 0) {
       crearDeadCreepMemory();
       manageCreepSpawn(creepsDefinitions);
+      /*
       if (Game.time % 600 == 0 && (Game.rooms['E18N6'].controller.level == 4)) {
         var numberOfExtensions = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
           filter: (structure) => {
@@ -30,7 +31,7 @@ module.exports = {
         if (numberOfExtensions.length == 15){
           Game.rooms['E18N6'].createConstructionSite(19,32, STRUCTURE_STORAGE);
         }
-      }
+      }*/
     }
   }
 };
@@ -39,14 +40,14 @@ function findOrderNumber(workerType) {
   var listOfWorkers = _.filter(Game.creeps, (creep) => creep.memory.role == workerType.role);
   for (var i = 1; i <= workerType.desiredAmount; i++) {
     if (!Game.creeps[workerType.role + i]) {
-      return i
+      return i;
     }
   }
-};
+}
 
 function spawnWorker(workerType) {
   var orderNumber = findOrderNumber(workerType);
-  var newName = workerType.role + orderNumber
+  var newName = workerType.role + orderNumber;
   console.log('Spawning new ' + workerType.role + ': ' + newName);
   var composition = workerType.composition;
   Game.spawns['Spawn1'].spawnCreep(composition, newName, {
@@ -55,7 +56,7 @@ function spawnWorker(workerType) {
       orderNumber: orderNumber
     }
   });
-};
+}
 
 function crearDeadCreepMemory() {
   for (var name in Memory.creeps) {
@@ -69,13 +70,13 @@ function crearDeadCreepMemory() {
 function manageCreepSpawn(creepsDefinitions) {
   var containers = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
     filter: (structure) => {
-      return (structure.structureType == STRUCTURE_CONTAINER);
+      return (structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_STORAGE);
     }
   });
   var resources = 0;
   containers.forEach(container => {
     resources = resources + container.store[RESOURCE_ENERGY];
-  })
+  });
   var harvesters = _.filter(Game.creeps, (creep) => creep.memory.role == 'harvester');
   var builders = _.filter(Game.creeps, (creep) => creep.memory.role == 'builder');
   var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
@@ -94,7 +95,7 @@ function manageCreepSpawn(creepsDefinitions) {
     'Dep:' + depositors.length + '/' + creepsDefinitions.DEPOSITOR.desiredAmount + ' | ' +
     'Energy: ' + Game.rooms['E18N6'].energyAvailable + '/' + Game.rooms['E18N6'].energyCapacityAvailable +
     ' | ' +
-    'Containers: ' + resources + '/' + containers.length * 2000
+    'Containers: ' + resources + '/' + ((containers.length - 1) * 2000 + 1000000)
   );
 
   if (harvesters.length < creepsDefinitions.HARVESTER.desiredAmount) {

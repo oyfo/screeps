@@ -19,10 +19,10 @@ var roleHarvester = {
         creep.moveTo(sources[1], { visualizePathStyle: { stroke: '#ffaa00' } });
       }
     } else {
-      var sources = propritizedTargets(creep);
-      if (sources.length > 0) {
-        if (creep.transfer(sources[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(sources[0], { visualizePathStyle: { stroke: '#ffffff' } });
+      var dropPoint = propritizedTargets(creep);
+      if (dropPoint.length > 0) {
+        if (creep.transfer(dropPoint[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+          creep.moveTo(dropPoint[0], { visualizePathStyle: { stroke: '#ffffff' } });
         }
       } else {
         creep.moveTo(24, 31, { visualizePathStyle: { stroke: '#ffffff' } });
