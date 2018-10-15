@@ -13,16 +13,20 @@ var roleCarrier = {
     if (creep.memory.picking && creep.carry.energy == creep.carryCapacity) {
       creep.memory.picking = false;
     }
+    //console.log(creep.drop[RESOURCE_GHODIUM_OXIDE]);
 
     if (creep.memory.picking) {
-      var sources = creep.room.find(FIND_SOURCES);
+    //  var sources = creep.room.find(FIND_SOURCES);
+      //var tomb = creep.pos.findClosestByPath(FIND_TOMBSTONES);
+    //  console.log(tomb);
       var droppedEnergy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES, {
         filter: (drop) => {
-          return (drop.amount > 60);
+          return (drop.amount > 50 && drop.resourceType == RESOURCE_ENERGY);
         }
       });
       if (droppedEnergy) {
         if (creep.pickup(droppedEnergy) == ERR_NOT_IN_RANGE) {
+
           creep.moveTo(droppedEnergy, {
             visualizePathStyle: {
               stroke: '#ffaa00'

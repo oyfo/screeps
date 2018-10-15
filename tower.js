@@ -19,14 +19,14 @@ module.exports = {
       towers.forEach(tower => {
         var structuresToRepair = tower.room.find(FIND_STRUCTURES, {
           filter: (structure) => {
-            return ((structure.structureType != STRUCTURE_WALL) && structure.hits <
-              structure.hitsMax);
+            return ((structure.structureType != STRUCTURE_WALL && structure.structureType != STRUCTURE_RAMPART) && structure.hits <
+              (structure.hitsMax * 0.75));
           }
         });
         if (structuresToRepair.length == 0) {
           structuresToRepair = tower.room.find(FIND_STRUCTURES, {
             filter: (structure) => {
-              return ((structure.structureType === STRUCTURE_WALL) && structure.hits < 8000);
+              return ((structure.structureType === STRUCTURE_WALL && structure.hits < 10000 || structure.structureType === STRUCTURE_RAMPART && structure.hits < 40000));
             }
           });
         }

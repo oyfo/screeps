@@ -23,7 +23,25 @@ var roleBuilder = {
           });
         }
       } else {
-        creep.moveTo(27, 27);
+        var structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+          filter: (structure) => {
+            return (((structure.structureType != STRUCTURE_WALL && structure.structureType != STRUCTURE_RAMPART) && structure.hits <
+              (structure.hitsMax)) && creep.room == structure.room);
+          }
+        });
+        if (structuresToRepair.length == 0) {
+          structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+            filter: (structure) => {
+              return (((structure.structureType === STRUCTURE_WALL && structure.hits < 12000 || structure.structureType === STRUCTURE_RAMPART && structure.hits < 45000)) && creep.room == structure.room);
+            }
+          });
+        }
+        if (structuresToRepair) {
+          if (creep.repair(structuresToRepair) == ERR_NOT_IN_RANGE) {
+            creep.moveTo(structuresToRepair);
+          }
+        }
+        //  creep.moveTo(27, 27);
       }
     } else {
       var sources = propritizedSources(creep);
