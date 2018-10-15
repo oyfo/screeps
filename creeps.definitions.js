@@ -1,7 +1,7 @@
 //module.exports = {
 var definitions = {
   CARRIER: {
-    desiredAmount: 3,
+    desiredAmount: 2,
     composition: [WORK,
         CARRY, CARRY, CARRY,
       MOVE, MOVE ,MOVE, MOVE, MOVE
@@ -40,7 +40,7 @@ var definitions = {
     role: 'depositor'
   },
   UPGRADER: {
-    desiredAmount: 5,
+    desiredAmount: 4,
     composition: [WORK, WORK, WORK, WORK,
       CARRY, CARRY, CARRY, CARRY,
       MOVE, MOVE, MOVE, MOVE

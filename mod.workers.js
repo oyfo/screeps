@@ -82,17 +82,17 @@ function manageCreepSpawn(creepsDefinitions) {
   var upgraders = _.filter(Game.creeps, (creep) => creep.memory.role == 'upgrader');
   var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
   var defenders = _.filter(Game.creeps, (creep) => creep.memory.role == 'defender');
-  var depositors = _.filter(Game.creeps, (creep) => creep.memory.role == 'depositor');
-  var staticHarvester = _.filter(Game.creeps, (creep) => creep.memory.role ==
+  //var depositors = _.filter(Game.creeps, (creep) => creep.memory.role == 'depositor');
+  var staticHarvesters = _.filter(Game.creeps, (creep) => creep.memory.role ==
     'staticHarvester');
   var carriers = _.filter(Game.creeps, (creep) => creep.memory.role == 'carrier');
   console.log(
-    'H:' + harvesters.length + '/' + creepsDefinitions.HARVESTER.desiredAmount + ' | ' +
+    'SH:' + staticHarvesters.length + '/' + creepsDefinitions.STATIC_HARVESTER.desiredAmount + ' | ' +
     'U:' + upgraders.length + '/' + creepsDefinitions.UPGRADER.desiredAmount + ' | ' +
+    'C:' + carriers.length + '/' + creepsDefinitions.CARRIER.desiredAmount + ' | ' +
     'D:' + defenders.length + '/' + creepsDefinitions.DEFENDER.desiredAmount + ' | ' +
-    'R:' + repairers.length + '/' + creepsDefinitions.REPAIRER.desiredAmount + ' | ' +
     'B:' + builders.length + '/' + creepsDefinitions.BUILDER.desiredAmount + ' | ' +
-    'Dep:' + depositors.length + '/' + creepsDefinitions.DEPOSITOR.desiredAmount + ' | ' +
+    //'Dep:' + depositors.length + '/' + creepsDefinitions.DEPOSITOR.desiredAmount + ' | ' +
     'Energy: ' + Game.rooms['E18N6'].energyAvailable + '/' + Game.rooms['E18N6'].energyCapacityAvailable +
     ' | ' +
     'Containers: ' + resources + '/' + ((containers.length - 1) * 2000 + 1000000)
@@ -102,14 +102,14 @@ function manageCreepSpawn(creepsDefinitions) {
     spawnWorker(creepsDefinitions.HARVESTER);
   } else if (carriers.length < creepsDefinitions.CARRIER.desiredAmount) {
     spawnWorker(creepsDefinitions.CARRIER);
-  } else if (staticHarvester.length < creepsDefinitions.STATIC_HARVESTER.desiredAmount) {
+  } else if (staticHarvesters.length < creepsDefinitions.STATIC_HARVESTER.desiredAmount) {
     spawnWorker(creepsDefinitions.STATIC_HARVESTER);
   } else if (upgraders.length < creepsDefinitions.UPGRADER.desiredAmount) {
     spawnWorker(creepsDefinitions.UPGRADER);
   } else if (defenders.length < creepsDefinitions.DEFENDER.desiredAmount) {
     spawnWorker(creepsDefinitions.DEFENDER);
-  } else if (depositors.length < creepsDefinitions.DEPOSITOR.desiredAmount) {
-    spawnWorker(creepsDefinitions.DEPOSITOR);
+//} else if (depositors.length < creepsDefinitions.DEPOSITOR.desiredAmount) {
+  //  spawnWorker(creepsDefinitions.DEPOSITOR);
   } else if (repairers.length < creepsDefinitions.REPAIRER.desiredAmount) {
     spawnWorker(creepsDefinitions.REPAIRER);
   } else if (builders.length < creepsDefinitions.BUILDER.desiredAmount) {
