@@ -26,13 +26,13 @@ var roleBuilder = {
         var structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
             return (((structure.structureType != STRUCTURE_WALL && structure.structureType != STRUCTURE_RAMPART) && structure.hits <
-              (structure.hitsMax)) && creep.room == structure.room);
+              (structure.hitsMax * 0.9)) && creep.room == structure.room);
           }
         });
-        if (structuresToRepair.length == 0) {
+        if (!structuresToRepair) {
           structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
-              return (((structure.structureType === STRUCTURE_WALL && structure.hits < 12000 || structure.structureType === STRUCTURE_RAMPART && structure.hits < 45000)) && creep.room == structure.room);
+              return (((structure.structureType === STRUCTURE_WALL && structure.hits < 20000) || (structure.structureType === STRUCTURE_RAMPART && structure.hits < 50000)) && creep.room == structure.room);
             }
           });
         }

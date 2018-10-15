@@ -5,33 +5,48 @@ module.exports = {
     if (Game.time % 5 == 0) {
       crearDeadCreepMemory();
       manageCreepSpawn(creepsDefinitions);
-      /*
-      if (Game.time % 600 == 0 && (Game.rooms['E18N6'].controller.level == 4)) {
+
+      if (Game.time % 900 == 0 && (Game.rooms['E18N6'].controller.level == 5)) {
         var numberOfExtensions = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
           filter: (structure) => {
             return (structure.structureType == STRUCTURE_EXTENSION);
           }
         });
-        console.log(numberOfExtensions.length);
-        if (numberOfExtensions.length == 10){
-          Game.rooms['E18N6'].createConstructionSite(24,31, STRUCTURE_EXTENSION);
+        //  console.log(numberOfExtensions.length);
+        if (numberOfExtensions.length == 20) {
+          Game.rooms['E18N6'].createConstructionSite(23, 34, STRUCTURE_EXTENSION);
         }
-        if (numberOfExtensions.length == 11){
-           Game.rooms['E18N6'].createConstructionSite(22,31, STRUCTURE_EXTENSION);
+        if (numberOfExtensions.length == 21) {
+          Game.rooms['E18N6'].createConstructionSite(24, 35, STRUCTURE_EXTENSION);
         }
-        if (numberOfExtensions.length == 12){
-          Game.rooms['E18N6'].createConstructionSite(23,30, STRUCTURE_EXTENSION);
+        if (numberOfExtensions.length == 22) {
+          Game.rooms['E18N6'].createConstructionSite(19, 30, STRUCTURE_EXTENSION);
         }
-        if (numberOfExtensions.length == 13){
-          Game.rooms['E18N6'].createConstructionSite(21,30, STRUCTURE_EXTENSION);
+        if (numberOfExtensions.length == 23) {
+          Game.rooms['E18N6'].createConstructionSite(24, 29, STRUCTURE_EXTENSION);
         }
-        if (numberOfExtensions.length == 14){
-          Game.rooms['E18N6'].createConstructionSite(16,32, STRUCTURE_EXTENSION);
+        if (numberOfExtensions.length == 24) {
+          Game.rooms['E18N6'].createConstructionSite(28, 31, STRUCTURE_EXTENSION);
         }
-        if (numberOfExtensions.length == 15){
-          Game.rooms['E18N6'].createConstructionSite(19,32, STRUCTURE_STORAGE);
+        if (numberOfExtensions.length == 25) {
+          Game.rooms['E18N6'].createConstructionSite(25, 28, STRUCTURE_EXTENSION);
         }
-      }*/
+        if (numberOfExtensions.length == 26) {
+          Game.rooms['E18N6'].createConstructionSite(24, 29, STRUCTURE_EXTENSION);
+        }
+        if (numberOfExtensions.length == 27) {
+          Game.rooms['E18N6'].createConstructionSite(18, 31, STRUCTURE_EXTENSION);
+        }
+        if (numberOfExtensions.length == 28) {
+          Game.rooms['E18N6'].createConstructionSite(20, 29, STRUCTURE_EXTENSION);
+        }
+        if (numberOfExtensions.length == 29) {
+          Game.rooms['E18N6'].createConstructionSite(19, 28, STRUCTURE_EXTENSION);
+        }
+        //if (numberOfExtensions.length == 25){
+        //  Game.rooms['E18N6'].createConstructionSite(19,32, STRUCTURE_STORAGE);
+        //}
+      }
     }
   }
 };
@@ -108,8 +123,8 @@ function manageCreepSpawn(creepsDefinitions) {
     spawnWorker(creepsDefinitions.UPGRADER);
   } else if (defenders.length < creepsDefinitions.DEFENDER.desiredAmount) {
     spawnWorker(creepsDefinitions.DEFENDER);
-//} else if (depositors.length < creepsDefinitions.DEPOSITOR.desiredAmount) {
-  //  spawnWorker(creepsDefinitions.DEPOSITOR);
+    //} else if (depositors.length < creepsDefinitions.DEPOSITOR.desiredAmount) {
+    //  spawnWorker(creepsDefinitions.DEPOSITOR);
   } else if (repairers.length < creepsDefinitions.REPAIRER.desiredAmount) {
     spawnWorker(creepsDefinitions.REPAIRER);
   } else if (builders.length < creepsDefinitions.BUILDER.desiredAmount) {
