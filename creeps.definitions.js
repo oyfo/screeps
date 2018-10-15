@@ -40,7 +40,7 @@ var definitions = {
     role: 'depositor'
   },
   UPGRADER: {
-    desiredAmount: 4,
+    desiredAmount: 5,
     composition: [WORK, WORK, WORK, WORK,
       CARRY, CARRY, CARRY, CARRY,
       MOVE, MOVE, MOVE, MOVE
