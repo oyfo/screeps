@@ -6,47 +6,47 @@ module.exports = {
       crearDeadCreepMemory();
       manageCreepSpawn(creepsDefinitions);
 
-      if (Game.time % 900 == 0 && (Game.rooms['E18N6'].controller.level == 5)) {
-        var numberOfExtensions = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
+      /*if (Game.time % 5 == 0 && (Game.rooms.E18N6.controller.level == 5)) {
+        var numberOfExtensions = Game.rooms.E18N6.find(FIND_STRUCTURES, {
           filter: (structure) => {
             return (structure.structureType == STRUCTURE_EXTENSION);
           }
         });
-        //  console.log(numberOfExtensions.length);
-        if (numberOfExtensions.length == 20) {
-          Game.rooms['E18N6'].createConstructionSite(23, 34, STRUCTURE_EXTENSION);
+         console.log(numberOfExtensions.length);
+         (numberOfExtensions.length == 20) {
+          Game.rooms.E18N6.createConstructionSite(23, 34, STRUCTURE_EXTENSION);
         }
         if (numberOfExtensions.length == 21) {
-          Game.rooms['E18N6'].createConstructionSite(24, 35, STRUCTURE_EXTENSION);
+          Game.rooms.E18N6.createConstructionSite(24, 35, STRUCTURE_EXTENSION);
         }
         if (numberOfExtensions.length == 22) {
-          Game.rooms['E18N6'].createConstructionSite(19, 30, STRUCTURE_EXTENSION);
+          Game.rooms.E18N6.createConstructionSite(19, 30, STRUCTURE_EXTENSION);
         }
         if (numberOfExtensions.length == 23) {
-          Game.rooms['E18N6'].createConstructionSite(24, 29, STRUCTURE_EXTENSION);
+          Game.rooms.E18N6.createConstructionSite(24, 29, STRUCTURE_EXTENSION);
         }
         if (numberOfExtensions.length == 24) {
-          Game.rooms['E18N6'].createConstructionSite(28, 31, STRUCTURE_EXTENSION);
+          Game.rooms.E18N6.createConstructionSite(28, 31, STRUCTURE_EXTENSION);
         }
         if (numberOfExtensions.length == 25) {
-          Game.rooms['E18N6'].createConstructionSite(25, 28, STRUCTURE_EXTENSION);
+          Game.rooms.E18N6.createConstructionSite(25, 28, STRUCTURE_EXTENSION);
         }
         if (numberOfExtensions.length == 26) {
-          Game.rooms['E18N6'].createConstructionSite(24, 29, STRUCTURE_EXTENSION);
+          Game.rooms.E18N6.createConstructionSite(24, 29, STRUCTURE_EXTENSION);
         }
         if (numberOfExtensions.length == 27) {
-          Game.rooms['E18N6'].createConstructionSite(18, 31, STRUCTURE_EXTENSION);
+          Game.rooms.E18N6.createConstructionSite(18, 31, STRUCTURE_EXTENSION);
         }
         if (numberOfExtensions.length == 28) {
-          Game.rooms['E18N6'].createConstructionSite(20, 29, STRUCTURE_EXTENSION);
+          Game.rooms.E18N6.createConstructionSite(20, 29, STRUCTURE_EXTENSION);
         }
         if (numberOfExtensions.length == 29) {
-          Game.rooms['E18N6'].createConstructionSite(19, 28, STRUCTURE_EXTENSION);
+          Game.rooms.E18N6.createConstructionSite(19, 28, STRUCTURE_EXTENSION);
         }
         //if (numberOfExtensions.length == 25){
-        //  Game.rooms['E18N6'].createConstructionSite(19,32, STRUCTURE_STORAGE);
+        //  Game.rooms.E18N6.createConstructionSite(19,32, STRUCTURE_STORAGE);
         //}
-      }
+      }*/
     }
   }
 };
@@ -83,7 +83,7 @@ function crearDeadCreepMemory() {
 }
 
 function manageCreepSpawn(creepsDefinitions) {
-  var containers = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
+  var containers = Game.rooms.E18N6.find(FIND_STRUCTURES, {
     filter: (structure) => {
       return (structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_STORAGE);
     }
@@ -108,7 +108,7 @@ function manageCreepSpawn(creepsDefinitions) {
     'D:' + defenders.length + '/' + creepsDefinitions.DEFENDER.desiredAmount + ' | ' +
     'B:' + builders.length + '/' + creepsDefinitions.BUILDER.desiredAmount + ' | ' +
     //'Dep:' + depositors.length + '/' + creepsDefinitions.DEPOSITOR.desiredAmount + ' | ' +
-    'Energy: ' + Game.rooms['E18N6'].energyAvailable + '/' + Game.rooms['E18N6'].energyCapacityAvailable +
+    'Energy: ' + Game.rooms.E18N6.energyAvailable + '/' + Game.rooms.E18N6.energyCapacityAvailable +
     ' | ' +
     'Containers: ' + resources + '/' + ((containers.length - 1) * 2000 + 1000000)
   );

@@ -1,7 +1,7 @@
 module.exports = {
   behave: function() {
-    var hostiles = Game.rooms['E18N6'].find(FIND_HOSTILE_CREEPS);
-    var towers = Game.rooms['E18N6'].find(FIND_MY_STRUCTURES, {
+    var hostiles = Game.rooms.E18N6.find(FIND_HOSTILE_CREEPS);
+    var towers = Game.rooms.E18N6.find(FIND_MY_STRUCTURES, {
       filter: {
         structureType: STRUCTURE_TOWER
       }
@@ -26,7 +26,7 @@ module.exports = {
         if (structuresToRepair.length == 0) {
           structuresToRepair = tower.room.find(FIND_STRUCTURES, {
             filter: (structure) => {
-              return ((structure.structureType === STRUCTURE_WALL && structure.hits < 14000 || structure.structureType === STRUCTURE_RAMPART && structure.hits < 40000));
+              return ((structure.structureType === STRUCTURE_WALL && structure.hits < 10000 || structure.structureType === STRUCTURE_RAMPART && structure.hits < 40000));
             }
           });
         }

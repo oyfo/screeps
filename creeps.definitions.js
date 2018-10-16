@@ -16,10 +16,10 @@ var definitions = {
     role: 'staticHarvester'
   },
   BUILDER: {
-    desiredAmount: 1,
+    desiredAmount: 2,
     composition: [WORK, WORK, WORK,
-      CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-      MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+      CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+      MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
     ],
     role: 'builder'
   },

@@ -28,14 +28,18 @@ Game.rooms['E18N6'].find(FIND_SOURCES)
 
 TO DO:
 -CREEP SPRAWN PRIORITIZATION  DONE
--source priority for harvesters
--creep unstuck - choose SOURCE
+-source priority for harvesters - ok'ish
+-creep unstuck - choose SOURCE - NOPE
 -creep gather when attack
--towers:
+-towers: DONE
   -defend
   -repair
 -defenders
 -auto scale bodies
+-span creeps when STRUCTURE_STORAGE almost FULL
+-HARVERST other room
+-use MEMORY!
+-calculate LINK efficiency
 
 
 

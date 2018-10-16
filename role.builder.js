@@ -26,19 +26,20 @@ var roleBuilder = {
         var structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
             return (((structure.structureType != STRUCTURE_WALL && structure.structureType != STRUCTURE_RAMPART) && structure.hits <
-              (structure.hitsMax * 0.9)) && creep.room == structure.room);
+              (structure.hitsMax * 0.85)) && creep.room == structure.room);
           }
         });
         if (!structuresToRepair) {
           structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
-              return (((structure.structureType === STRUCTURE_WALL && structure.hits < 20000) || (structure.structureType === STRUCTURE_RAMPART && structure.hits < 50000)) && creep.room == structure.room);
+              return (((structure.structureType === STRUCTURE_WALL && structure.hits <30000) || (structure.structureType === STRUCTURE_RAMPART && structure.hits < 50000)) && creep.room == structure.room);
             }
           });
         }
         if (structuresToRepair) {
           if (creep.repair(structuresToRepair) == ERR_NOT_IN_RANGE) {
             creep.moveTo(structuresToRepair);
+
           }
         }
         //  creep.moveTo(27, 27);
