@@ -15,8 +15,9 @@ Game.spawns['Spawn1'].spawnCreep( [WORK,MOVE],
 
 Game.creeps['Harvester5'].suicide()
 
-
-
+Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK,MOVE], 'staticHarvester1', {memory: {role: 'staticHarvester',orderNumber: 1,birthRoom: 'E18N6'}});
+Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK,MOVE], 'staticHarvester2', {memory: {role: 'staticHarvester',orderNumber: 2,birthRoom: 'E18N6'}});
+Game.spawns['Spawn1'].spawnCreep([WORK,CARRY, CARRY, CARRY,MOVE, MOVE, MOVE, MOVE, MOVE], 'carrier2', {memory: {role: 'carrier',orderNumber: 2,birthRoom: 'E18N6'}});
 Game.spawns['Spawn1'].spawnCreep( [WORK,WORK,CARRY,MOVE],
     'BUILDER',
     { memory: { role: 'builder' } } );
@@ -51,4 +52,4 @@ TO DO:
 }*/
 Game.rooms['E18N6'].energyCapacityAvailable
 
-Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE, MOVE, MOVE], 'Harv2', { memory: { role: 'harvester' }} );
+Game.spawns['Spawn1'].spawnCreep( [ATTACK, ATTACK, ATTACK, MOVE, MOVE, CLAIM], 'attacker1', { memory: { role: 'attacker' }} );
