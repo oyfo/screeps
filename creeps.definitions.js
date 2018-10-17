@@ -15,8 +15,16 @@ var definitions = {
     ],
     role: 'staticHarvester'
   },
+  STATIC_HARVESTER_REMOTE: {
+    desiredAmount: 1,
+    composition: [WORK, WORK, WORK, WORK, WORK,
+      MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+      CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY //to be able to repair container
+    ],
+    role: 'staticHarvesterRemote'
+  },
   BUILDER: {
-    desiredAmount: 2,
+    desiredAmount: 1,
     composition: [WORK, WORK, WORK,
       CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
       MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
@@ -24,10 +32,10 @@ var definitions = {
     role: 'builder'
   },
   HARVESTER: {
-    desiredAmount: 0,
+    desiredAmount: 2,
     composition: [WORK, WORK, WORK, WORK, WORK,
-      CARRY, CARRY, CARRY, CARRY,
-      MOVE, MOVE
+      MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+      CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, //to be able to repair container
     ],
     role: 'harvester'
   },
@@ -40,7 +48,7 @@ var definitions = {
     role: 'depositor'
   },
   UPGRADER: {
-    desiredAmount: 4,
+    desiredAmount: 5,
     composition: [WORK, WORK, WORK, WORK,
       CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
       MOVE, MOVE, MOVE, MOVE, MOVE

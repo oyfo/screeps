@@ -13,6 +13,10 @@ var roleBuilder = {
     }
     //creep.moveTo(21,26);
     if (!creep.memory.gathering) {
+      // if (creep.room != Game.rooms.E18N7 && creep.name == 'builder1'){
+      //   console.log('wrong room for : '+creep.name);
+      //   creep.moveTo(Game.flags.Flag1.pos);
+      // } else {}
       var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
       if (targets.length) {
         if (creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
@@ -32,7 +36,7 @@ var roleBuilder = {
         if (!structuresToRepair) {
           structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
-              return (((structure.structureType === STRUCTURE_WALL && structure.hits <30000) || (structure.structureType === STRUCTURE_RAMPART && structure.hits < 50000)) && creep.room == structure.room);
+              return (((structure.structureType === STRUCTURE_WALL && structure.hits <40000) || (structure.structureType === STRUCTURE_RAMPART && structure.hits < 55000)) && creep.room == structure.room);
             }
           });
         }

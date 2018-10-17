@@ -98,8 +98,10 @@ function manageCreepSpawn(creepsDefinitions) {
   var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == 'repairer');
   var defenders = _.filter(Game.creeps, (creep) => creep.memory.role == 'defender');
   //var depositors = _.filter(Game.creeps, (creep) => creep.memory.role == 'depositor');
-  var staticHarvesters = _.filter(Game.creeps, (creep) => creep.memory.role ==
-    'staticHarvester');
+  var staticHarvestersRemote = _.filter(Game.creeps, (creep) => creep.memory.role ==
+    'staticHarvesterRemote');
+    var staticHarvesters = _.filter(Game.creeps, (creep) => creep.memory.role ==
+      'staticHarvester');
   var carriers = _.filter(Game.creeps, (creep) => creep.memory.role == 'carrier');
   console.log(
     'SH:' + staticHarvesters.length + '/' + creepsDefinitions.STATIC_HARVESTER.desiredAmount + ' | ' +
@@ -115,6 +117,8 @@ function manageCreepSpawn(creepsDefinitions) {
 
   if (harvesters.length < creepsDefinitions.HARVESTER.desiredAmount) {
     spawnWorker(creepsDefinitions.HARVESTER);
+  } else if (staticHarvestersRemote.length < creepsDefinitions.STATIC_HARVESTER_REMOTE.desiredAmount) {
+    spawnWorker(creepsDefinitions.STATIC_HARVESTER_REMOTE);
   } else if (carriers.length < creepsDefinitions.CARRIER.desiredAmount) {
     spawnWorker(creepsDefinitions.CARRIER);
   } else if (staticHarvesters.length < creepsDefinitions.STATIC_HARVESTER.desiredAmount) {

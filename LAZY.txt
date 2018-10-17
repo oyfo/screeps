@@ -50,3 +50,5 @@ TO DO:
   }
 }*/
 Game.rooms['E18N6'].energyCapacityAvailable
+
+Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE, MOVE, MOVE], 'Harv2', { memory: { role: 'harvester' }} );

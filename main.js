@@ -6,12 +6,15 @@ var roleDepositor = require('role.depositor');
 var workers = require('mod.workers');
 var towers = require('tower');
 var roleStaticHarvester = require('role.staticHarvester');
+var roleStaticHarvesterRemote = require('role.staticHarvesterRemote');
 var roleCarrier = require('role.carrier');
+var roleAttacker = require('role.attacker');
+
 
 module.exports.loop = function() {
   workers.keepAlive();
   towers.behave();
-  
+
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];
     if (creep.memory.role == 'harvester') {
@@ -34,6 +37,12 @@ module.exports.loop = function() {
     }
     if (creep.memory.role == 'carrier') {
       roleCarrier.run(creep);
+    }
+    if (creep.memory.role == 'staticHarvesterRemote') {
+      roleStaticHarvesterRemote.run(creep);
+    }
+    if (creep.memory.role == 'attacker') {
+      roleAttacker.run(creep);
     }
   }
   //STRUCTURE_CONTROLLER
