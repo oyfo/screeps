@@ -13,7 +13,7 @@ var roleAttacker = require('role.attacker');
 
 module.exports.loop = function() {
   workers.keepAlive();
-  towers.behave();
+  //towers.behave();
 
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];
@@ -52,7 +52,7 @@ module.exports.loop = function() {
   //     console.log(Game.spawns[spawn].name);
   //   };
   // }
-  
+
   //STRUCTURE_CONTROLLER
   /*  var containers = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
       filter: (structure) => {

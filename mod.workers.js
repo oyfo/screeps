@@ -1,11 +1,10 @@
 var creepsDefinitions = require('creeps.definitions');
-
 module.exports = {
   keepAlive: function() {
     if (Game.time % 5 == 0) {
       crearDeadCreepMemory();
-      manageCreepSpawn(creepsDefinitions,'E18N6');
-      manageCreepSpawn(creepsDefinitions,'E18N7');
+      manageCreepSpawn(creepsDefinitions,'W7N3');
+      //manageCreepSpawn(creepsDefinitions,'E18N7');
       //console.log('order number: ' +findOrderNumber(creepsDefinitions.HARVESTER, 'E18N6'));
 
       /*if (Game.time % 5 == 0 && (Game.rooms.E18N6.controller.level == 5)) {

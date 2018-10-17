@@ -8,8 +8,8 @@ var definitions = {
         MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
-    E18N7: {
-      desiredAmount: 2,
+    W7N3: {
+      desiredAmount: 0,
       composition: [WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE,
@@ -24,8 +24,8 @@ var definitions = {
         MOVE
       ]
     },
-    E18N7: {
-      desiredAmount: 2,
+    W7N3: {
+      desiredAmount: 0,
       composition: [WORK, WORK, WORK, WORK, WORK,
         MOVE
       ]
@@ -40,7 +40,7 @@ var definitions = {
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY //to be able to repair container
       ]
     },
-    E18N7: {
+    W7N3: {
       desiredAmount: 0,
       composition: [WORK, WORK, WORK, WORK, WORK,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
@@ -57,8 +57,8 @@ var definitions = {
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
-    E18N7: {
-      desiredAmount: 2,
+    W7N3: {
+      desiredAmount: 0,
       composition: [WORK, WORK,
         CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
@@ -74,7 +74,7 @@ var definitions = {
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, //to be able to repair container
       ]
     },
-    E18N7: {
+    W7N3: {
       desiredAmount: 0,
       composition: [WORK, WORK, WORK, WORK, WORK,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
@@ -91,7 +91,7 @@ var definitions = {
         MOVE, MOVE
       ]
     },
-    E18N7: {
+    W7N3: {
       desiredAmount: 0,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY,
@@ -108,8 +108,8 @@ var definitions = {
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
-    E18N7: {
-      desiredAmount: 7,
+    W7N3: {
+      desiredAmount: 0,
       composition: [WORK, WORK, WORK,
         CARRY, CARRY, CARRY,
         MOVE, MOVE,
@@ -125,7 +125,7 @@ var definitions = {
         MOVE, MOVE
       ]
     },
-    E18N7: {
+    W7N3: {
       desiredAmount: 0,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY,
@@ -142,7 +142,7 @@ var definitions = {
         MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
-    E18N7: {
+    W7N3: {
       desiredAmount: 0,
       composition: [RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK,
         TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
