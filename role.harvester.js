@@ -12,27 +12,47 @@ var roleHarvester = {
       //  creep.say('🚧 deposit');
     }
     if (creep.room !== Game.rooms.E18N7) {
-      console.log(creep.name +" going to other room");
-      creep.moveTo(Game.flags.Flag1.pos);
+      console.log(creep.name + " going to other room");
+      creep.moveTo(Game.flags.Flag2.pos);
     } else {
-    //  console.log('in the room');
+      //  console.log('in the room');
       if (creep.memory.harvesting) {
-      //  console.log('harvesting');
-        var sources = creep.room.find(FIND_SOURCES);//,{
-        //  filter: (source) => {
-        //    return (source.room == creep.room);
-        //  }
-      //  });
-        //5bbcadfc9099fc012e6383fe
-        //(sources[creep.memory.orderNumber % 2]
-        if (creep.harvest(sources[creep.memory.orderNumber % 2]) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(sources[creep.memory.orderNumber % 2], {
-            visualizePathStyle: {
-              stroke: '#ffaa00'
-            }
-          });
+        //  console.log('harvesting');
+        var droppedEnergy = null;
+        /*var droppedEnergy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES, {
+          filter: (drop) => {
+            return (drop.amount > 50 && drop.resourceType == RESOURCE_ENERGY);
+          }
+        });*/
+        if (droppedEnergy) {
+          if (creep.pickup(droppedEnergy) == ERR_NOT_IN_RANGE) {
+
+            creep.moveTo(droppedEnergy, {
+              visualizePathStyle: {
+                stroke: '#ffaa00'
+              }
+            });
+            //  creep.moveTo(sources[creep.memory.orderNumber - 1], { visualizePathStyle: { stroke: '#ffaa00' } });
+          }
+        } else {
+          //.log('else');
+          var sources = creep.room.find(FIND_SOURCES); //,{
+          //  filter: (source) => {
+          //    return (source.room == creep.room);
+          //  }
+          //  });
+          //5bbcadfc9099fc012e6383fe
+          //(sources[creep.memory.orderNumber % 2]
+          if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
+            creep.moveTo(sources[0], {
+              visualizePathStyle: {
+                stroke: '#ffaa00'
+              }
+            });
+          }
         }
       } else {
+        //console.log('not harvestinf')
         var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
         if (targets.length) {
           if (creep.build(targets[0]) == ERR_NOT_IN_RANGE) {

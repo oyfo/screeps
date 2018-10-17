@@ -45,6 +45,14 @@ module.exports.loop = function() {
       roleAttacker.run(creep);
     }
   }
+  // var room = 'E18N6'
+  // for (var spawn in Game.spawns){
+  //   if(Game.spawns[spawn].room.name ==room) {
+  //     console.log(Game.spawns[spawn].room.name);
+  //     console.log(Game.spawns[spawn].name);
+  //   };
+  // }
+  
   //STRUCTURE_CONTROLLER
   /*  var containers = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
       filter: (structure) => {

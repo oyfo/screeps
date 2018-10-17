@@ -2,7 +2,7 @@ var roleUpgrader = {
 
   /** @param {Creep} creep **/
   run: function(creep) {
-    //  creep.say('U');// + creep.memory.orderNumber);
+    creep.say('U'); // + creep.memory.orderNumber);
     if (!creep.memory.gathering && creep.carry.energy == 0) {
       creep.memory.gathering = true;
       //  creep.say('🔄 harvest');
@@ -54,10 +54,10 @@ var roleUpgrader = {
       }
     }
     if (!creep.memory.gathering) {
-      if (creep.name == 'upgrader1' && creep.room !== Game.rooms.E18N7) {
+      if (creep.name == 'E18N6upgrader2' && creep.room != Game.rooms.E18N7) {
         creep.say('Ur');
         console.log(creep.name + "going to other room");
-        creep.moveTo(Game.flags.Flag1.pos);
+        creep.moveTo(Game.flags.Flag2.pos);
       } else {
         if (creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
           creep.moveTo(creep.room.controller, {
