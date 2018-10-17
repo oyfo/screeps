@@ -5,6 +5,7 @@ module.exports = {
     if (Game.time % 5 == 0) {
       crearDeadCreepMemory();
       manageCreepSpawn(creepsDefinitions,'E18N6');
+      manageCreepSpawn(creepsDefinitions,'E18N7');
       //console.log('order number: ' +findOrderNumber(creepsDefinitions.HARVESTER, 'E18N6'));
 
       /*if (Game.time % 5 == 0 && (Game.rooms.E18N6.controller.level == 5)) {
@@ -64,8 +65,7 @@ function findOrderNumber(workerType,room) {
   }
 }
 
-function spawnWorker(workerType) {
-  var room = 'E18N6';
+function spawnWorker(workerType, room) {
   var spawnsInRoom = null;
   for (var spawn in Game.spawns){
     if(Game.spawns[spawn].room.name ==room) {
@@ -76,6 +76,7 @@ function spawnWorker(workerType) {
   var newName = room + workerType.role + orderNumber;
   console.log('Spawning new ' + newName);
   var composition = workerType[room].composition;
+  console.log(spawnsInRoom);
   Game.spawns[spawnsInRoom].spawnCreep(composition, newName, {
     memory: {
       role: workerType.role,
@@ -95,7 +96,7 @@ function crearDeadCreepMemory() {
 }
 
 function manageCreepSpawn(creepsDefinitions, room) {
-  room = 'E18N6';
+  //room = 'E18N6';
   var containers = Game.rooms[room].find(FIND_STRUCTURES, {
     filter: (structure) => {
       return (structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_STORAGE);
@@ -115,7 +116,7 @@ function manageCreepSpawn(creepsDefinitions, room) {
     'staticHarvesterRemote' && creep.memory.birthRoom == room);
     var staticHarvesters = _.filter(Game.creeps, (creep) => creep.memory.role ==
       'staticHarvester' && creep.memory.birthRoom == room);
-  var carriers = _.filter(Game.creeps, (creep) => creep.memory.role == 'carrier');
+  var carriers = _.filter(Game.creeps, (creep) => creep.memory.role == 'carrier' && creep.memory.birthRoom == room);
 
   console.log("room: " + room +
     ' SH:' + staticHarvesters.length + '/' + creepsDefinitions.STATIC_HARVESTER[room].desiredAmount + ' | ' +
@@ -130,22 +131,22 @@ function manageCreepSpawn(creepsDefinitions, room) {
   );
 
   if (harvesters.length < creepsDefinitions.HARVESTER[room].desiredAmount) {
-    spawnWorker(creepsDefinitions.HARVESTER);
+    spawnWorker(creepsDefinitions.HARVESTER,room);
   } else if (staticHarvestersRemote.length < creepsDefinitions.STATIC_HARVESTER_REMOTE[room].desiredAmount) {
-    spawnWorker(creepsDefinitions.STATIC_HARVESTER_REMOTE);
+    spawnWorker(creepsDefinitions.STATIC_HARVESTER_REMOTE,room);
   } else if (carriers.length < creepsDefinitions.CARRIER[room].desiredAmount) {
-    spawnWorker(creepsDefinitions.CARRIER);
+    spawnWorker(creepsDefinitions.CARRIER,room);
   } else if (staticHarvesters.length < creepsDefinitions.STATIC_HARVESTER[room].desiredAmount) {
-    spawnWorker(creepsDefinitions.STATIC_HARVESTER);
+    spawnWorker(creepsDefinitions.STATIC_HARVESTER,room);
   } else if (upgraders.length < creepsDefinitions.UPGRADER[room].desiredAmount) {
-    spawnWorker(creepsDefinitions.UPGRADER);
+    spawnWorker(creepsDefinitions.UPGRADER,room);
   } else if (defenders.length < creepsDefinitions.DEFENDER[room].desiredAmount) {
-    spawnWorker(creepsDefinitions.DEFENDER);
+    spawnWorker(creepsDefinitions.DEFENDER,room);
     //} else if (depositors.length < creepsDefinitions.DEPOSITOR.desiredAmount) {
     //  spawnWorker(creepsDefinitions.DEPOSITOR);
   } else if (repairers.length < creepsDefinitions.REPAIRER[room].desiredAmount) {
-    spawnWorker(creepsDefinitions.REPAIRER);
+    spawnWorker(creepsDefinitions.REPAIRER,room);
   } else if (builders.length < creepsDefinitions.BUILDER[room].desiredAmount) {
-    spawnWorker(creepsDefinitions.BUILDER);
+    spawnWorker(creepsDefinitions.BUILDER,room);
   }
 }

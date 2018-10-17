@@ -43,8 +43,8 @@ var roleHarvester = {
           //  });
           //5bbcadfc9099fc012e6383fe
           //(sources[creep.memory.orderNumber % 2]
-          if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
-            creep.moveTo(sources[0], {
+          if (creep.harvest(sources[creep.memory.orderNumber % 2]) == ERR_NOT_IN_RANGE) {
+            creep.moveTo(sources[creep.memory.orderNumber % 2], {
               visualizePathStyle: {
                 stroke: '#ffaa00'
               }

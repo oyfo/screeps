@@ -79,6 +79,12 @@ var roleCarrier = {
             return (structure.structureType == STRUCTURE_STORAGE && structure.store[RESOURCE_ENERGY] < structure.storeCapacity);
           }
         });
+      } if (!dropPoint) {
+        dropPoint = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+          filter: (structure) => {
+            return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] < (structure.storeCapacity* 0.75));
+          }
+        });
       }
       if (dropPoint) {
         if (creep.transfer(dropPoint, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {

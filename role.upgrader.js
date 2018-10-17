@@ -20,8 +20,8 @@ var roleUpgrader = {
         }
       });
       if (containers.length > 0) {
-        if (creep.withdraw(containers[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(containers[0], {
+        if (creep.withdraw(containers[creep.memory.orderNumber %2], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+          creep.moveTo(containers[creep.memory.orderNumber%2], {
             visualizePathStyle: {
               stroke: '#ffffff'
             }
@@ -54,11 +54,11 @@ var roleUpgrader = {
       }
     }
     if (!creep.memory.gathering) {
-      if (creep.name == 'E18N6upgrader2' && creep.room != Game.rooms.E18N7) {
+      /*if (creep.name == 'E18N6upgrader2' && creep.room != Game.rooms.E18N7) {
         creep.say('Ur');
         console.log(creep.name + "going to other room");
         creep.moveTo(Game.flags.Flag2.pos);
-      } else {
+      } else */{
         if (creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
           creep.moveTo(creep.room.controller, {
             visualizePathStyle: {
