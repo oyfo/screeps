@@ -28,12 +28,14 @@ var roleUpgrader = {
           });
         }
       } else {
+        //var sources = creep.room.find(FIND_SOURCES); //
         var sources = creep.pos.findClosestByPath(FIND_SOURCES, {
           filter: (source) => {
             return (source.room == creep.room);
           }
         });
         if (sources) {
+          //creep.memory.orderNumber % 2]
           if (creep.harvest(sources) == ERR_NOT_IN_RANGE) {
             creep.moveTo(sources, {
               visualizePathStyle: {

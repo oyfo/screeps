@@ -67,6 +67,22 @@ function propritizedSources(creep) {
       return ((structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] >= creep.carryCapacity) || (structure.structureType == STRUCTURE_STORAGE && structure.store[RESOURCE_ENERGY] >= creep.carryCapacity));
     }
   });
+  if (!sources) {
+    sources = creep.room.find(FIND_SOURCES); //,{
+    //  filter: (source) => {
+    //    return (source.room == creep.room);
+    //  }
+    //  });
+    //5bbcadfc9099fc012e6383fe
+    //(sources[creep.memory.orderNumber % 2]
+    if (creep.harvest(sources[0]) == ERR_NOT_IN_RANGE) {
+      creep.moveTo(sources[0], {
+        visualizePathStyle: {
+          stroke: '#ffaa00'
+        }
+      });
+    }
+  }
   return sources;
 }
 module.exports = roleBuilder;
