@@ -11,10 +11,11 @@ var roleHarvester = {
       creep.memory.harvesting = false;
       //  creep.say('🚧 deposit');
     }
-    if (creep.room !== Game.rooms.E18N7) {
-      console.log(creep.name + " going to other room");
-      creep.moveTo(Game.flags.Flag2.pos);
-    } else {
+  //  if (creep.room !== Game.rooms.E18N7) {
+  //    console.log(creep.name + " going to other room");
+  //    creep.moveTo(Game.flags.Flag2.pos);
+  //  } else
+    {
       //  console.log('in the room');
       if (creep.memory.harvesting) {
         //  console.log('harvesting');
@@ -53,8 +54,9 @@ var roleHarvester = {
         }
       } else {
         //console.log('not harvestinf')
-        var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-        if (targets.length) {
+        //var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
+        var targets = null;
+        if (targets) {
           if (creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
             creep.moveTo(targets[0], {
               visualizePathStyle: {

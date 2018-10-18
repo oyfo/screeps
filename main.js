@@ -1,19 +1,24 @@
+var workers = require('mod.workers');
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
 var roleRepairer = require('role.repairer');
 var roleDepositor = require('role.depositor');
-var workers = require('mod.workers');
-var towers = require('tower');
 var roleStaticHarvester = require('role.staticHarvester');
 var roleStaticHarvesterRemote = require('role.staticHarvesterRemote');
 var roleCarrier = require('role.carrier');
 var roleAttacker = require('role.attacker');
+var roleSlaveReceiver = require('role.slaveReceiver');
+var towers = require('tower');
+var links = require('link');
+
 
 
 module.exports.loop = function() {
   workers.keepAlive();
-  towers.behave();
+  towers.behave('E18N6', 15000, 40000);
+  towers.behave('E18N7', 1000, 5000);
+  links.linkIt('E18N6', [18, 33], [6,5]);
 
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];
@@ -44,6 +49,9 @@ module.exports.loop = function() {
     if (creep.memory.role == 'attacker') {
       roleAttacker.run(creep);
     }
+    if (creep.memory.role == 'slaveReceiver') {
+      roleSlaveReceiver.run(creep);
+    }
   }
   // var room = 'E18N6'
   // for (var spawn in Game.spawns){
@@ -52,7 +60,7 @@ module.exports.loop = function() {
   //     console.log(Game.spawns[spawn].name);
   //   };
   // }
-  
+
   //STRUCTURE_CONTROLLER
   /*  var containers = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
       filter: (structure) => {

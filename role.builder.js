@@ -12,15 +12,16 @@ var roleBuilder = {
       //  creep.say('🚧 build');
     }
     //creep.moveTo(21,26);
+    //creep.memory.gathering = false;
     if (!creep.memory.gathering) {
       // if (creep.room != Game.rooms.E18N7 && creep.name == 'builder1'){
       //   console.log('wrong room for : '+creep.name);
       //   creep.moveTo(Game.flags.Flag1.pos);
       // } else {}
-      var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-      if (targets.length) {
-        if (creep.build(targets[creep.memory.orderNumber %2]) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(targets[creep.memory.orderNumber %2], {
+      var targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
+      if (targets) {
+        if (creep.build(targets) == ERR_NOT_IN_RANGE) {
+          creep.moveTo(targets, {
             visualizePathStyle: {
               stroke: '#ffffff'
             }
@@ -36,7 +37,7 @@ var roleBuilder = {
         if (!structuresToRepair) {
           structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
-              return (((structure.structureType === STRUCTURE_WALL && structure.hits <40000) || (structure.structureType === STRUCTURE_RAMPART && structure.hits < 55000)) && creep.room == structure.room);
+              return (((structure.structureType === STRUCTURE_WALL && structure.hits <30000) || (structure.structureType === STRUCTURE_RAMPART && structure.hits < 55000)) && creep.room == structure.room);
             }
           });
         }
@@ -50,8 +51,8 @@ var roleBuilder = {
       }
     } else {
       var sources = propritizedSources(creep);
-      if (creep.withdraw(sources[1], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-        creep.moveTo(sources[1], {
+      if (creep.withdraw(sources, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+        creep.moveTo(sources, {
           visualizePathStyle: {
             stroke: '#ffaa00'
           }
@@ -62,9 +63,9 @@ var roleBuilder = {
 };
 
 function propritizedSources(creep) {
-  var sources = creep.room.find(FIND_STRUCTURES, {
+  var sources = creep.pos.findClosestByPath(FIND_STRUCTURES, {
     filter: (structure) => {
-      return ((structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] >= creep.carryCapacity) || (structure.structureType == STRUCTURE_STORAGE && structure.store[RESOURCE_ENERGY] >= creep.carryCapacity));
+      return ((structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] >= 600) || (structure.structureType == STRUCTURE_STORAGE && structure.store[RESOURCE_ENERGY] >= 10000));
     }
   });
   return sources;

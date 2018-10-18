@@ -117,6 +117,7 @@ function manageCreepSpawn(creepsDefinitions, room) {
     var staticHarvesters = _.filter(Game.creeps, (creep) => creep.memory.role ==
       'staticHarvester' && creep.memory.birthRoom == room);
   var carriers = _.filter(Game.creeps, (creep) => creep.memory.role == 'carrier' && creep.memory.birthRoom == room);
+  var slaveReceivers = _.filter(Game.creeps, (creep) => creep.memory.role == 'slaveReceiver' && creep.memory.birthRoom == room);
 
   console.log("room: " + room +
     ' SH:' + staticHarvesters.length + '/' + creepsDefinitions.STATIC_HARVESTER[room].desiredAmount + ' | ' +
@@ -148,5 +149,7 @@ function manageCreepSpawn(creepsDefinitions, room) {
     spawnWorker(creepsDefinitions.REPAIRER,room);
   } else if (builders.length < creepsDefinitions.BUILDER[room].desiredAmount) {
     spawnWorker(creepsDefinitions.BUILDER,room);
+  }else if (slaveReceivers.length < creepsDefinitions.SLAVE_RECEIVER[room].desiredAmount) {
+    spawnWorker(creepsDefinitions.SLAVE_RECEIVER,room);
   }
 }

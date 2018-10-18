@@ -53,3 +53,6 @@ TO DO:
 Game.rooms['E18N6'].energyCapacityAvailable
 
 Game.spawns['Spawn1'].spawnCreep( [ATTACK, ATTACK, ATTACK, MOVE, MOVE, CLAIM], 'attacker1', { memory: { role: 'attacker' }} );
+
+
+Game.spawns['Spawn1'].spawnCreep([WORK,MOVE, CARRY], 'W7N4harvester1', {memory: {role: 'harvester',orderNumber: 1,birthRoom: 'W7N4'}});

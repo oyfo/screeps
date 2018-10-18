@@ -11,17 +11,34 @@ var roleUpgrader = {
       creep.memory.gathering = false;
       //  creep.say('🚧 upgrade');
     }
-
+    //creep.memory.gathering = false;
     if (creep.memory.gathering) {
-      var containers = creep.room.find(FIND_STRUCTURES, {
-        filter: (structure) => {
-          return (((structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_STORAGE) && structure.store[
-            RESOURCE_ENERGY] >= creep.carryCapacity));
-        }
-      });
-      if (containers.length > 0) {
-        if (creep.withdraw(containers[creep.memory.orderNumber %2], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(containers[creep.memory.orderNumber%2], {
+      var flag = null;
+      flag = Game.flags[creep.room.name + '_2'];
+      //console.log(flag);
+      //console.log(flag);
+      var containers = null;
+      /*if (flag) {
+        containers = flag.pos.findInRange(FIND_MY_STRUCTURES, 10, {
+          filter: (structure) => {
+            return (structure.structureType == STRUCTURE_LINK && structure.energy > (creep.carryCapacity - creep.carry.energy));
+          }
+        })[0];
+        //console.log(containers)
+      }*/
+      if (!containers) {
+        containers = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+          filter: (structure) => {
+            return (structure.structureType == STRUCTURE_CONTAINER && structure.store[
+              RESOURCE_ENERGY] >= 600)|| (structure.structureType == STRUCTURE_STORAGE && structure.store[
+              RESOURCE_ENERGY] >= 10000);
+          }
+        });
+      }
+      if (containers) {
+        //if (containers.length > 0) {
+        if (creep.withdraw(containers, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+          creep.moveTo(containers, {
             visualizePathStyle: {
               stroke: '#ffffff'
             }
@@ -58,7 +75,8 @@ var roleUpgrader = {
         creep.say('Ur');
         console.log(creep.name + "going to other room");
         creep.moveTo(Game.flags.Flag2.pos);
-      } else */{
+      } else */
+      {
         if (creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
           creep.moveTo(creep.room.controller, {
             visualizePathStyle: {
