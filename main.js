@@ -13,7 +13,7 @@ var roleAttacker = require('role.attacker');
 
 module.exports.loop = function() {
   workers.keepAlive();
-  //towers.behave();
+  towers.behave();
 
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];

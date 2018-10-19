@@ -9,7 +9,7 @@ var definitions = {
       ]
     },
     W7N3: {
-      desiredAmount: 0,
+      desiredAmount: 2,
       composition: [WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE,
@@ -19,13 +19,13 @@ var definitions = {
   },
   STATIC_HARVESTER: {
     E18N6: {
-      desiredAmount: 2,
+      desiredAmount: 3,
       composition: [WORK, WORK, WORK, WORK, WORK,
         MOVE
       ]
     },
     W7N3: {
-      desiredAmount: 0,
+      desiredAmount: 2,
       composition: [WORK, WORK, WORK, WORK, WORK,
         MOVE
       ]
@@ -58,7 +58,7 @@ var definitions = {
       ]
     },
     W7N3: {
-      desiredAmount: 0,
+      desiredAmount: 2,
       composition: [WORK, WORK,
         CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
@@ -75,10 +75,10 @@ var definitions = {
       ]
     },
     W7N3: {
-      desiredAmount: 0,
-      composition: [WORK, WORK, WORK, WORK, WORK,
-        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
-        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, //to be able to repair container
+      desiredAmount: 1,
+      composition: [WORK,
+        CARRY,
+        MOVE,
       ]
     },
     role: 'harvester'
@@ -102,17 +102,17 @@ var definitions = {
   },
   UPGRADER: {
     E18N6: {
-      desiredAmount: 6,
+      desiredAmount: 7,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
     W7N3: {
-      desiredAmount: 0,
+      desiredAmount: 5,
       composition: [WORK, WORK, WORK,
         CARRY, CARRY, CARRY,
-        MOVE, MOVE,
+        MOVE, MOVE
       ]
     },
     role: 'upgrader'
