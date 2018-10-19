@@ -4,15 +4,15 @@ var definitions = {
     E18N6: {
       desiredAmount: 2,
       composition: [WORK,
-        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE, MOVE, MOVE
+        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE, MOVE, MOVE,MOVE
       ]
     },
     E18N7: {
-      desiredAmount: 2,
+      desiredAmount: 3,
       composition: [WORK,
-        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE, MOVE, MOVE,
+        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
     role: 'carrier'
@@ -21,12 +21,12 @@ var definitions = {
     E18N6: {
       desiredAmount: 1,
       composition: [WORK, WORK, WORK,
-        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
+        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 2,
+      desiredAmount: 1,
       composition: [WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE
@@ -53,17 +53,17 @@ var definitions = {
   },
   UPGRADER: {
     E18N6: {
-      desiredAmount: 3,
-      composition: [WORK, WORK, WORK, WORK, WORK, WORK, WORK,
+      desiredAmount: 2,
+      composition: [WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE, MOVE, MOVE,
+        MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 4,
-      composition: [WORK, WORK, WORK,
-        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE, MOVE
+      desiredAmount: 2,
+      composition: [WORK, WORK, WORK, WORK,
+        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE,
       ]
     },
     role: 'upgrader'
@@ -95,9 +95,9 @@ var definitions = {
     },
     E18N7: {
       desiredAmount: 0,
-      composition: [RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK,
+      composition: [ATTACK, ATTACK, ATTACK,ATTACK,ATTACK,ATTACK,
         TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
-        MOVE, MOVE, MOVE, MOVE, MOVE
+        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
     role: 'defender'
@@ -167,6 +167,23 @@ var definitions = {
       ]
     },
     role: 'slaveReceiver'
+  },
+  CLAIMER: {
+    E18N6: {
+      desiredAmount: 0,
+      composition: [WORK,
+        MOVE,
+        CARRY,
+      ]
+    },
+    E18N7: {
+      desiredAmount: 0,
+      composition: [WORK,
+        MOVE,
+        CARRY,
+      ]
+    },
+    role: 'claimer'
   }
 };
 

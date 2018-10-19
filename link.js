@@ -12,7 +12,7 @@ module.exports = {
  })[0];
  //console.log(linkSender.cooldown);
 
-if (linkSender.energy == 800 && linkReceiver.energy < 500) {
+if (linkSender.energy == 800 && linkReceiver.energy < 300) {
   // console.log('linkReady');
    linkSender.transferEnergy(linkReceiver);
  }

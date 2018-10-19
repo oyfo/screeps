@@ -2,7 +2,7 @@ var roleBuilder = {
 
   /** @param {Creep} creep **/
   run: function(creep) {
-    creep.say('B'); // + creep.memory.orderNumber);
+    //creep.say('B'); // + creep.memory.orderNumber);
     if (!creep.memory.gathering && creep.carry.energy == 0) {
       creep.memory.gathering = true;
       //  creep.say('🔄 harvest');

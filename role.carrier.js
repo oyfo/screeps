@@ -2,11 +2,12 @@ var roleCarrier = {
 
   /** @param {Creep} creep **/
   run: function(creep) {
-    creep.say('C');
+    //creep.say('C');
     //       21,33    prawy
     // lewy  17,35
     //container  5bc3700344afce3280eb5e69
     //creep.moveTo(24, 31, { visualizePathStyle: { stroke: '#ffffff' } });
+  //  creep.moveTo(18,32);
     if (!creep.memory.picking && creep.carry.energy == 0) {
       creep.memory.picking = true;
     }
@@ -135,6 +136,8 @@ var roleCarrier = {
             }
           });
         }
+      } else {
+        creep.moveTo(18,32);
       }
     }
   }
