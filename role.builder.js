@@ -18,7 +18,7 @@ var roleBuilder = {
       //   creep.moveTo(Game.flags.Flag1.pos);
       // } else {}
       var targets = creep.room.find(FIND_CONSTRUCTION_SITES);
-      if (targets.length>0) {
+      if (targets.length > 0) {
         //console.log*if'
         if (creep.build(targets[0]) == ERR_NOT_IN_RANGE) {
           creep.moveTo(targets[0], {
@@ -28,7 +28,7 @@ var roleBuilder = {
           });
         }
       } else {
-      //  console.log('else')
+        //  console.log('else')
         var structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
             return (((structure.structureType != STRUCTURE_WALL && structure.structureType != STRUCTURE_RAMPART) && structure.hits <
@@ -38,7 +38,7 @@ var roleBuilder = {
         if (!structuresToRepair) {
           structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
             filter: (structure) => {
-              return (((structure.structureType === STRUCTURE_WALL && structure.hits <20000) || (structure.structureType === STRUCTURE_RAMPART && structure.hits < 30000)) && creep.room == structure.room);
+              return (((structure.structureType === STRUCTURE_WALL && structure.hits < 100000) || (structure.structureType === STRUCTURE_RAMPART && structure.hits < 100000)) && creep.room == structure.room);
             }
           });
         }

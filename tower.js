@@ -26,7 +26,7 @@ module.exports = {
         if (structuresToRepair.length == 0) {
           structuresToRepair = tower.room.find(FIND_STRUCTURES, {
             filter: (structure) => {
-              return ((structure.structureType === STRUCTURE_WALL && structure.hits < 1000 || structure.structureType === STRUCTURE_RAMPART && structure.hits < 1000));
+              return ((structure.structureType === STRUCTURE_WALL && structure.hits < 15000 || structure.structureType === STRUCTURE_RAMPART && structure.hits < 30000));
             }
           });
         }

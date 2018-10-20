@@ -16,9 +16,9 @@ var roleCarrier = {
     //console.log(creep.drop[RESOURCE_GHODIUM_OXIDE]);
 
     if (creep.memory.picking) {
-    //  var sources = creep.room.find(FIND_SOURCES);
+      //  var sources = creep.room.find(FIND_SOURCES);
       //var tomb = creep.pos.findClosestByPath(FIND_TOMBSTONES);
-    //  console.log(tomb);
+      //  console.log(tomb);
       var droppedEnergy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES, {
         filter: (drop) => {
           return (drop.amount > 50 && drop.resourceType == RESOURCE_ENERGY);
@@ -42,7 +42,11 @@ var roleCarrier = {
         });
         if (pickContainer) {
           if (creep.withdraw(pickContainer, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-            creep.moveTo(pickContainer, { visualizePathStyle: { stroke: '#ffffff' } });
+            creep.moveTo(pickContainer, {
+              visualizePathStyle: {
+                stroke: '#ffffff'
+              }
+            });
           }
 
         }
@@ -79,13 +83,14 @@ var roleCarrier = {
             return (structure.structureType == STRUCTURE_STORAGE && structure.store[RESOURCE_ENERGY] < structure.storeCapacity);
           }
         });
-      } /*if (!dropPoint) {
-        dropPoint = creep.pos.findClosestByPath(FIND_STRUCTURES, {
-          filter: (structure) => {
-            return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] < (structure.storeCapacity* 0.75));
-          }
-        });
-      }*/
+      }
+      /*if (!dropPoint) {
+             dropPoint = creep.pos.findClosestByPath(FIND_STRUCTURES, {
+               filter: (structure) => {
+                 return (structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] < (structure.storeCapacity* 0.75));
+               }
+             });
+           }*/
       if (dropPoint) {
         if (creep.transfer(dropPoint, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
           creep.moveTo(dropPoint, {

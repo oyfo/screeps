@@ -10,8 +10,7 @@ var roleHarvester = {
     if (creep.memory.harvesting && creep.carry.energy == creep.carryCapacity) {
       creep.memory.harvesting = false;
       //  creep.say('🚧 deposit');
-    }
-    {
+    } {
       if (creep.memory.harvesting) {
 
         var droppedEnergy = null;

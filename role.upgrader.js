@@ -2,7 +2,7 @@ var roleUpgrader = {
 
   /** @param {Creep} creep **/
   run: function(creep) {
-  //  creep.say('U'); // + creep.memory.orderNumber);
+    //  creep.say('U'); // + creep.memory.orderNumber);
     if (!creep.memory.gathering && creep.carry.energy == 0) {
       creep.memory.gathering = true;
       //  creep.say('🔄 harvest');
@@ -18,7 +18,7 @@ var roleUpgrader = {
           return (drop.amount > 50 && drop.resourceType == RESOURCE_ENERGY);
         }
       });
-    //  console.log(droppedEnergy.amount);
+      //  console.log(droppedEnergy.amount);
       if (droppedEnergy) {
         if (creep.pickup(droppedEnergy) == ERR_NOT_IN_RANGE) {
 
@@ -37,7 +37,7 @@ var roleUpgrader = {
           }
         });
         if (containers) {
-        //if (containers.length > 0) {
+          //if (containers.length > 0) {
           if (creep.withdraw(containers, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
             creep.moveTo(containers, {
               visualizePathStyle: {
@@ -80,7 +80,8 @@ var roleUpgrader = {
         creep.say('Ur');
         console.log(creep.name + "going to other room");
         creep.moveTo(Game.flags.Flag2.pos);
-      } else */{
+      } else */
+      {
         if (creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
           creep.moveTo(creep.room.controller, {
             visualizePathStyle: {
