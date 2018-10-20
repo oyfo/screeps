@@ -1,13 +1,14 @@
 var creepsDefinitions = require('creeps.definitions');
-
 module.exports = {
   keepAlive: function() {
     if (Game.time % 5 == 0) {
       crearDeadCreepMemory();
       manageCreepSpawn(creepsDefinitions, 'E18N6', 1);
       manageCreepSpawn(creepsDefinitions, 'E18N7', 2);
-    //  reserveController('E18N6','E17N6');
+      //  reserveController('E18N6','E17N6');
 
+      //manageCreepSpawn(creepsDefinitions, 'W7N3');
+    
 
     }
   }
@@ -27,12 +28,8 @@ function reserveController(fromRoom, toRoom){
   } else if (claim < 0 && (Game.rooms[toRoom].controller.reservation.ticksToEnd < 1000)) {
     console.log("SPRAWWWN2");
     spawnWorker(creepsDefinitions.CLAIMER, fromRoom);
+
   }
-//  if(claim == 0 && (Game.rooms[toRoom].controller.reservation.ticksToEnd < 1000 )){
-
-  //  spawnWorker(creepsDefinitions.CLAIMER, fromRoom);
-  //}
-
 }
 
 function manageCreepSpawn(creepsDefinitions, room, roomNumber) {
