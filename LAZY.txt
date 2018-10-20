@@ -58,3 +58,4 @@ Game.spawns['Spawn1'].spawnCreep( [ATTACK, ATTACK, ATTACK, MOVE, MOVE, CLAIM], '
 
 
 Game.spawns['Spawn1'].spawnCreep([WORK,MOVE, CARRY], 'W7N4harvester1', {memory: {role: 'harvester',orderNumber: 1,birthRoom: 'W7N4'}});
+Game.spawns['Spawn1'].spawnCreep([WORK, WORK, CARRY, MOVE], 'W7N3harvester2', {memory: {role: 'harvester',orderNumber: 2,birthRoom: 'W7N3'}});

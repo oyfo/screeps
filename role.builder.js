@@ -23,6 +23,7 @@ var roleBuilder = {
           });
         }
       } else {
+        //  console.log('else')
         var structuresToRepair = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
             return (((structure.structureType != STRUCTURE_WALL && structure.structureType != STRUCTURE_RAMPART) && structure.hits <
@@ -63,6 +64,22 @@ function propritizedSources(creep) {
       return ((structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] >= 600) || (structure.structureType == STRUCTURE_STORAGE && structure.store[RESOURCE_ENERGY] >= 10000));
     }
   });
+  if (!sources) {
+    sources = creep.pos.findClosestByPath(FIND_SOURCES); //,{
+    //  filter: (source) => {
+    //    return (source.room == creep.room);
+    //  }
+    //  });
+    //5bbcadfc9099fc012e6383fe
+    //(sources[creep.memory.orderNumber % 2]
+    if (creep.harvest(sources) == ERR_NOT_IN_RANGE) {
+      creep.moveTo(sources, {
+        visualizePathStyle: {
+          stroke: '#ffaa00'
+        }
+      });
+    }
+  }
   return sources;
 }
 module.exports = roleBuilder;
