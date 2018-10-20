@@ -13,23 +13,23 @@ var roleSlaveReceiver = {
           stroke: '#ffaa00'
         }
       });
-  //   console.log('if')
+      //   console.log('if')
     } else {
-    //  console.log('else')
+      //  console.log('else')
       linkReceiver = flag.pos.findInRange(FIND_MY_STRUCTURES, 3, {
         filter: (structure) => {
           return (structure.structureType == STRUCTURE_LINK);
         }
       })[0];
-  //    console.log('link receiver: ' +linkReceiver);
+      //    console.log('link receiver: ' +linkReceiver);
       var containerReceiver = flag.pos.findInRange(FIND_STRUCTURES, 3, {
         filter: (structure) => {
           return (structure.structureType == STRUCTURE_CONTAINER);
         }
       })[0];
-    //console.log('contaierReveiver: ' +containerReceiver);
+      //console.log('contaierReveiver: ' +containerReceiver);
       if (linkReceiver.energy > creep.carryCapacity && creep.carry.energy < creep.carryCapacity) {
-      //  console.log('if');
+        //  console.log('if');
         creep.withdraw(linkReceiver, RESOURCE_ENERGY);
       } else {
         creep.transfer(containerReceiver, RESOURCE_ENERGY);

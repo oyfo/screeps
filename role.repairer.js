@@ -41,20 +41,20 @@ var roleRepairer = {
         //REPAIR
         var wallsToRepair = creep.room.find(FIND_STRUCTURES, {
           filter: (structure) => {
-            return ((structure.structureType === STRUCTURE_WALL || structure.structureType == STRUCTURE_RAMPART|| structure.structureType == STRUCTURE_ROAD) && structure.hits < 3000);
+            return ((structure.structureType === STRUCTURE_WALL || structure.structureType == STRUCTURE_RAMPART || structure.structureType == STRUCTURE_ROAD) && structure.hits < 3000);
           }
         });
         if (wallsToRepair.length > 0) {
           //console.log(wallsToRepair.length);
-        //  console.log(wallsToRepair);
+          //  console.log(wallsToRepair);
           if (creep.repair(wallsToRepair[0]) == ERR_NOT_IN_RANGE) {
             creep.moveTo(wallsToRepair[0]);
           }
         } else {
           //GO AWAY IF FULL
           creep.memory.repairing = false;
-          if (creep.carry.energy == creep.carryCapacity){
-            creep.moveTo(21,26);
+          if (creep.carry.energy == creep.carryCapacity) {
+            creep.moveTo(21, 26);
           }
 
         }

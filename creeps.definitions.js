@@ -19,17 +19,17 @@ var definitions = {
   },
   BUILDER: {
     E18N6: {
-      desiredAmount: 1,
+      desiredAmount: 4,
       composition: [WORK, WORK, WORK,
-        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 1,
+      desiredAmount: 4,
       composition: [WORK, WORK, WORK,
-        CARRY, CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE, MOVE, MOVE
+        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE, MOVE, MOVE,MOVE,MOVE,MOVE
       ]
     },
     role: 'builder'
@@ -171,16 +171,15 @@ var definitions = {
   CLAIMER: {
     E18N6: {
       desiredAmount: 0,
-      composition: [WORK,
-        MOVE,
+      composition: [CLAIM,CLAIM,
+        MOVE, MOVE, MOVE, MOVE,
         CARRY,
       ]
     },
     E18N7: {
       desiredAmount: 0,
-      composition: [WORK,
-        MOVE,
-        CARRY,
+      composition: [CLAIM,CLAIM,
+        MOVE, MOVE, MOVE, MOVE,
       ]
     },
     role: 'claimer'

@@ -14,16 +14,28 @@ var roleDepositor = {
     if (creep.memory.harvesting) {
       var sources = creep.room.find(FIND_SOURCES);
       if (creep.harvest(sources[(creep.memory.orderNumber + 1) % 2]) == ERR_NOT_IN_RANGE) {
-        creep.moveTo(sources[(creep.memory.orderNumber + 1) % 2], { visualizePathStyle: { stroke: '#ffaa00' } });
+        creep.moveTo(sources[(creep.memory.orderNumber + 1) % 2], {
+          visualizePathStyle: {
+            stroke: '#ffaa00'
+          }
+        });
       }
     } else {
       var targets = propritizedTargets(creep);
       if (targets.length > 0) {
         if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(targets[0], { visualizePathStyle: { stroke: '#ffffff' } });
+          creep.moveTo(targets[0], {
+            visualizePathStyle: {
+              stroke: '#ffffff'
+            }
+          });
         }
       } else {
-        creep.moveTo(24, 31, { visualizePathStyle: { stroke: '#ffffff' } });
+        creep.moveTo(24, 31, {
+          visualizePathStyle: {
+            stroke: '#ffffff'
+          }
+        });
       }
     }
   }

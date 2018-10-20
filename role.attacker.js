@@ -8,14 +8,14 @@ var roleAttacker = {
     }
     var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
     if (target) {
-  //    console.log('attacking');
+      //    console.log('attacking');
       if (creep.attack(target) == ERR_NOT_IN_RANGE) {
         creep.moveTo(target);
       }
     } else {
       target = creep.pos.findClosestByRange(FIND_HOSTILE_STRUCTURES);
       if (target) {
-    //    console.log('attacking');
+        //    console.log('attacking');
         if (creep.attack(target) == ERR_NOT_IN_RANGE) {
           creep.moveTo(target);
         }

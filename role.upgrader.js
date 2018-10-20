@@ -30,7 +30,7 @@ var roleUpgrader = {
         containers = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
             return (structure.structureType == STRUCTURE_CONTAINER && structure.store[
-              RESOURCE_ENERGY] >= 600)|| (structure.structureType == STRUCTURE_STORAGE && structure.store[
+              RESOURCE_ENERGY] >= 600) || (structure.structureType == STRUCTURE_STORAGE && structure.store[
               RESOURCE_ENERGY] >= 10000);
           }
         });

@@ -9,6 +9,7 @@ var roleStaticHarvesterRemote = require('role.staticHarvesterRemote');
 var roleCarrier = require('role.carrier');
 var roleAttacker = require('role.attacker');
 var roleSlaveReceiver = require('role.slaveReceiver');
+var roleClaimer = require('role.claimer');
 var towers = require('tower');
 var links = require('link');
 
@@ -17,8 +18,8 @@ var links = require('link');
 module.exports.loop = function() {
   workers.keepAlive();
   towers.behave('E18N6', 15000, 40000);
-  towers.behave('E18N7', 1000, 5000);
-  links.linkIt('E18N6', [18, 33], [6,5]);
+  towers.behave('E18N7', 15000, 30000);
+  links.linkIt('E18N6', [18, 33], [6, 5]);
 
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];
@@ -29,7 +30,7 @@ module.exports.loop = function() {
       roleUpgrader.run(creep);
     }
     if (creep.memory.role == 'builder') {
-      roleBuilder.run(creep);
+      roleBuilder.run(creep, 100000, 100000);
     }
     if (creep.memory.role == 'repairer') {
       roleRepairer.run(creep);
@@ -52,7 +53,12 @@ module.exports.loop = function() {
     if (creep.memory.role == 'slaveReceiver') {
       roleSlaveReceiver.run(creep);
     }
+    if (creep.memory.role == 'claimer') {
+      roleClaimer.run(creep);
+    }
   }
+
+
   /*if (Game.time % 5 == 0 && (Game.rooms.E18N6.controller.level == 5)) {
     var numberOfExtensions = Game.rooms.E18N6.find(FIND_STRUCTURES, {
       filter: (structure) => {
@@ -94,7 +100,7 @@ module.exports.loop = function() {
     //  Game.rooms.E18N6.createConstructionSite(19,32, STRUCTURE_STORAGE);
     //}
   }*/
-  
+
   // var room = 'E18N6'
   // for (var spawn in Game.spawns){
   //   if(Game.spawns[spawn].room.name ==room) {

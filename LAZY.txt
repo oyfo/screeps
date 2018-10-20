@@ -9,6 +9,8 @@ Game.creeps['Upgr1'].memory.upgrading = false;
 Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Builder4', { memory: { role: 'builder' }} );
 Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Harv2', { memory: { role: 'harvester' }} );
 
+
+Game.spawns['Spawn1'].spawnCreep( [HEAL, CARRY, MOVE], 'Test')
 Game.spawns['Spawn1'].spawnCreep( [WORK,MOVE],
     'HarvesterBig',
     { memory: { role: 'staticHarvester' } } );
