@@ -1,18 +1,19 @@
 var creepsDefinitions = require('creeps.definitions');
-module.exports = {
-  keepAlive: function() {
+exports.keepAlive =function(room , no) {
+//module.exports = {
+//  keepAlive: function(room , no) {
     if (Game.time % 5 == 0) {
       crearDeadCreepMemory();
-      manageCreepSpawn(creepsDefinitions, 'E18N6', 1);
-      manageCreepSpawn(creepsDefinitions, 'E18N7', 2);
-      //  reserveController('E18N6','E17N6');
+      manageCreepSpawn(creepsDefinitions, room, no);
+     // manageCreepSpawn(creepsDefinitions, 'E18N7', 2);
+      //  reserveController('W8N3','E17N6');
 
       //manageCreepSpawn(creepsDefinitions, 'W7N3');
     
 
     }
-  }
-};
+  };
+//};
 //Game.rooms[E17N6].controller
 function reserveController(fromRoom, toRoom){
   //console.log(Game.rooms[toRoom].controller.reservation.username);
@@ -107,10 +108,12 @@ function spawnWorker(workerType, room) {
     }
   }
   var orderNumber = findOrderNumber(workerType, room);
+  if (!orderNumber){
+    orderNumber = Math.floor((Math.random() * 1000000) + 1);
+  }
   var newName = room + workerType.role + orderNumber;
-  console.log('Spawning new ' + newName);
+  console.log(spawnsInRoom +' spawning new ' + newName);
   var composition = workerType[room].composition;
-  console.log(spawnsInRoom);
   Game.spawns[spawnsInRoom].spawnCreep(composition, newName, {
     memory: {
       role: workerType.role,
@@ -128,7 +131,15 @@ function crearDeadCreepMemory() {
     }
   }
 }
-
+//exports.findNumberOfRolesInRoom = function(role , room) {
 function findNumberOfRolesInRoom(role, room) {
   return (_.filter(Game.creeps, (creep) => creep.memory.role == role && creep.memory.birthRoom == room));
+}
+
+exports.findRolesInRoom = function(role , room) {
+  return findNumberOfRolesInRoom(role, room);
+}
+
+exports.spawnWorker = function(workerType , room) {
+  return spawnWorker(workerType, room);
 }

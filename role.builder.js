@@ -3,7 +3,7 @@ var roleBuilder = {
   /** @param {Creep} creep **/
   run: function(creep, wallHp, rampartHp) {
 
-    //creep.say('B'); // + creep.memory.orderNumber);
+    creep.say('B'); // + creep.memory.orderNumber);
     if (!creep.memory.gathering && creep.carry.energy == 0) {
       creep.memory.gathering = true;
       //  creep.say('🔄 harvest');
@@ -12,7 +12,30 @@ var roleBuilder = {
       creep.memory.gathering = false;
       //  creep.say('🚧 build');
     }
-    if (!creep.memory.gathering) {
+    var flag = Game.flags['W8N3_controller'];
+   // console.log(creep.room.name);
+    if (creep.room.name != flag.room.name && 0){
+      console.log(creep.name);
+      console.log('going to room');
+    if (creep.moveTo(flag) == ERR_NOT_IN_RANGE) {
+      console.log('going to room2');
+      creep.moveTo(flag, {
+        visualizePathStyle: {
+          stroke: '#ffaa00'
+        }
+      });
+    }
+  }else{
+    if (creep.memory.gathering) {
+      var sources = propritizedSources(creep);
+      if (creep.withdraw(sources, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+        creep.moveTo(sources, {
+          visualizePathStyle: {
+            stroke: '#ffaa00'
+          }
+        });
+      }
+    } else {
       var targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
       if (targets) {
         if (creep.build(targets) == ERR_NOT_IN_RANGE) {
@@ -42,19 +65,13 @@ var roleBuilder = {
             creep.moveTo(structuresToRepair);
 
           }
+        } else {
+          creep.moveTo(27, 27);
         }
-        //  creep.moveTo(27, 27);
-      }
-    } else {
-      var sources = propritizedSources(creep);
-      if (creep.withdraw(sources, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-        creep.moveTo(sources, {
-          visualizePathStyle: {
-            stroke: '#ffaa00'
-          }
-        });
+        //creep.moveTo(27, 27);
       }
     }
+  }
   }
 };
 

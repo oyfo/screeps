@@ -1,3 +1,5 @@
+var workers = require('mod.workers');
+var creepsDefinitions = require('creeps.definitions');
 module.exports = {
   behave: function(room, wallHp, rampartHp) {
 
@@ -12,6 +14,13 @@ module.exports = {
       }
     });
     var hostiles = Game.rooms[room].find(FIND_HOSTILE_CREEPS);
+    if (hostiles.length >0){
+      var numberOfDefenders = workers.findRolesInRoom('defender', room).length;
+      console.log(numberOfDefenders);
+      if (numberOfDefenders <3) {
+        workers.spawnWorker(creepsDefinitions.DEFENDER, room);
+      }
+    }
 
     var towers = Game.rooms[room].find(FIND_MY_STRUCTURES, {
       filter: {
@@ -51,3 +60,8 @@ module.exports = {
     }
   }
 };
+
+
+function findNumberOfRolesInRoom(role, room) {
+  return (_.filter(Game.creeps, (creep) => creep.memory.role == role && creep.memory.birthRoom == room));
+}

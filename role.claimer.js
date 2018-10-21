@@ -17,7 +17,7 @@ var roleClaimer = {
           creep.moveTo(creep.room.controller);
         }
       }*/
-    var flag = Game.flags['E17N6_controller'];
+    var flag = Game.flags['W8N3_controller'];
     if (creep.moveTo(flag) == ERR_NOT_IN_RANGE) {
       creep.moveTo(flag, {
         visualizePathStyle: {
@@ -26,7 +26,7 @@ var roleClaimer = {
       });
     }
     if (!creep.room.controller.my) {
-      if (creep.reserveController(creep.room.controller) == ERR_NOT_IN_RANGE) {
+      if (creep.claimController(creep.room.controller) == ERR_NOT_IN_RANGE) {
         creep.moveTo(creep.room.controller);
       }
     }

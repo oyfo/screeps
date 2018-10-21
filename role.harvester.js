@@ -2,7 +2,7 @@ var roleHarvester = {
 
   /** @param {Creep} creep **/
   run: function(creep) {
-    creep.say('H'); // + creep.memory.orderNumber);
+    creep.say('Hi'); // + creep.memory.orderNumber);
     if (!creep.memory.harvesting && creep.carry.energy == 0) {
       creep.memory.harvesting = true;
       //  creep.say('🔄 harvest');
@@ -53,8 +53,9 @@ var roleHarvester = {
           }
         } else */
         {
-          var dropPoint = propritizedTargets(creep);
-          if (!dropPoint.length) {
+          var dropPoint = prioritizetDropPoints(creep);
+          //console.log(dropPoint)
+          if (dropPoint) {
             if (creep.transfer(dropPoint, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
               creep.moveTo(dropPoint, {
                 visualizePathStyle: {
@@ -103,8 +104,8 @@ function prioritizetDropPoints(creep) {
       }
     });
   }
-  if (targets.length == 0) {
-    targets = creep.room.find(FIND_STRUCTURES, {
+  if (!targets) {
+    targets = creep.pos.findClosestByPath(FIND_STRUCTURES, {
       filter: (structure) => {
         return (structure.structureType == STRUCTURE_CONTAINER && structure.store[
           RESOURCE_ENERGY] < structure.storeCapacity);

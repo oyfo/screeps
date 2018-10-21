@@ -3,8 +3,8 @@ var roleAttacker = {
   /** @param {Creep} creep **/
   run: function(creep) {
     creep.say('ATTACK');
-    if (creep.room != Game.flags.Flag34.room) {
-      creep.moveTo(Game.flags.Flag34.pos);
+    if (creep.room != Game.flags.Flag1.room) {
+      creep.moveTo(Game.flags.Flag1.pos);
     }
     var target = creep.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
     if (target) {

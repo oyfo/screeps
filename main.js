@@ -10,16 +10,19 @@ var roleCarrier = require('role.carrier');
 var roleAttacker = require('role.attacker');
 var roleSlaveReceiver = require('role.slaveReceiver');
 var roleClaimer = require('role.claimer');
+var roleDefender = require('role.defender');
 var towers = require('tower');
 var links = require('link');
 
 
 
 module.exports.loop = function() {
-  workers.keepAlive();
-  towers.behave('E18N6', 15000, 40000);
-  towers.behave('E18N7', 15000, 30000);
-  links.linkIt('E18N6', [18, 33], [6, 5]);
+  workers.keepAlive('W7N3', 1);
+  workers.keepAlive('W8N3', 2);
+  towers.behave('W7N3', 15000, 40000);
+  towers.behave('W8N3', 1000, 2000);
+ // towers.behave('E18N7', 15000, 30000);
+ // links.linkIt('W8N3', [18, 33], [6, 5]);
 
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];
@@ -29,8 +32,11 @@ module.exports.loop = function() {
     if (creep.memory.role == 'upgrader') {
       roleUpgrader.run(creep);
     }
-    if (creep.memory.role == 'builder') {
-      roleBuilder.run(creep, 120000, 120000);
+    if (creep.memory.role == 'builder' && creep.room.name == 'W7N3') {
+      roleBuilder.run(creep, 160000, 160000);
+    }
+    if (creep.memory.role == 'builder' && creep.room.name == 'W8N3') {
+      roleBuilder.run(creep, 10000, 10000);
     }
     if (creep.memory.role == 'repairer') {
       roleRepairer.run(creep);
@@ -56,52 +62,43 @@ module.exports.loop = function() {
     if (creep.memory.role == 'claimer') {
       roleClaimer.run(creep);
     }
+    if (creep.memory.role == 'defender') {
+      roleDefender.run(creep);
+    }
   }
 
 
-  /*if (Game.time % 5 == 0 && (Game.rooms.E18N6.controller.level == 5)) {
-    var numberOfExtensions = Game.rooms.E18N6.find(FIND_STRUCTURES, {
+  if (Game.time % 60 == 0 && (Game.rooms.W8N3.controller.level == 3)) {
+    var numberOfExtensions = Game.rooms.W8N3.find(FIND_STRUCTURES, {
       filter: (structure) => {
         return (structure.structureType == STRUCTURE_EXTENSION);
       }
     });
-     console.log(numberOfExtensions.length);
-     (numberOfExtensions.length == 20) {
-      Game.rooms.E18N6.createConstructionSite(23, 34, STRUCTURE_EXTENSION);
+     console.log('number of extensions: ' + numberOfExtensions.length);
+    if (numberOfExtensions.length == 5) {
+      Game.rooms.W8N3.createConstructionSite(36, 26, STRUCTURE_EXTENSION);
     }
-    if (numberOfExtensions.length == 21) {
-      Game.rooms.E18N6.createConstructionSite(24, 35, STRUCTURE_EXTENSION);
+    if (numberOfExtensions.length == 6) {
+      Game.rooms.W8N3.createConstructionSite(37, 25, STRUCTURE_EXTENSION);
     }
-    if (numberOfExtensions.length == 22) {
-      Game.rooms.E18N6.createConstructionSite(19, 30, STRUCTURE_EXTENSION);
+    if (numberOfExtensions.length == 7) {
+      Game.rooms.W8N3.createConstructionSite(34, 28, STRUCTURE_EXTENSION);
     }
-    if (numberOfExtensions.length == 23) {
-      Game.rooms.E18N6.createConstructionSite(24, 29, STRUCTURE_EXTENSION);
+    if (numberOfExtensions.length == 8) {
+      Game.rooms.W8N3.createConstructionSite(38, 28, STRUCTURE_EXTENSION);
     }
-    if (numberOfExtensions.length == 24) {
-      Game.rooms.E18N6.createConstructionSite(28, 31, STRUCTURE_EXTENSION);
+    if (numberOfExtensions.length == 9) {
+      Game.rooms.W8N3.createConstructionSite(39, 27, STRUCTURE_EXTENSION);
     }
-    if (numberOfExtensions.length == 25) {
-      Game.rooms.E18N6.createConstructionSite(25, 28, STRUCTURE_EXTENSION);
-    }
-    if (numberOfExtensions.length == 26) {
-      Game.rooms.E18N6.createConstructionSite(24, 29, STRUCTURE_EXTENSION);
-    }
-    if (numberOfExtensions.length == 27) {
-      Game.rooms.E18N6.createConstructionSite(18, 31, STRUCTURE_EXTENSION);
-    }
-    if (numberOfExtensions.length == 28) {
-      Game.rooms.E18N6.createConstructionSite(20, 29, STRUCTURE_EXTENSION);
-    }
-    if (numberOfExtensions.length == 29) {
-      Game.rooms.E18N6.createConstructionSite(19, 28, STRUCTURE_EXTENSION);
+    if (numberOfExtensions.length == 10) {
+      Game.rooms.W8N3.createConstructionSite(29, 44, STRUCTURE_TOWER);
     }
     //if (numberOfExtensions.length == 25){
-    //  Game.rooms.E18N6.createConstructionSite(19,32, STRUCTURE_STORAGE);
+    //  Game.rooms.W8N3.createConstructionSite(19,32, STRUCTURE_STORAGE);
     //}
-  }*/
+  }
 
-  // var room = 'E18N6'
+  // var room = 'W8N3'
   // for (var spawn in Game.spawns){
   //   if(Game.spawns[spawn].room.name ==room) {
   //     console.log(Game.spawns[spawn].room.name);
@@ -110,7 +107,7 @@ module.exports.loop = function() {
   // }
 
   //STRUCTURE_CONTROLLER
-  /*  var containers = Game.rooms['E18N6'].find(FIND_STRUCTURES, {
+  /*  var containers = Game.rooms['W8N3'].find(FIND_STRUCTURES, {
       filter: (structure) => {
         return (structure.structureType == STRUCTURE_CONTAINER);
       }
