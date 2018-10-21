@@ -53,14 +53,14 @@ var definitions = {
   },
   UPGRADER: {
     E18N6: {
-      desiredAmount: 2,
+      desiredAmount: 3,
       composition: [WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 2,
+      desiredAmount: 3,
       composition: [WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
@@ -136,7 +136,7 @@ var definitions = {
   },
   STATIC_HARVESTER_REMOTE: {
     E18N6: {
-      desiredAmount: 1,
+      desiredAmount: 0,
       composition: [WORK, WORK, WORK, WORK, WORK,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY //to be able to repair container
