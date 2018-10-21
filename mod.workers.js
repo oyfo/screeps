@@ -1,23 +1,11 @@
 var creepsDefinitions = require('creeps.definitions');
 exports.keepAlive =function(room , no) {
-//module.exports = {
-//  keepAlive: function(room , no) {
     if (Game.time % 5 == 0) {
       crearDeadCreepMemory();
       manageCreepSpawn(creepsDefinitions, room, no);
-     // manageCreepSpawn(creepsDefinitions, 'E18N7', 2);
-      //  reserveController('W8N3','E17N6');
-
-      //manageCreepSpawn(creepsDefinitions, 'W7N3');
-    
-
     }
   };
-//};
-//Game.rooms[E17N6].controller
 function reserveController(fromRoom, toRoom){
-  //console.log(Game.rooms[toRoom].controller.reservation.username);
-  //console.log(Game.rooms[toRoom].controller.reservation.ticksToEnd);
   var claimers1  = findNumberOfRolesInRoom('claimer', fromRoom).length;
   var claimers2  = findNumberOfRolesInRoom('claimer', toRoom).length;
   var claim = claimers1 + claimers2;
@@ -131,7 +119,7 @@ function crearDeadCreepMemory() {
     }
   }
 }
-//exports.findNumberOfRolesInRoom = function(role , room) {
+
 function findNumberOfRolesInRoom(role, room) {
   return (_.filter(Game.creeps, (creep) => creep.memory.role == role && creep.memory.birthRoom == room));
 }
@@ -141,5 +129,5 @@ exports.findRolesInRoom = function(role , room) {
 }
 
 exports.spawnWorker = function(workerType , room) {
-  return spawnWorker(workerType, room);
+  return spawnWorker(creepsDefinitions[workerType], room);
 }

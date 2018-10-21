@@ -17,13 +17,44 @@ var links = require('link');
 
 
 module.exports.loop = function() {
-  workers.keepAlive('W7N3', 1);
-  workers.keepAlive('W8N3', 2);
-  towers.behave('W7N3', 15000, 40000);
-  towers.behave('W8N3', 5000, 2000);
+  /*remember to have flags:
+  W7N3_flag_2 - away from conrainers where you want to put resources
+  W7N3_controller - only for claiming, needs more work
+  W7N3_assembly - for ide creeps
+  */
+ // console.log(Game.spawns['Spawn' + 1].room.name)
+ if (Game.spawns['Spawn' + 1].room.name == 'W7N3'){
+   //PRIVATE
+   var room1 = Game.spawns['Spawn' + 1].room.name
+   var room2 = Game.spawns['Spawn' + 2].room.name
+   var wallHpRoom1 = 160000
+   var wallHpRoom2 = 20000
+   workers.keepAlive(room1, 1);
+   workers.keepAlive(room2, 2);
+   towers.behave(room1, 15000, 40000);
+   towers.behave(room2, 5000, 2000);
+ }
+ if (Game.spawns['Spawn' + 1].room.name == 'E18N6'){
+   //OFFICIAL
+  console.log('official')
+  var room1 = Game.spawns['Spawn' + 1].room.name
+  var room2 = Game.spawns['Spawn' + 2].room.name
+  var wallHpRoom1 = 120000
+  var wallHpRoom2 = 120000
+  workers.keepAlive(room1, 1);
+  workers.keepAlive(room2, 2);
+  towers.behave(room1, 15000, 40000);
+  towers.behave(room1, 15000, 30000);
+  links.linkIt(room1, [18, 33], [6, 5]);
+
+}
+ /// workers.keepAlive('W7N3', 1);
+  //workers.keepAlive('W8N3', 2);
+  //towers.behave('W7N3', 15000, 40000);
+  //towers.behave('W8N3', 5000, 2000);
+
  // towers.behave('E18N7', 15000, 30000);
  // links.linkIt('W8N3', [18, 33], [6, 5]);
-
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];
     if (creep.memory.role == 'harvester') {
@@ -32,11 +63,11 @@ module.exports.loop = function() {
     if (creep.memory.role == 'upgrader') {
       roleUpgrader.run(creep);
     }
-    if (creep.memory.role == 'builder' && creep.room.name == 'W7N3') {
-      roleBuilder.run(creep, 160000, 160000);
+    if (creep.memory.role == 'builder' && creep.room.name == room1) {
+      roleBuilder.run(creep, wallHpRoom1, wallHpRoom1);
     }
-    if (creep.memory.role == 'builder' && creep.room.name == 'W8N3') {
-      roleBuilder.run(creep, 20000, 20000);
+    if (creep.memory.role == 'builder' && creep.room.name == room2) {
+      roleBuilder.run(creep, wallHpRoom2, wallHpRoom2);
     }
     if (creep.memory.role == 'repairer') {
       roleRepairer.run(creep);

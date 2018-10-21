@@ -11,7 +11,7 @@ var roleDefender = {
         creep.moveTo(target);
       } 
     } else {
-      creep.moveTo(Game.flags['assembly_'+ creep.room.name])
+      creep.moveTo(Game.flags[creep.room.name + '_assembly'])
     }
   }
 };

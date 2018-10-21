@@ -1,5 +1,5 @@
 var workers = require('mod.workers');
-var creepsDefinitions = require('creeps.definitions');
+
 module.exports = {
   behave: function(room, wallHp, rampartHp) {
 
@@ -18,7 +18,7 @@ module.exports = {
       var numberOfDefenders = workers.findRolesInRoom('defender', room).length;
       console.log(numberOfDefenders);
       if (numberOfDefenders <2) {
-        workers.spawnWorker(creepsDefinitions.DEFENDER, room);
+        workers.spawnWorker('DEFENDER', room);
       }
     }
 

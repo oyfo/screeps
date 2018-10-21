@@ -88,7 +88,7 @@ var roleCarrier = {
         }
       } else {
         //creep.moveTo(18, 32);
-        creep.moveTo(Game.flags['assembly_'+ creep.room.name])
+        creep.moveTo(Game.flags[creep.room.name+ '_assembly'])
       }
     }
   }
