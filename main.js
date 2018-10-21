@@ -20,7 +20,7 @@ module.exports.loop = function() {
   workers.keepAlive('W7N3', 1);
   workers.keepAlive('W8N3', 2);
   towers.behave('W7N3', 15000, 40000);
-  towers.behave('W8N3', 1000, 2000);
+  towers.behave('W8N3', 5000, 2000);
  // towers.behave('E18N7', 15000, 30000);
  // links.linkIt('W8N3', [18, 33], [6, 5]);
 
@@ -36,7 +36,7 @@ module.exports.loop = function() {
       roleBuilder.run(creep, 160000, 160000);
     }
     if (creep.memory.role == 'builder' && creep.room.name == 'W8N3') {
-      roleBuilder.run(creep, 10000, 10000);
+      roleBuilder.run(creep, 20000, 20000);
     }
     if (creep.memory.role == 'repairer') {
       roleRepairer.run(creep);

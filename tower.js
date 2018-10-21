@@ -17,7 +17,7 @@ module.exports = {
     if (hostiles.length >0){
       var numberOfDefenders = workers.findRolesInRoom('defender', room).length;
       console.log(numberOfDefenders);
-      if (numberOfDefenders <3) {
+      if (numberOfDefenders <2) {
         workers.spawnWorker(creepsDefinitions.DEFENDER, room);
       }
     }

@@ -66,7 +66,8 @@ var roleBuilder = {
 
           }
         } else {
-          creep.moveTo(27, 27);
+          creep.moveTo(Game.flags['assembly_'+ creep.room.name])
+          //creep.moveTo(27, 27);
         }
         //creep.moveTo(27, 27);
       }

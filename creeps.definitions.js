@@ -4,8 +4,8 @@ var definitions = {
     W8N3: {
       desiredAmount: 2,
       composition: [WORK,
-        CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE
+        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
     W7N3: {
@@ -20,9 +20,9 @@ var definitions = {
   BUILDER: {
     W8N3: {
       desiredAmount: 2,
-      composition: [WORK, WORK,
-        CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE,
+      composition: [WORK, WORK, WORK,
+        CARRY, CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE, CARRY,
       ]
     },
     W7N3: {
@@ -53,16 +53,16 @@ var definitions = {
   },
   UPGRADER: {
     W8N3: {
-      desiredAmount: 8,
-      composition: [WORK, WORK, WORK,
-        CARRY, CARRY, CARRY,
-        MOVE, MOVE,
+      desiredAmount: 5,
+      composition: [WORK, WORK, WORK, WORK,
+        CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE, MOVE
       ]
     },
     W7N3: {
-      desiredAmount: 6,
-      composition: [WORK, WORK, WORK, WORK, WORK,
-        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+      desiredAmount: 5,
+      composition: [WORK, WORK, WORK, WORK,
+        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
       ]
     },
