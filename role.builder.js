@@ -12,20 +12,24 @@ var roleBuilder = {
       creep.memory.gathering = false;
       //  creep.say('🚧 build');
     }
-    var flag = Game.flags['W8N3_controller'];
+    //var flag = Game.flags['xxx'];
+    // console.log(flag);
    // console.log(creep.room.name);
-    if (creep.room.name != flag.room.name && 0){
+    if (/*creep.room.name != flag.room.name && */0 && creep.name == 'W7N3builder1'){
       console.log(creep.name);
-      console.log('going to room');
-    if (creep.moveTo(flag) == ERR_NOT_IN_RANGE) {
-      console.log('going to room2');
-      creep.moveTo(flag, {
-        visualizePathStyle: {
-          stroke: '#ffaa00'
-        }
-      });
-    }
-  }else{
+     // console.log('going to room');
+     // console.log(creep.moveTo(flag.pos))
+    //console.log( creep.move(RIGHT));
+    var flag = Game.flags['W5N3_controller'];
+    console.log(flag.pos)
+      if (creep.moveTo(flag.pos) == ERR_NOT_IN_RANGE) {
+        creep.moveTo(flag.pos, {
+          visualizePathStyle: {
+            stroke: '#ffaa00'
+          }
+        });
+      }
+    }else{
     if (creep.memory.gathering) {
       var sources = propritizedSources(creep);
       if (creep.withdraw(sources, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
@@ -71,7 +75,7 @@ var roleBuilder = {
         //creep.moveTo(27, 27);
       }
     }
-  }
+    }
   }
 };
 

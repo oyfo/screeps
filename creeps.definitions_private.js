@@ -26,7 +26,7 @@ var definitions = {
       ]
     },
     W7N3: {
-      desiredAmount: 1,
+      desiredAmount: 4,
       composition: [WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE,MOVE,MOVE,MOVE

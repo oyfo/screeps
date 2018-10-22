@@ -11,14 +11,14 @@ function reserveController(fromRoom, toRoom){
   var claim = claimers1 + claimers2;
   console.log('how many claimers:  '+claim);
 
-  if( !Game.rooms[toRoom].controller.reservation && claim < 0 ){
+  /*if( !Game.rooms[toRoom].controller.reservation && claim < 0 ){
     console.log("SPRAWWWN1");
     spawnWorker(creepsDefinitions.CLAIMER, fromRoom);
   } else if (claim < 0 && (Game.rooms[toRoom].controller.reservation.ticksToEnd < 1000)) {
     console.log("SPRAWWWN2");
     spawnWorker(creepsDefinitions.CLAIMER, fromRoom);
 
-  }
+  }*/
 }
 
 function manageCreepSpawn(creepsDefinitions, room, roomNumber) {
