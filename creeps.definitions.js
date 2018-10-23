@@ -53,14 +53,14 @@ var definitions = {
   },
   UPGRADER: {
     E18N6: {
-      desiredAmount: 3,
+      desiredAmount: 4,
       composition: [WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 3,
+      desiredAmount: 4,
       composition: [WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
