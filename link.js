@@ -17,7 +17,6 @@ module.exports = {
       linkSender.transferEnergy(linkReceiver);
     }
     //console.log(linkSender.cooldown);
-
   }
 };
 

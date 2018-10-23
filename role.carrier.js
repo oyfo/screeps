@@ -54,7 +54,7 @@ var roleCarrier = {
         dropPoint = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
             return (structure.structureType == STRUCTURE_TOWER && structure.energy <
-              structure.energyCapacity * 0.85);
+              structure.energyCapacity);
           }
         });
       }
@@ -87,7 +87,8 @@ var roleCarrier = {
           });
         }
       } else {
-        creep.moveTo(18, 32);
+        //creep.moveTo(18, 32);
+        creep.moveTo(Game.flags[creep.room.name+ '_assembly'])
       }
     }
   }

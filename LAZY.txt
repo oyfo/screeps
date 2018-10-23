@@ -6,7 +6,7 @@ Game.creeps['Upgrader'].memory.role = 'harvester';
 
 Game.creeps['Upgr1'].memory.upgrading = false;
 
-Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Builder4', { memory: { role: 'builder' }} );
+Game.spawns['Spawn2'].spawnCreep( [ATTACK, MOVE], 'a3', { memory: { role: 'defender' }} );
 Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Harv2', { memory: { role: 'harvester' }} );
 
 
@@ -16,17 +16,16 @@ Game.spawns['Spawn1'].spawnCreep( [WORK,MOVE],
     { memory: { role: 'staticHarvester' } } );
 
 Game.creeps['Harvester5'].suicide()
-
-Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK,MOVE], 'staticHarvester1', {memory: {role: 'staticHarvester',orderNumber: 1,birthRoom: 'E18N6'}});
-Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK,MOVE], 'staticHarvester2', {memory: {role: 'staticHarvester',orderNumber: 2,birthRoom: 'E18N6'}});
-Game.spawns['Spawn1'].spawnCreep([WORK,CARRY, CARRY, CARRY,MOVE, MOVE, MOVE, MOVE, MOVE], 'carrier2', {memory: {role: 'carrier',orderNumber: 2,birthRoom: 'E18N6'}});
+Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK,MOVE], 'staticHarvester1', {memory: {role: 'staticHarvester',orderNumber: 1,birthRoom: 'W8N3'}});
+Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK,MOVE], 'staticHarvester2', {memory: {role: 'staticHarvester',orderNumber: 2,birthRoom: 'W8N3'}});
+Game.spawns['Spawn1'].spawnCreep([WORK,CARRY, CARRY, CARRY,MOVE, MOVE, MOVE, MOVE, MOVE], 'carrier2', {memory: {role: 'carrier',orderNumber: 2,birthRoom: 'W8N3'}});
 Game.spawns['Spawn1'].spawnCreep( [WORK,WORK,CARRY,MOVE],
     'BUILDER',
     { memory: { role: 'builder' } } );
 
 
-Game.rooms['E18N6'].energyCapacityAvailable
-Game.rooms['E18N6'].find(FIND_SOURCES)
+Game.rooms['W8N3'].energyCapacityAvailable
+Game.rooms['W8N3'].find(FIND_SOURCES)
 
 
 TO DO:
@@ -52,7 +51,7 @@ TO DO:
     console.log('Clearing non-existing creep memory:', name);
   }
 }*/
-Game.rooms['E18N6'].energyCapacityAvailable
+Game.rooms['W8N3'].energyCapacityAvailable
 
 Game.spawns['Spawn1'].spawnCreep( [ATTACK, ATTACK, ATTACK, MOVE, MOVE, CLAIM], 'attacker1', { memory: { role: 'attacker' }} );
 

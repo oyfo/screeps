@@ -3,7 +3,7 @@ var roleBuilder = {
   /** @param {Creep} creep **/
   run: function(creep, wallHp, rampartHp) {
 
-    //creep.say('B'); // + creep.memory.orderNumber);
+    creep.say('B'); // + creep.memory.orderNumber);
     if (!creep.memory.gathering && creep.carry.energy == 0) {
       creep.memory.gathering = true;
       //  creep.say('🔄 harvest');
@@ -12,7 +12,43 @@ var roleBuilder = {
       creep.memory.gathering = false;
       //  creep.say('🚧 build');
     }
-    if (!creep.memory.gathering) {
+    //var flag = Game.flags['xxx'];
+    // console.log(flag);
+   // console.log(creep.room.name);
+   var switcher = 0;
+    if (creep.room.name != 'W5N3_controller' && switcher && creep.name.includes('W7N3builder1')){
+      var flag = Game.flags['W5N3_controller'];
+      console.log(flag);
+      if (creep.moveTo(flag) == ERR_NOT_IN_RANGE) {
+        creep.moveTo(flag, {
+          visualizePathStyle: {
+            stroke: '#ffaa00'
+          }
+        });
+      }
+  //  creep.move(RIGHT);
+  //  const path = creep.room.findPath(creep.pos, flag.pos, { maxOps: 10000 } );
+  //  console.log(JSON.stringify(path))
+  //  creep.moveByPath(path);
+    /*if ( creep.moveByPath(path) == ERR_NOT_IN_RANGE) {
+       creep.moveByPath(path, {
+        visualizePathStyle: {
+          stroke: '#ffaa00'
+        }
+      });
+    }*/
+    }else {
+    if (creep.memory.gathering) {
+     // console.log(creep.name)
+      var sources = propritizedSources(creep);
+      if (creep.withdraw(sources, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+        creep.moveTo(sources, {
+          visualizePathStyle: {
+            stroke: '#ffaa00'
+          }
+        });
+      }
+    } else {
       var targets = creep.pos.findClosestByPath(FIND_CONSTRUCTION_SITES);
       if (targets) {
         if (creep.build(targets) == ERR_NOT_IN_RANGE) {
@@ -42,18 +78,12 @@ var roleBuilder = {
             creep.moveTo(structuresToRepair);
 
           }
+        } else {
+          creep.moveTo(Game.flags[creep.room.name+ '_assembly']);
         }
-        //  creep.moveTo(27, 27);
+        //creep.moveTo(27, 27);
       }
-    } else {
-      var sources = propritizedSources(creep);
-      if (creep.withdraw(sources, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-        creep.moveTo(sources, {
-          visualizePathStyle: {
-            stroke: '#ffaa00'
-          }
-        });
-      }
+    }
     }
   }
 };
@@ -65,7 +95,9 @@ function propritizedSources(creep) {
     }
   });
   if (!sources) {
-    sources = creep.pos.findClosestByPath(FIND_SOURCES); //,{
+    sources = creep.pos.findClosestByPath(FIND_SOURCES, {
+      filter: (source) => {return (source.energy>0);}
+    }); //,{
     //  filter: (source) => {
     //    return (source.room == creep.room);
     //  }
