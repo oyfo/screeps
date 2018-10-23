@@ -15,22 +15,32 @@ var roleBuilder = {
     //var flag = Game.flags['xxx'];
     // console.log(flag);
    // console.log(creep.room.name);
-    if (/*creep.room.name != flag.room.name && */0 && creep.name == 'W7N3builder1'){
-      console.log(creep.name);
-     // console.log('going to room');
-     // console.log(creep.moveTo(flag.pos))
-    //console.log( creep.move(RIGHT));
-    var flag = Game.flags['W5N3_controller'];
-    console.log(flag.pos)
-      if (creep.moveTo(flag.pos) == ERR_NOT_IN_RANGE) {
-        creep.moveTo(flag.pos, {
+   var switcher = 0
+    if (creep.room.name != 'W5N3_controller' && switcher && creep.name.includes('W7N3builder1')){
+      var flag = Game.flags['W5N3_controller'];
+      console.log(flag);
+      if (creep.moveTo(flag) == ERR_NOT_IN_RANGE) {
+        creep.moveTo(flag, {
           visualizePathStyle: {
             stroke: '#ffaa00'
           }
         });
       }
-    }else{
+  //  creep.move(RIGHT);
+  //  const path = creep.room.findPath(creep.pos, flag.pos, { maxOps: 10000 } );
+  //  console.log(JSON.stringify(path))
+  //  creep.moveByPath(path);
+    /*if ( creep.moveByPath(path) == ERR_NOT_IN_RANGE) {
+       creep.moveByPath(path, {
+        visualizePathStyle: {
+          stroke: '#ffaa00'
+        }
+      });
+    }*/
+    }else {
+      
     if (creep.memory.gathering) {
+     // console.log(creep.name)
       var sources = propritizedSources(creep);
       if (creep.withdraw(sources, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
         creep.moveTo(sources, {
@@ -86,7 +96,9 @@ function propritizedSources(creep) {
     }
   });
   if (!sources) {
-    sources = creep.pos.findClosestByPath(FIND_SOURCES); //,{
+    sources = creep.pos.findClosestByPath(FIND_SOURCES, {
+      filter: (source) => {return (source.energy>0)}
+    }); //,{
     //  filter: (source) => {
     //    return (source.room == creep.room);
     //  }

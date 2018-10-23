@@ -25,12 +25,16 @@ var roleClaimer = {
         }
       });
     }
-    if (!creep.room.controller.my) {
+    /*if (!creep.room.controller.my) {
       if (creep.claimController(creep.room.controller) == ERR_NOT_IN_RANGE) {
         creep.moveTo(creep.room.controller);
       }
-    }
+    }*/
   }
 };
 
 module.exports = roleClaimer;
+
+
+
+//Game.creeps['W7N3claimer1'].memory.role = 'builder'
