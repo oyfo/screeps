@@ -16,10 +16,10 @@ var definitions = {
       ]
     },
     W5N3: {
-      desiredAmount: 0,
+      desiredAmount: 2,
       composition: [WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE,
+        MOVE, MOVE, MOVE,
       ]
     },
     role: 'carrier'
@@ -40,10 +40,10 @@ var definitions = {
       ]
     },
     W5N3: {
-      desiredAmount: 2,
+      desiredAmount: 4,
       composition: [WORK, WORK,
         CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE,
+        MOVE, MOVE, MOVE, MOVE,
       ]
     },
     role: 'builder'
@@ -64,10 +64,10 @@ var definitions = {
       ]
     },
     W5N3: {
-      desiredAmount: 4,
+      desiredAmount: 0,
       composition: [WORK, WORK,
+        CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
-        CARRY, CARRY, CARRY,
       ]
     },
     role: 'harvester'
@@ -88,10 +88,10 @@ var definitions = {
       ]
     },
     W5N3: {
-      desiredAmount: 2,
+      desiredAmount: 7,
       composition: [WORK, WORK,
-        CARRY, CARRY, MOVE,
-        MOVE, MOVE, CARRY,
+        CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE,
       ]
     },
     role: 'upgrader'
@@ -158,8 +158,8 @@ var definitions = {
       ]
     },
     W5N3: {
-      desiredAmount: 0,
-      composition: [WORK, WORK, WORK, WORK, WORK,
+      desiredAmount: 2,
+      composition: [WORK, WORK, WORK, WORK,
         MOVE
       ]
     },

@@ -30,10 +30,10 @@ module.exports.loop = function() {
    var room3 = Game.spawns['Spawn' + 3].room.name
    var wallHpRoom1 = 200000
    var wallHpRoom2 = 200000
-   var wallHpRoom3 = 1000
+   var wallHpRoom3 = 5000
    workers.keepAlive(room1, 1);
    workers.keepAlive(room2, 2);
-   workers.keepAlive(room3, 1);
+   workers.keepAlive(room3, 3);
    towers.behave(room1, 15000, 40000);
    towers.behave(room2, 10000, 10000);
    towers.behave(room3, 1000, 1000);
@@ -75,7 +75,7 @@ module.exports.loop = function() {
       roleBuilder.run(creep, wallHpRoom2, wallHpRoom2);
     }
     if (creep.memory.role == 'builder' && creep.room.name == room3) {
-      roleBuilder.run(creep, wallHpRoom2, wallHpRoom2);
+      roleBuilder.run(creep, wallHpRoom3, wallHpRoom3);
     }
     if (creep.memory.role == 'builder' && creep.room.name == 'W6N3') {
       roleBuilder.run(creep, wallHpRoom3, wallHpRoom3);
