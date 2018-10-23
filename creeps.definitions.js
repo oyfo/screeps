@@ -40,7 +40,7 @@ var definitions = {
       ]
     },
     W5N3: {
-      desiredAmount: 4,
+      desiredAmount: 2,
       composition: [WORK, WORK,
         CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE,
@@ -88,7 +88,7 @@ var definitions = {
       ]
     },
     W5N3: {
-      desiredAmount: 7,
+      desiredAmount: 6,
       composition: [WORK, WORK,
         CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
@@ -137,7 +137,7 @@ var definitions = {
     },
     W5N3: {
       desiredAmount: 0,
-      composition: [TOUGH, TOUGH, TOUGH, TOUGH,    TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
+      composition: [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
         ATTACK, ATTACK
       ]

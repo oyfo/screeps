@@ -15,7 +15,7 @@ var roleBuilder = {
     //var flag = Game.flags['xxx'];
     // console.log(flag);
    // console.log(creep.room.name);
-   var switcher = 0
+   var switcher = 0;
     if (creep.room.name != 'W5N3_controller' && switcher && creep.name.includes('W7N3builder1')){
       var flag = Game.flags['W5N3_controller'];
       console.log(flag);
@@ -38,7 +38,6 @@ var roleBuilder = {
       });
     }*/
     }else {
-      
     if (creep.memory.gathering) {
      // console.log(creep.name)
       var sources = propritizedSources(creep);
@@ -80,7 +79,7 @@ var roleBuilder = {
 
           }
         } else {
-          creep.moveTo(Game.flags[creep.room.name+ '_assembly'])
+          creep.moveTo(Game.flags[creep.room.name+ '_assembly']);
         }
         //creep.moveTo(27, 27);
       }
@@ -97,7 +96,7 @@ function propritizedSources(creep) {
   });
   if (!sources) {
     sources = creep.pos.findClosestByPath(FIND_SOURCES, {
-      filter: (source) => {return (source.energy>0)}
+      filter: (source) => {return (source.energy>0);}
     }); //,{
     //  filter: (source) => {
     //    return (source.room == creep.room);

@@ -15,7 +15,6 @@ var towers = require('tower');
 var links = require('link');
 
 
-
 module.exports.loop = function() {
   /*remember to have flags:
   W7N3_flag_2 - away from conrainers where you want to put resources
@@ -23,32 +22,39 @@ module.exports.loop = function() {
   W7N3_assembly - for ide creeps
   */
  // console.log(Game.spawns['Spawn' + 1].room.name)
+ var room1, room2, room3;
+ var wallHpRoom1, wallHpRoom2, wallHpRoom3
+ var server;
  if (Game.spawns['Spawn' + 1].room.name == 'W7N3'){
    //PRIVATE
-   var room1 = Game.spawns['Spawn' + 1].room.name
-   var room2 = Game.spawns['Spawn' + 2].room.name
-   var room3 = Game.spawns['Spawn' + 3].room.name
-   var wallHpRoom1 = 200000
-   var wallHpRoom2 = 200000
-   var wallHpRoom3 = 5000
-   workers.keepAlive(room1, 1);
-   workers.keepAlive(room2, 2);
-   workers.keepAlive(room3, 3);
-   towers.behave(room1, 15000, 40000);
-   towers.behave(room2, 10000, 10000);
-   towers.behave(room3, 1000, 1000);
+   server = 'private'
+   room1 = Game.spawns['Spawn' + 1].room.name;
+   room2 = Game.spawns['Spawn' + 2].room.name;
+   room3 = Game.spawns['Spawn' + 3].room.name;
+   wallHpRoom1 = 200000;
+   wallHpRoom2 = 200000;
+   wallHpRoom3 = 5000;
+   workers.keepAlive(room1, 1, server);
+   workers.keepAlive(room2, 2, server);
+   workers.keepAlive(room3, 3, server);
+   towers.behave(room1, 15000, 40000, server);
+   towers.behave(room2, 10000, 10000, server);
+   towers.behave(room3, 1000, 1000, server);
  }
  if (Game.spawns['Spawn' + 1].room.name == 'E18N6'){
    //OFFICIAL
-  console.log('official')
-  var room1 = Game.spawns['Spawn' + 1].room.name
-  var room2 = Game.spawns['Spawn' + 2].room.name
-  var wallHpRoom1 = 120000
-  var wallHpRoom2 = 120000
-  workers.keepAlive(room1, 1);
-  workers.keepAlive(room2, 2);
-  towers.behave(room1, 15000, 20000);
-  towers.behave(room1, 15000, 20000);
+   server = 'official';
+ // console.log('official');
+  room1 = Game.spawns['Spawn' + 1].room.name;
+  room2 = Game.spawns['Spawn' + 2].room.name;
+  //room2 = Game.spawns['Spawn' + 2].room.name;
+  wallHpRoom1 = 120000;
+  wallHpRoom2 = 120000;
+  wallHpRoom3 = 5000;
+  workers.keepAlive(room1, 1, server);
+  workers.keepAlive(room2, 2, server);
+  towers.behave(room1, 15000, 20000, server);
+  towers.behave(room1, 15000, 20000, server);
   links.linkIt(room1, [18, 33], [6, 5]);
 
 }

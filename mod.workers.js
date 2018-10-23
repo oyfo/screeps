@@ -1,8 +1,10 @@
-var creepsDefinitions = require('creeps.definitions');
-exports.keepAlive =function(room , no) {
+//var creepsDefinitions = require('creeps.definitions');
+var creepsDefinitionsPrivate = require('creeps.definitions_private');
+var creepsDefinitionsOfficial = require('creeps.definitions_official');
+exports.keepAlive =function(room , no, server) {
     if (Game.time % 5 == 0) {
       crearDeadCreepMemory();
-      manageCreepSpawn(creepsDefinitions, room, no);
+      manageCreepSpawn(chooseDefinititions(server), room, no);
     }
   };
 function reserveController(fromRoom, toRoom){
@@ -17,7 +19,6 @@ function reserveController(fromRoom, toRoom){
   } else if (claim < 0 && (Game.rooms[toRoom].controller.reservation.ticksToEnd < 1000)) {
     console.log("SPRAWWWN2");
     spawnWorker(creepsDefinitions.CLAIMER, fromRoom);
-
   }*/
 }
 
@@ -126,8 +127,12 @@ function findNumberOfRolesInRoom(role, room) {
 
 exports.findRolesInRoom = function(role , room) {
   return findNumberOfRolesInRoom(role, room);
-}
+};
 
-exports.spawnWorker = function(workerType , room) {
-  return spawnWorker(creepsDefinitions[workerType], room);
-}
+exports.spawnWorker = function(workerType , room, server) {
+  return spawnWorker(chooseDefinititions(server)[workerType], room);
+};
+
+function chooseDefinititions(server){
+  return ((server == 'private') ? creepsDefinitionsPrivate : creepsDefinitionsOfficial);
+};

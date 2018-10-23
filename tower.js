@@ -1,7 +1,7 @@
 var workers = require('mod.workers');
 
 module.exports = {
-  behave: function(room, wallHp, rampartHp) {
+  behave: function(room, wallHp, rampartHp, server) {
 
     const hostileAttackers = Game.rooms[room].find(FIND_HOSTILE_CREEPS, {
       filter: function(object) {
@@ -17,8 +17,8 @@ module.exports = {
     if (hostiles.length >0){
       var numberOfDefenders = workers.findRolesInRoom('defender', room).length;
       console.log(numberOfDefenders);
-      if (numberOfDefenders <2) {
-        workers.spawnWorker('DEFENDER', room);
+      if (numberOfDefenders <3) {
+        workers.spawnWorker('DEFENDER', room, server);
       }
     }
 

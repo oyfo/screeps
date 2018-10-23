@@ -16,7 +16,6 @@ Game.spawns['Spawn1'].spawnCreep( [WORK,MOVE],
     { memory: { role: 'staticHarvester' } } );
 
 Game.creeps['Harvester5'].suicide()
-
 Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK,MOVE], 'staticHarvester1', {memory: {role: 'staticHarvester',orderNumber: 1,birthRoom: 'W8N3'}});
 Game.spawns['Spawn1'].spawnCreep([WORK, WORK, WORK, WORK, WORK,MOVE], 'staticHarvester2', {memory: {role: 'staticHarvester',orderNumber: 2,birthRoom: 'W8N3'}});
 Game.spawns['Spawn1'].spawnCreep([WORK,CARRY, CARRY, CARRY,MOVE, MOVE, MOVE, MOVE, MOVE], 'carrier2', {memory: {role: 'carrier',orderNumber: 2,birthRoom: 'W8N3'}});
