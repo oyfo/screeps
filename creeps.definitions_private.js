@@ -18,8 +18,8 @@
       W5N3: {
         desiredAmount: 2,
         composition: [WORK,
-          CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-          MOVE, MOVE, MOVE,
+          CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+          MOVE, MOVE, MOVE, MOVE, MOVE
         ]
       },
       role: 'carrier'
@@ -41,9 +41,9 @@
       },
       W5N3: {
         desiredAmount: 2,
-        composition: [WORK, WORK,
-          CARRY, CARRY, CARRY,
-          MOVE, MOVE, MOVE, MOVE,
+        composition: [WORK, WORK, WORK, WORK,
+          CARRY, CARRY, CARRY,CARRY, CARRY, CARRY, CARRY, CARRY,
+          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
         ]
       },
       role: 'builder'
@@ -53,7 +53,7 @@
         desiredAmount: 0,
         composition: [WORK,
           MOVE, MOVE, MOVE,
-          CARRY, CARRY, MOVE //to be able to repair container
+          CARRY, CARRY, //to be able to repair container
         ]
       },
       W8N3: {
@@ -67,14 +67,14 @@
         desiredAmount: 0,
         composition: [WORK, WORK,
           CARRY, CARRY, CARRY, CARRY,
-          MOVE, MOVE, MOVE,
+          MOVE, MOVE,
         ]
       },
       role: 'harvester'
     },
     UPGRADER: {
       W7N3: {
-        desiredAmount: 2,
+        desiredAmount: 4,
         composition: [WORK, WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
@@ -84,14 +84,14 @@
         desiredAmount: 4,
         composition: [WORK, WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-          MOVE, MOVE, MOVE, MOVE
+          MOVE, MOVE, MOVE, MOVE, MOVE
         ]
       },
       W5N3: {
-        desiredAmount: 6,
-        composition: [WORK, WORK,
-          CARRY, CARRY, CARRY, CARRY,
-          MOVE, MOVE, MOVE,
+        desiredAmount: 4,
+        composition: [WORK, WORK, WORK, WORK, WORK,
+          CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+          MOVE, MOVE, MOVE, MOVE, MOVE,
         ]
       },
       role: 'upgrader'
@@ -159,7 +159,7 @@
       },
       W5N3: {
         desiredAmount: 2,
-        composition: [WORK, WORK, WORK, WORK,
+        composition: [WORK, WORK, WORK, WORK, WORK,
           MOVE
         ]
       },
@@ -285,6 +285,5 @@
       role: 'attacker'
     }
   };
-  
+
   module.exports = definitions;
-  

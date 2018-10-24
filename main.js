@@ -22,51 +22,51 @@ module.exports.loop = function() {
   W7N3_controller - only for claiming, needs more work
   W7N3_assembly - for ide creeps
   */
- // console.log(Game.spawns['Spawn' + 1].room.name)
- var room1, room2, room3;
- var wallHpRoom1, wallHpRoom2, wallHpRoom3
- var server;
- if (Game.spawns['Spawn' + 1].room.name == 'W7N3'){
-   //PRIVATE
-   server = 'private'
-   room1 = Game.spawns['Spawn' + 1].room.name;
-   room2 = Game.spawns['Spawn' + 2].room.name;
-   room3 = Game.spawns['Spawn' + 3].room.name;
-   wallHpRoom1 = 200000;
-   wallHpRoom2 = 200000;
-   wallHpRoom3 = 5000;
-   workers.keepAlive(room1, 1, server);
-   workers.keepAlive(room2, 2, server);
-   workers.keepAlive(room3, 3, server);
-   towers.behave(room1, 15000, 40000, server);
-   towers.behave(room2, 10000, 10000, server);
-   towers.behave(room3, 1000, 1000, server);
- }
- if (Game.spawns['Spawn' + 1].room.name == 'E18N6'){
-   //OFFICIAL
-   server = 'official';
- // console.log('official');
-  room1 = Game.spawns['Spawn' + 1].room.name;
-  room2 = Game.spawns['Spawn' + 2].room.name;
-  //room2 = Game.spawns['Spawn' + 2].room.name;
-  wallHpRoom1 = 200000;
-  wallHpRoom2 = 200000;
-  wallHpRoom3 = 5000;
-  workers.keepAlive(room1, 1, server);
-  workers.keepAlive(room2, 2, server);
-  towers.behave(room1, 15000, 20000, server);
-  towers.behave(room1, 15000, 20000, server);
-  links.linkIt(room1, [18, 33], [6, 5]);
-  links.linkIt(room2, [3, 6], [35, 12]);
+  // console.log(Game.spawns['Spawn' + 1].room.name)
+  var room1, room2, room3;
+  var wallHpRoom1, wallHpRoom2, wallHpRoom3;
+  var server;
+  if (Game.spawns['Spawn' + 1].room.name == 'W7N3') {
+    //PRIVATE
+    server = 'private';
+    room1 = Game.spawns['Spawn' + 1].room.name;
+    room2 = Game.spawns['Spawn' + 2].room.name;
+    room3 = Game.spawns['Spawn' + 3].room.name;
+    wallHpRoom1 = 500000;
+    wallHpRoom2 = 500000;
+    wallHpRoom3 = 150000;
+    workers.keepAlive(room1, 1, server);
+    workers.keepAlive(room2, 2, server);
+    workers.keepAlive(room3, 3, server);
+    towers.behave(room1, 15000, 40000, server);
+    towers.behave(room2, 10000, 10000, server);
+    towers.behave(room3, 15000, 15000, server);
+  }
+  if (Game.spawns['Spawn' + 1].room.name == 'E18N6') {
+    //OFFICIAL
+    server = 'official';
+    // console.log('official');
+    room1 = Game.spawns['Spawn' + 1].room.name;
+    room2 = Game.spawns['Spawn' + 2].room.name;
+    //room2 = Game.spawns['Spawn' + 2].room.name;
+    wallHpRoom1 = 200000;
+    wallHpRoom2 = 200000;
+    wallHpRoom3 = 5000;
+    workers.keepAlive(room1, 1, server);
+    workers.keepAlive(room2, 2, server);
+    towers.behave(room1, 15000, 20000, server);
+    towers.behave(room1, 15000, 20000, server);
+    links.linkIt(room1, [18, 33], [6, 5]);
+    links.linkIt(room2, [3, 6], [35, 12]);
 
-}
- /// workers.keepAlive('W7N3', 1);
+  }
+  /// workers.keepAlive('W7N3', 1);
   //workers.keepAlive('W8N3', 2);
   //towers.behave('W7N3', 15000, 40000);
   //towers.behave('W8N3', 5000, 2000);
 
- // towers.behave('E18N7', 15000, 30000);
- // links.linkIt('W8N3', [18, 33], [6, 5]);
+  // towers.behave('E18N7', 15000, 30000);
+  // links.linkIt('W8N3', [18, 33], [6, 5]);
   for (var name in Game.creeps) {
     var creep = Game.creeps[name];
     if (creep.memory.role == 'harvester') {
@@ -76,17 +76,13 @@ module.exports.loop = function() {
       roleUpgrader.run(creep);
     }
     if (creep.memory.role == 'builder' && creep.room.name == room1) {
-    //  console.log(creep.name)
       roleBuilder.run(creep, wallHpRoom1, wallHpRoom1);
-    }
-    if (creep.memory.role == 'builder' && creep.room.name == room2) {
+    } else if (creep.memory.role == 'builder' && creep.room.name == room2) {
       roleBuilder.run(creep, wallHpRoom2, wallHpRoom2);
-    }
-    if (creep.memory.role == 'builder' && creep.room.name == room3) {
+    } else if (creep.memory.role == 'builder' && creep.room.name == room3) {
       roleBuilder.run(creep, wallHpRoom3, wallHpRoom3);
-    }
-    if (creep.memory.role == 'builder' && creep.room.name == 'W6N3') {
-      roleBuilder.run(creep, wallHpRoom3, wallHpRoom3);
+    } else if (creep.memory.role == 'builder') {
+      roleBuilder.run(creep, 1000, 1000);
     }
     if (creep.memory.role == 'repairer') {
       roleRepairer.run(creep);
@@ -120,36 +116,36 @@ module.exports.loop = function() {
     }
   }
 
-/*
-  if (Game.time % 60 == 0 && (Game.rooms.W8N3.controller.level == 3)) {
-    var numberOfExtensions = Game.rooms.W8N3.find(FIND_STRUCTURES, {
-      filter: (structure) => {
-        return (structure.structureType == STRUCTURE_EXTENSION);
+  /*
+    if (Game.time % 60 == 0 && (Game.rooms.W8N3.controller.level == 3)) {
+      var numberOfExtensions = Game.rooms.W8N3.find(FIND_STRUCTURES, {
+        filter: (structure) => {
+          return (structure.structureType == STRUCTURE_EXTENSION);
+        }
+      });
+       console.log('number of extensions: ' + numberOfExtensions.length);
+      if (numberOfExtensions.length == 5) {
+        Game.rooms.W8N3.createConstructionSite(36, 26, STRUCTURE_EXTENSION);
       }
-    });
-     console.log('number of extensions: ' + numberOfExtensions.length);
-    if (numberOfExtensions.length == 5) {
-      Game.rooms.W8N3.createConstructionSite(36, 26, STRUCTURE_EXTENSION);
-    }
-    if (numberOfExtensions.length == 6) {
-      Game.rooms.W8N3.createConstructionSite(37, 25, STRUCTURE_EXTENSION);
-    }
-    if (numberOfExtensions.length == 7) {
-      Game.rooms.W8N3.createConstructionSite(34, 28, STRUCTURE_EXTENSION);
-    }
-    if (numberOfExtensions.length == 8) {
-      Game.rooms.W8N3.createConstructionSite(38, 28, STRUCTURE_EXTENSION);
-    }
-    if (numberOfExtensions.length == 9) {
-      Game.rooms.W8N3.createConstructionSite(39, 27, STRUCTURE_EXTENSION);
-    }
-    if (numberOfExtensions.length == 10) {
-      Game.rooms.W8N3.createConstructionSite(29, 44, STRUCTURE_TOWER);
-    }
-    //if (numberOfExtensions.length == 25){
-    //  Game.rooms.W8N3.createConstructionSite(19,32, STRUCTURE_STORAGE);
-    //}
-  }*/
+      if (numberOfExtensions.length == 6) {
+        Game.rooms.W8N3.createConstructionSite(37, 25, STRUCTURE_EXTENSION);
+      }
+      if (numberOfExtensions.length == 7) {
+        Game.rooms.W8N3.createConstructionSite(34, 28, STRUCTURE_EXTENSION);
+      }
+      if (numberOfExtensions.length == 8) {
+        Game.rooms.W8N3.createConstructionSite(38, 28, STRUCTURE_EXTENSION);
+      }
+      if (numberOfExtensions.length == 9) {
+        Game.rooms.W8N3.createConstructionSite(39, 27, STRUCTURE_EXTENSION);
+      }
+      if (numberOfExtensions.length == 10) {
+        Game.rooms.W8N3.createConstructionSite(29, 44, STRUCTURE_TOWER);
+      }
+      //if (numberOfExtensions.length == 25){
+      //  Game.rooms.W8N3.createConstructionSite(19,32, STRUCTURE_STORAGE);
+      //}
+    }*/
 
   // var room = 'W8N3'
   // for (var spawn in Game.spawns){
