@@ -9,6 +9,7 @@ var roleStaticHarvesterRemote = require('role.staticHarvesterRemote');
 var roleCarrier = require('role.carrier');
 var roleAttacker = require('role.attacker');
 var roleSlaveReceiver = require('role.slaveReceiver');
+var roleSlaveSender = require('role.slaveSender');
 var roleClaimer = require('role.claimer');
 var roleDefender = require('role.defender');
 var towers = require('tower');
@@ -56,6 +57,7 @@ module.exports.loop = function() {
   towers.behave(room1, 15000, 20000, server);
   towers.behave(room1, 15000, 20000, server);
   links.linkIt(room1, [18, 33], [6, 5]);
+  links.linkIt(room2, [3, 6], [35, 12]);
 
 }
  /// workers.keepAlive('W7N3', 1);
@@ -107,6 +109,9 @@ module.exports.loop = function() {
     if (creep.memory.role == 'slaveReceiver') {
       roleSlaveReceiver.run(creep);
     }
+    if (creep.memory.role == 'slaveSender') {
+      roleSlaveSender.run(creep);
+    }
     if (creep.memory.role == 'claimer') {
       roleClaimer.run(creep);
     }
@@ -115,7 +120,7 @@ module.exports.loop = function() {
     }
   }
 
-
+/*
   if (Game.time % 60 == 0 && (Game.rooms.W8N3.controller.level == 3)) {
     var numberOfExtensions = Game.rooms.W8N3.find(FIND_STRUCTURES, {
       filter: (structure) => {
@@ -144,7 +149,7 @@ module.exports.loop = function() {
     //if (numberOfExtensions.length == 25){
     //  Game.rooms.W8N3.createConstructionSite(19,32, STRUCTURE_STORAGE);
     //}
-  }
+  }*/
 
   // var room = 'W8N3'
   // for (var spawn in Game.spawns){

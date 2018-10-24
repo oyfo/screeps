@@ -24,7 +24,7 @@ var roleSlaveReceiver = {
       //    console.log('link receiver: ' +linkReceiver);
       var containerReceiver = flag.pos.findInRange(FIND_STRUCTURES, 3, {
         filter: (structure) => {
-          return (structure.structureType == STRUCTURE_CONTAINER);
+          return (structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_STORAGE);
         }
       })[0];
       //console.log('contaierReveiver: ' +containerReceiver);

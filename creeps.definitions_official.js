@@ -168,6 +168,23 @@
           },
           role: 'slaveReceiver'
         },
+        SLAVE_SENDER: {
+          E18N6: {
+            desiredAmount: 0,
+            composition: [WORK,
+              MOVE,
+              CARRY,
+            ]
+          },
+          E18N7: {
+            desiredAmount: 0,
+            composition: [WORK,
+              MOVE,
+              CARRY,
+            ]
+          },
+          role: 'slaveSender'
+        },
         CLAIMER: {
           E18N6: {
             desiredAmount: 0,

@@ -27,7 +27,7 @@ var roleCarrier = {
         var flag = Game.flags[creep.room.name + '_2'];
         pickContainer = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
-            return ((structure.structureType == STRUCTURE_CONTAINER && structure.store[RESOURCE_ENERGY] > creep.carryCapacity) && (!structure.pos.inRangeTo(flag, 2)));
+            return (((structure.structureType == STRUCTURE_CONTAINER&& (!structure.pos.inRangeTo(flag, 2))) && structure.store[RESOURCE_ENERGY] > creep.carryCapacity));
           }
         });
         //console.log(pickContainer);
