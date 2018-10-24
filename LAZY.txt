@@ -1,3 +1,9 @@
+TO DO:
+OGARNIJ FLAGI
+ZMIEN DEFINICJE CREEPOW
+
+
+
 Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Harvester1' );
 
 Game.creeps['Harv1'].memory.role = 'harvester';

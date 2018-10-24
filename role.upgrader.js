@@ -2,7 +2,7 @@ var roleUpgrader = {
 
   /** @param {Creep} creep **/
   run: function(creep) {
-      creep.say('U'); // + creep.memory.orderNumber);
+    creep.say('U'); // + creep.memory.orderNumber);
     if (!creep.memory.gathering && creep.carry.energy == 0) {
       creep.memory.gathering = true;
       //  creep.say('🔄 harvest');
@@ -12,17 +12,17 @@ var roleUpgrader = {
       //  creep.say('🚧 upgrade');
     }
     //creep.memory.gathering = false
-    if (0 && creep.name == 'E18N6upgrader1' && creep.room.name != 'W17N6') {
-      var flag = Game.flags['E18N5_conroller'];
-        if (creep.moveTo(flag) == ERR_NOT_IN_RANGE) {
-          creep.moveTo(flag, {
-            visualizePathStyle: {
-              stroke: '#ffaa00'
-            }
-          });
-        }
-    }
-    else {
+    // if (0 && creep.name == 'E18N6upgrader1' && creep.room.name != 'W17N6') {
+    //   var flag = Game.flags['E18N5_conroller'];
+    //     if (creep.moveTo(flag) == ERR_NOT_IN_RANGE) {
+    //       creep.moveTo(flag, {
+    //         visualizePathStyle: {
+    //           stroke: '#ffaa00'
+    //         }
+    //       });
+    //     }
+    // }
+    // else {
     if (creep.memory.gathering) {
       var droppedEnergy = creep.pos.findClosestByPath(FIND_DROPPED_RESOURCES, {
         filter: (drop) => {
@@ -43,8 +43,9 @@ var roleUpgrader = {
         var containers = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
             return (structure.structureType == STRUCTURE_CONTAINER && structure.store[
-              RESOURCE_ENERGY] >= 600) || (structure.structureType == STRUCTURE_STORAGE && structure.store[
-              RESOURCE_ENERGY] >= 10000);
+              RESOURCE_ENERGY] >= 600) || (structure.structureType == STRUCTURE_STORAGE &&
+              structure.store[
+                RESOURCE_ENERGY] >= 10000);
           }
         });
         if (containers) {
@@ -86,9 +87,10 @@ var roleUpgrader = {
             }
           });
         }
-      }
+        // }
 
-    }}
+      }
+    }
   }
 };
 

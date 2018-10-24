@@ -26,7 +26,7 @@ var definitions = {
   },
   BUILDER: {
     E18N6: {
-      desiredAmount: 5,
+      desiredAmount: 3,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
@@ -64,7 +64,7 @@ var definitions = {
       ]
     },
     E18N5: {
-      desiredAmount: 0,
+      desiredAmount: 2,
       composition: [WORK,
         MOVE, MOVE,
         CARRY, CARRY, //to be able to repair container
@@ -74,7 +74,7 @@ var definitions = {
   },
   UPGRADER: {
     E18N6: {
-      desiredAmount: 5,
+      desiredAmount: 4,
       composition: [WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
@@ -88,7 +88,7 @@ var definitions = {
       ]
     },
     E18N5: {
-      desiredAmount: 0,
+      desiredAmount: 1,
       composition: [WORK,
         CARRY, CARRY,
         MOVE, MOVE,
@@ -105,6 +105,13 @@ var definitions = {
       ]
     },
     E18N7: {
+      desiredAmount: 0,
+      composition: [WORK, WORK, WORK, WORK, WORK,
+        CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE
+      ]
+    },
+    E18N5: {
       desiredAmount: 0,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY,
@@ -139,7 +146,7 @@ var definitions = {
   },
   ATTACKER: {
     E18N6: {
-      desiredAmount: 2,
+      desiredAmount: 0,
       composition: [RANGED_ATTACK,
         TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
         RANGED_ATTACK,
@@ -178,7 +185,7 @@ var definitions = {
       ]
     },
     E18N5: {
-      desiredAmount: 2,
+      desiredAmount: 0,
       composition: [WORK, WORK, WORK, WORK, WORK,
         MOVE
       ]
@@ -194,6 +201,13 @@ var definitions = {
       ]
     },
     E18N7: {
+      desiredAmount: 0,
+      composition: [WORK, WORK, WORK, WORK, WORK,
+        CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE
+      ]
+    },
+    E18N5: {
       desiredAmount: 0,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY,
@@ -217,6 +231,13 @@ var definitions = {
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY //to be able to repair container
       ]
     },
+    E18N5: {
+      desiredAmount: 0,
+      composition: [WORK, WORK, WORK, WORK, WORK,
+        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY //to be able to repair container
+      ]
+    },
     role: 'staticHarvesterRemote'
   },
   SLAVE_RECEIVER: {
@@ -228,6 +249,13 @@ var definitions = {
       ]
     },
     E18N7: {
+      desiredAmount: 0,
+      composition: [WORK,
+        MOVE,
+        CARRY,
+      ]
+    },
+    E18N5: {
       desiredAmount: 0,
       composition: [WORK,
         MOVE,
@@ -251,6 +279,13 @@ var definitions = {
         CARRY,
       ]
     },
+    E18N5: {
+      desiredAmount: 0,
+      composition: [WORK,
+        MOVE,
+        CARRY,
+      ]
+    },
     role: 'slaveSender'
   },
   CLAIMER: {
@@ -262,6 +297,12 @@ var definitions = {
       ]
     },
     E18N7: {
+      desiredAmount: 0,
+      composition: [CLAIM,
+        MOVE, MOVE, MOVE, MOVE,
+      ]
+    },
+    E18N5: {
       desiredAmount: 0,
       composition: [CLAIM,
         MOVE, MOVE, MOVE, MOVE,

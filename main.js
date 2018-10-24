@@ -2,19 +2,18 @@ var workers = require('mod.workers');
 var roleHarvester = require('role.harvester');
 var roleUpgrader = require('role.upgrader');
 var roleBuilder = require('role.builder');
-var roleRepairer = require('role.repairer');
-var roleDepositor = require('role.depositor');
+//var roleRepairer = require('role.repairer');
+//var roleDepositor = require('role.depositor');
 var roleStaticHarvester = require('role.staticHarvester');
 var roleStaticHarvesterRemote = require('role.staticHarvesterRemote');
 var roleCarrier = require('role.carrier');
 var roleAttacker = require('role.attacker');
 var roleSlaveReceiver = require('role.slaveReceiver');
-var roleSlaveSender = require('role.slaveSender');
+//var roleSlaveSender = require('role.slaveSender');
 var roleClaimer = require('role.claimer');
 var roleDefender = require('role.defender');
 var towers = require('tower');
 var links = require('link');
-
 
 module.exports.loop = function() {
   /*remember to have flags:
@@ -26,7 +25,10 @@ module.exports.loop = function() {
   var room1, room2, room3;
   var wallHpRoom1, wallHpRoom2, wallHpRoom3;
   var server;
-  if (Game.spawns['Spawn' + 1].room.name == 'W7N3') {
+  console.log('test')
+  var spawn1 = Game.spawns['Spawn' + 1].room.name
+  if (spawn1 == 'W7N3') {
+    console.log('private');
     //PRIVATE
     server = 'private';
     room1 = Game.spawns['Spawn' + 1].room.name;
@@ -43,23 +45,24 @@ module.exports.loop = function() {
     towers.behave(room3, 15000, 15000, server);
   }
 
-  if (Game.spawns['Spawn' + 1].room.name == 'E18N6') {
+  if (spawn1 == 'E18N6') {
+    console.log('official');
     //OFFICIAL
     server = 'official';
     room1 = Game.spawns['Spawn' + 1].room.name;
     room2 = Game.spawns['Spawn' + 2].room.name;
-  //  room3 = Game.spawns['Spawn' + 3].room.name;
+    room3 = Game.spawns['Spawn' + 3].room.name;
     wallHpRoom1 = 500000;
     wallHpRoom2 = 200000;
     wallHpRoom3 = 5000;
     workers.keepAlive(room1, 1, server);
     workers.keepAlive(room2, 2, server);
-    //workers.keepAlive(room2, 3, server);
+    workers.keepAlive(room3, 3, server);
     towers.behave(room1, 15000, 20000, server);
     towers.behave(room2, 15000, 20000, server);
-    //towers.behave(room3, 1000, 2000, server);
+    towers.behave(room3, 1000, 2000, server);
     links.linkIt(room1, [18, 33], [6, 5]);
-    links.linkIt(room2, [3, 6], [35, 12]);
+  //  links.linkIt(room2, [3, 6], [35, 12]);
 
   }
   /// workers.keepAlive('W7N3', 1);
@@ -81,7 +84,7 @@ module.exports.loop = function() {
       roleBuilder.run(creep, wallHpRoom1, wallHpRoom1);
     }
     if (creep.memory.role == 'builder' && creep.room.name == room2) {
-      roleBuilder.run(creep, wallHpRoom2, 190000);
+      roleBuilder.run(creep, wallHpRoom2, wallHpRoom2);
     }
     if (creep.memory.role == 'builder' && creep.room.name == room3) {
       roleBuilder.run(creep, wallHpRoom3, wallHpRoom3);
@@ -92,9 +95,9 @@ module.exports.loop = function() {
     if (creep.memory.role == 'repairer') {
       roleRepairer.run(creep);
     }
-    if (creep.memory.role == 'depositor') {
-      roleDepositor.run(creep);
-    }
+    // if (creep.memory.role == 'depositor') {
+    //   roleDepositor.run(creep);
+    // }
     if (creep.memory.role == 'staticHarvester') {
       roleStaticHarvester.run(creep);
     }
@@ -110,9 +113,9 @@ module.exports.loop = function() {
     if (creep.memory.role == 'slaveReceiver') {
       roleSlaveReceiver.run(creep);
     }
-    if (creep.memory.role == 'slaveSender') {
-      roleSlaveSender.run(creep);
-    }
+    // if (creep.memory.role == 'slaveSender') {
+    //   roleSlaveSender.run(creep);
+    // }
     if (creep.memory.role == 'claimer') {
       roleClaimer.run(creep);
     }
