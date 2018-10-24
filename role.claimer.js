@@ -17,19 +17,19 @@ var roleClaimer = {
           creep.moveTo(creep.room.controller);
         }
       }*/
-    var flag = Game.flags['W5N3_controller'];
+  /*  var flag = Game.flags['E18N5_conroller'];
     if (creep.moveTo(flag) == ERR_NOT_IN_RANGE) {
       creep.moveTo(flag, {
         visualizePathStyle: {
           stroke: '#ffaa00'
         }
       });
-    }
-    /*if (!creep.room.controller.my) {
+    }*/
+    if (!creep.room.controller.my) {
       if (creep.claimController(creep.room.controller) == ERR_NOT_IN_RANGE) {
         creep.moveTo(creep.room.controller);
       }
-    }*/
+    }
   }
 };
 

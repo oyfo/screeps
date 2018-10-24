@@ -1,17 +1,18 @@
 //var creepsDefinitions = require('creeps.definitions');
 var creepsDefinitionsPrivate = require('creeps.definitions_private');
 var creepsDefinitionsOfficial = require('creeps.definitions_official');
-exports.keepAlive =function(room , no, server) {
-    if (Game.time % 5 == 0) {
-      crearDeadCreepMemory();
-      manageCreepSpawn(chooseDefinititions(server), room, no);
-    }
-  };
-function reserveController(fromRoom, toRoom){
-  var claimers1  = findNumberOfRolesInRoom('claimer', fromRoom).length;
-  var claimers2  = findNumberOfRolesInRoom('claimer', toRoom).length;
+exports.keepAlive = function(room, no, server) {
+  if (Game.time % 5 == 0) {
+    crearDeadCreepMemory();
+    manageCreepSpawn(chooseDefinititions(server), room, no);
+  }
+};
+
+function reserveController(fromRoom, toRoom) {
+  var claimers1 = findNumberOfRolesInRoom('claimer', fromRoom).length;
+  var claimers2 = findNumberOfRolesInRoom('claimer', toRoom).length;
   var claim = claimers1 + claimers2;
-  console.log('how many claimers:  '+claim);
+  console.log('how many claimers:  ' + claim);
 
   /*if( !Game.rooms[toRoom].controller.reservation && claim < 0 ){
     console.log("SPRAWWWN1");
@@ -42,6 +43,7 @@ function manageCreepSpawn(creepsDefinitions, room, roomNumber) {
   var carriers = findNumberOfRolesInRoom('carrier', room);
   var slaveReceivers = findNumberOfRolesInRoom('slaveReceiver', room);
   var claimers = findNumberOfRolesInRoom('claimer', room);
+  var attackers = findNumberOfRolesInRoom('attacker', room);
 
   console.log(roomNumber + " room: " + room +
     ' SH:' + staticHarvesters.length + '/' + creepsDefinitions.STATIC_HARVESTER[room].desiredAmount + ' | ' +
@@ -57,6 +59,8 @@ function manageCreepSpawn(creepsDefinitions, room, roomNumber) {
 
   if (harvesters.length < creepsDefinitions.HARVESTER[room].desiredAmount) {
     spawnWorker(creepsDefinitions.HARVESTER, room);
+  } else if (attackers.length < creepsDefinitions.ATTACKER[room].desiredAmount) {
+    spawnWorker(creepsDefinitions.ATTACKER, room);
   } else if (staticHarvestersRemote.length < creepsDefinitions.STATIC_HARVESTER_REMOTE[room].desiredAmount) {
     spawnWorker(creepsDefinitions.STATIC_HARVESTER_REMOTE, room);
   } else if (carriers.length < creepsDefinitions.CARRIER[room].desiredAmount) {
@@ -97,11 +101,11 @@ function spawnWorker(workerType, room) {
     }
   }
   var orderNumber = findOrderNumber(workerType, room);
-  if (!orderNumber){
+  if (!orderNumber) {
     orderNumber = Math.floor((Math.random() * 1000000) + 1);
   }
   var newName = room + workerType.role + orderNumber;
-  console.log(spawnsInRoom +' spawning new ' + newName);
+  console.log(spawnsInRoom + ' spawning new ' + newName);
   var composition = workerType[room].composition;
   Game.spawns[spawnsInRoom].spawnCreep(composition, newName, {
     memory: {
@@ -125,14 +129,14 @@ function findNumberOfRolesInRoom(role, room) {
   return (_.filter(Game.creeps, (creep) => creep.memory.role == role && creep.memory.birthRoom == room));
 }
 
-exports.findRolesInRoom = function(role , room) {
+exports.findRolesInRoom = function(role, room) {
   return findNumberOfRolesInRoom(role, room);
 };
 
-exports.spawnWorker = function(workerType , room, server) {
+exports.spawnWorker = function(workerType, room, server) {
   return spawnWorker(chooseDefinititions(server)[workerType], room);
 };
 
-function chooseDefinititions(server){
+function chooseDefinititions(server) {
   return ((server == 'private') ? creepsDefinitionsPrivate : creepsDefinitionsOfficial);
 };

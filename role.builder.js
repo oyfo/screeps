@@ -15,10 +15,10 @@ var roleBuilder = {
     //var flag = Game.flags['xxx'];
     // console.log(flag);
    // console.log(creep.room.name);
-   var switcher = 0;
-    if (creep.room.name != 'W5N3_controller' && switcher && creep.name.includes('W7N3builder1')){
-      var flag = Game.flags['W5N3_controller'];
-      console.log(flag);
+   var switcher = 1 ;
+    if (creep.room.name != 'E18N5' && switcher && creep.name.includes('E18N6') && creep.memory.orderNumber >3){
+      var flag = Game.flags['E18N5_conroller'];
+      //console.log(flag);
       if (creep.moveTo(flag) == ERR_NOT_IN_RANGE) {
         creep.moveTo(flag, {
           visualizePathStyle: {

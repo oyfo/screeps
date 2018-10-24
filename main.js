@@ -42,20 +42,22 @@ module.exports.loop = function() {
     towers.behave(room2, 10000, 10000, server);
     towers.behave(room3, 15000, 15000, server);
   }
+
   if (Game.spawns['Spawn' + 1].room.name == 'E18N6') {
     //OFFICIAL
     server = 'official';
-    // console.log('official');
     room1 = Game.spawns['Spawn' + 1].room.name;
     room2 = Game.spawns['Spawn' + 2].room.name;
-    //room2 = Game.spawns['Spawn' + 2].room.name;
+  //  room3 = Game.spawns['Spawn' + 3].room.name;
     wallHpRoom1 = 500000;
-    wallHpRoom2 = 500000;
+    wallHpRoom2 = 200000;
     wallHpRoom3 = 5000;
     workers.keepAlive(room1, 1, server);
     workers.keepAlive(room2, 2, server);
+    //workers.keepAlive(room2, 3, server);
     towers.behave(room1, 15000, 20000, server);
-    towers.behave(room1, 15000, 20000, server);
+    towers.behave(room2, 15000, 20000, server);
+    //towers.behave(room3, 1000, 2000, server);
     links.linkIt(room1, [18, 33], [6, 5]);
     links.linkIt(room2, [3, 6], [35, 12]);
 
@@ -77,12 +79,15 @@ module.exports.loop = function() {
     }
     if (creep.memory.role == 'builder' && creep.room.name == room1) {
       roleBuilder.run(creep, wallHpRoom1, wallHpRoom1);
-    } else if (creep.memory.role == 'builder' && creep.room.name == room2) {
-      roleBuilder.run(creep, wallHpRoom2, wallHpRoom2);
-    } else if (creep.memory.role == 'builder' && creep.room.name == room3) {
+    }
+    if (creep.memory.role == 'builder' && creep.room.name == room2) {
+      roleBuilder.run(creep, wallHpRoom2, 190000);
+    }
+    if (creep.memory.role == 'builder' && creep.room.name == room3) {
       roleBuilder.run(creep, wallHpRoom3, wallHpRoom3);
-    } else if (creep.memory.role == 'builder') {
-      roleBuilder.run(creep, 1000, 1000);
+    }
+    if (creep.memory.role == 'builder' && creep.room.name == 'E18N5') {
+      roleBuilder.run(creep, wallHpRoom3, wallHpRoom3);
     }
     if (creep.memory.role == 'repairer') {
       roleRepairer.run(creep);
