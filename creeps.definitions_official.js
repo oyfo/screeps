@@ -43,8 +43,8 @@
             ]
           },
           E18N7: {
-            desiredAmount: 0,
-            composition: [WORK,
+            desiredAmount: 2,
+            composition: [WORK, WORK,
               MOVE, MOVE,
               CARRY, CARRY, //to be able to repair container
             ]
@@ -202,6 +202,5 @@
           role: 'claimer'
         }
       };
-      
+
       module.exports = definitions;
-      
