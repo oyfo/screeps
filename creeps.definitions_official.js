@@ -41,9 +41,9 @@ var definitions = {
     },
     E18N5: {
       desiredAmount: 2,
-      composition: [WORK, WORK, WORK,
-        CARRY, CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE, MOVE,
+      composition: [WORK, WORK, WORK, WORK, WORK, 
+        CARRY, CARRY, CARRY, CARRY, CARRY,CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
     role: 'builder'
@@ -74,14 +74,14 @@ var definitions = {
   },
   UPGRADER: {
     E18N6: {
-      desiredAmount: 2,
+      desiredAmount: 3,
       composition: [WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 1,
+      desiredAmount: 3,
       composition: [WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
@@ -146,7 +146,7 @@ var definitions = {
   },
   ATTACKER: {
     E18N6: {
-      desiredAmount: 1,
+      desiredAmount: 0,
       composition: [RANGED_ATTACK,
         TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
         RANGED_ATTACK,
