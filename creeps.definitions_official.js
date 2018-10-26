@@ -88,7 +88,7 @@ var definitions = {
       ]
     },
     E18N5: {
-      desiredAmount: 4,
+      desiredAmount: 3,
       composition: [WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE

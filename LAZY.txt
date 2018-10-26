@@ -1,6 +1,6 @@
 TO DO:
-UNBLOCK SPAWN
-OGARNIJ FLAGI
+UNBLOCK SPAWN - assembly done - carriers, builders, any other?
+OGARNIJ FLAGI - Game.flags.attack.room.name
 ZMIEN DEFINICJE CREEPOW
 NR of UPGRADERS DEPENDING ON storage, walls upgrading depending on storage.
 
