@@ -40,7 +40,7 @@
         ]
       },
       W5N3: {
-        desiredAmount: 5,
+        desiredAmount: 2,
         composition: [WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY,CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
