@@ -18,7 +18,7 @@
       W5N3: {
         desiredAmount: 2,
         composition: [WORK,
-          CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+          CARRY, CARRY, CARRY, CARRY, CARRY,// CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE
         ]
       },
@@ -26,24 +26,24 @@
     },
     BUILDER: {
       W7N3: {
-        desiredAmount: 2,
+        desiredAmount: 1,
         composition: [WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
         ]
       },
       W8N3: {
-        desiredAmount: 2,
+        desiredAmount: 1,
         composition: [WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, CARRY,
         ]
       },
       W5N3: {
-        desiredAmount: 2,
+        desiredAmount: 5,
         composition: [WORK, WORK, WORK, WORK,
-          CARRY, CARRY, CARRY,CARRY, CARRY, CARRY, CARRY, CARRY,
-          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+          CARRY, CARRY, CARRY,CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
         ]
       },
       role: 'builder'
@@ -65,8 +65,8 @@
       },
       W5N3: {
         desiredAmount: 0,
-        composition: [WORK, WORK,
-          CARRY, CARRY, CARRY, CARRY,
+        composition: [WORK, 
+          CARRY, CARRY, 
           MOVE, MOVE,
         ]
       },
@@ -74,7 +74,7 @@
     },
     UPGRADER: {
       W7N3: {
-        desiredAmount: 4,
+        desiredAmount: 3,
         composition: [WORK, WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
@@ -88,7 +88,7 @@
         ]
       },
       W5N3: {
-        desiredAmount: 4,
+        desiredAmount: 5,
         composition: [WORK, WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE,
@@ -124,22 +124,22 @@
       W7N3: {
         desiredAmount: 0,
         composition: [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
-          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
-          ATTACK, ATTACK
+          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+          RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK
         ]
       },
       W8N3: {
         desiredAmount: 0,
         composition: [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
-          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
-          ATTACK, ATTACK
+          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+          RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK
         ]
       },
       W5N3: {
         desiredAmount: 0,
-        composition: [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
-          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
-          ATTACK, ATTACK
+        composition: [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
+          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+          RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK
         ]
       },
       role: 'defender'

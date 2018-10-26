@@ -28,7 +28,7 @@ module.exports.loop = function() {
 //  console.log('test')
   var spawn1 = Game.spawns['Spawn' + 1].room.name
   if (spawn1 == 'W7N3') {
-    console.log('private');
+    //console.log('private');
     //PRIVATE
     server = 'private';
     room1 = Game.spawns['Spawn' + 1].room.name;
@@ -36,13 +36,13 @@ module.exports.loop = function() {
     room3 = Game.spawns['Spawn' + 3].room.name;
     wallHpRoom1 = 500000;
     wallHpRoom2 = 500000;
-    wallHpRoom3 = 150000;
+    wallHpRoom3 = 200000;
     workers.keepAlive(room1, 1, server);
     workers.keepAlive(room2, 2, server);
     workers.keepAlive(room3, 3, server);
     towers.behave(room1, 15000, 40000, server);
     towers.behave(room2, 10000, 10000, server);
-    towers.behave(room3, 10000, 10000, server);
+    towers.behave(room3, 5000, 5000, server);
   }
 
   if (spawn1 == 'E18N6') {
@@ -54,7 +54,7 @@ module.exports.loop = function() {
     room3 = Game.spawns['Spawn' + 3].room.name;
     wallHpRoom1 = 500000;
     wallHpRoom2 = 200000;
-    wallHpRoom3 = 30000;
+    wallHpRoom3 = 50000;
     workers.keepAlive(room1, 1, server);
     workers.keepAlive(room2, 2, server);
     workers.keepAlive(room3, 3, server);

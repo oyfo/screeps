@@ -122,24 +122,24 @@ var definitions = {
   },
   DEFENDER: {
     E18N6: {
-      desiredAmount: 1,
-      composition: [RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK,
-        TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
-        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+      desiredAmount: 0,
+      composition: [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
+        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+        RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK
       ]
     },
     E18N7: {
       desiredAmount: 0,
-      composition: [ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK,
-        TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
-        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
+      composition: [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
+        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+        RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK
       ]
     },
     E18N5: {
       desiredAmount: 0,
-      composition: [ATTACK, ATTACK, ATTACK, ATTACK, ATTACK, ATTACK,
-        TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
-        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
+      composition: [TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
+        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+        RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK
       ]
     },
     role: 'defender'
