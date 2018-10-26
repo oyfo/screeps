@@ -15,8 +15,8 @@ var roleBuilder = {
     //var flag = Game.flags['xxx'];
     // console.log(flag);
    // console.log(creep.room.name);
-   var switcher = 1 ;
-    if (creep.room.name != 'E18N5' && switcher && creep.name.includes('E18N6') && creep.memory.orderNumber >3){
+   var switcher = 0 ;
+    if (creep.room.name != 'E18N5' && switcher && creep.name.includes('E18N6') && creep.memory.orderNumber >2){
       var flag = Game.flags['E18N5_conroller'];
       //console.log(flag);
       if (creep.moveTo(flag) == ERR_NOT_IN_RANGE) {

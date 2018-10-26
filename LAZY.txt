@@ -1,6 +1,8 @@
 TO DO:
+UNBLOCK SPAWN
 OGARNIJ FLAGI
 ZMIEN DEFINICJE CREEPOW
+NR of UPGRADERS DEPENDING ON storage, walls upgrading depending on storage.
 
 
 

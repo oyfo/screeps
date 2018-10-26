@@ -27,7 +27,7 @@ var roleCarrier = {
         var flag = Game.flags[creep.room.name + '_2'];
         pickContainer = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
-            return (((structure.structureType == STRUCTURE_CONTAINER&& (!structure.pos.inRangeTo(flag, 2))) && structure.store[RESOURCE_ENERGY] > creep.carryCapacity));
+            return ((((structure.structureType == STRUCTURE_CONTAINER /*|| structure.structureType == STRUCTURE_STORAGE*/)&& (!structure.pos.inRangeTo(flag, 2))) && structure.store[RESOURCE_ENERGY] > creep.carryCapacity));
           }
         });
         //console.log(pickContainer);
@@ -39,6 +39,9 @@ var roleCarrier = {
               }
             });
           }
+        }
+        if (!pickContainer) {
+          creep.moveTo(Game.flags[creep.room.name+ '_assembly'])
         }
       }
     }
@@ -87,6 +90,7 @@ var roleCarrier = {
           });
         }
       } else {
+     // console.log('else');
         //creep.moveTo(18, 32);
         creep.moveTo(Game.flags[creep.room.name+ '_assembly'])
       }

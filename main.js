@@ -25,7 +25,7 @@ module.exports.loop = function() {
   var room1, room2, room3;
   var wallHpRoom1, wallHpRoom2, wallHpRoom3;
   var server;
-  console.log('test')
+//  console.log('test')
   var spawn1 = Game.spawns['Spawn' + 1].room.name
   if (spawn1 == 'W7N3') {
     console.log('private');
@@ -42,25 +42,25 @@ module.exports.loop = function() {
     workers.keepAlive(room3, 3, server);
     towers.behave(room1, 15000, 40000, server);
     towers.behave(room2, 10000, 10000, server);
-    towers.behave(room3, 15000, 15000, server);
+    towers.behave(room3, 10000, 10000, server);
   }
 
   if (spawn1 == 'E18N6') {
-    console.log('official');
+  //  console.log('official');
     //OFFICIAL
-    server = 'official';
+  //  server = 'official';
     room1 = Game.spawns['Spawn' + 1].room.name;
     room2 = Game.spawns['Spawn' + 2].room.name;
     room3 = Game.spawns['Spawn' + 3].room.name;
     wallHpRoom1 = 500000;
     wallHpRoom2 = 200000;
-    wallHpRoom3 = 5000;
+    wallHpRoom3 = 30000;
     workers.keepAlive(room1, 1, server);
     workers.keepAlive(room2, 2, server);
     workers.keepAlive(room3, 3, server);
     towers.behave(room1, 15000, 20000, server);
     towers.behave(room2, 15000, 20000, server);
-    towers.behave(room3, 1000, 2000, server);
+    towers.behave(room3, 4000, 4000, server);
     links.linkIt(room1, [18, 33], [6, 5]);
   //  links.linkIt(room2, [3, 6], [35, 12]);
 
