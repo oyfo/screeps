@@ -75,21 +75,21 @@ var definitions = {
   UPGRADER: {
     E18N6: {
       desiredAmount: 3,
-      composition: [WORK, WORK, WORK, WORK,
+      composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
       desiredAmount: 3,
-      composition: [WORK, WORK, WORK, WORK,
+      composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N5: {
       desiredAmount: 3,
-      composition: [WORK, WORK, WORK,
+      composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE
       ]
