@@ -34,15 +34,17 @@ module.exports.loop = function() {
     room1 = Game.spawns['Spawn' + 1].room.name;
     room2 = Game.spawns['Spawn' + 2].room.name;
     room3 = Game.spawns['Spawn' + 3].room.name;
-    wallHpRoom1 = 600000;
-    wallHpRoom2 = 600000;
-    wallHpRoom3 = 300000;
+    wallHpRoom1 = 700000;
+    wallHpRoom2 = 700000;
+    wallHpRoom3 = 400000;
     workers.keepAlive(room1, 1, server);
     workers.keepAlive(room2, 2, server);
     workers.keepAlive(room3, 3, server);
     towers.behave(room1, 15000, 40000, server);
     towers.behave(room2, 10000, 10000, server);
     towers.behave(room3, 5000, 5000, server);
+    links.linkIt(room2, [31, 24], [23, 36])
+    links.linkIt(room3, [11, 8], [33, 6])
   }
 
   if (spawn1 == 'E18N6') {
@@ -52,9 +54,9 @@ module.exports.loop = function() {
     room1 = Game.spawns['Spawn' + 1].room.name;
     room2 = Game.spawns['Spawn' + 2].room.name;
     room3 = Game.spawns['Spawn' + 3].room.name;
-    wallHpRoom1 = 600000;
-    wallHpRoom2 = 600000;
-    wallHpRoom3 = 200000;
+    wallHpRoom1 = 700000;
+    wallHpRoom2 = 700000;
+    wallHpRoom3 = 400000;
     workers.keepAlive(room1, 1, server);
     workers.keepAlive(room2, 2, server);
     workers.keepAlive(room3, 3, server);

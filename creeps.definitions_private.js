@@ -3,22 +3,22 @@
     CARRIER: {
       W7N3: {
         desiredAmount: 2,
-        composition: [WORK,
-          CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+        composition: [ 
+          CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
         ]
       },
       W8N3: {
         desiredAmount: 2,
-        composition: [WORK,
-          CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+        composition: [
+          CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE
         ]
       },
       W5N3: {
         desiredAmount: 2,
-        composition: [WORK,
-          CARRY, CARRY, CARRY, CARRY, CARRY,// CARRY, CARRY, CARRY,
+        composition: [
+          CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE
         ]
       },
@@ -88,7 +88,7 @@
         ]
       },
       W5N3: {
-        desiredAmount: 5,
+        desiredAmount: 4,
         composition: [WORK, WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE,
@@ -216,21 +216,21 @@
     SLAVE_RECEIVER: {
       W7N3: {
         desiredAmount: 0,
-        composition: [WORK,
+        composition: [
           MOVE,
           CARRY,
         ]
       },
       W8N3: {
-        desiredAmount: 0,
-        composition: [WORK,
+        desiredAmount: 1,
+        composition: [
           MOVE,
           CARRY,
         ]
       },
       W5N3: {
-        desiredAmount: 0,
-        composition: [WORK,
+        desiredAmount: 1,
+        composition: [
           MOVE,
           CARRY,
         ]

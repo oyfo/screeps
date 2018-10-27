@@ -3,7 +3,8 @@ UNBLOCK SPAWN - assembly done - carriers, builders, any other?
 OGARNIJ FLAGI - Game.flags.attack.room.name
 ZMIEN DEFINICJE CREEPOW
 NR of UPGRADERS DEPENDING ON storage, walls upgrading depending on storage.
-
+remote minig
+smart reparing - if 75% -> repair to 100%
 
 
 Game.spawns['Spawn1'].spawnCreep( [WORK, CARRY, MOVE], 'Harvester1' );

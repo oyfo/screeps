@@ -1,3 +1,4 @@
+var workers = require('mod.workers');
 var roleCarrier = {
 
   /** @param {Creep} creep **/
@@ -25,9 +26,16 @@ var roleCarrier = {
         }
       } else {
         var flag = Game.flags[creep.room.name + '_2'];
+        var noOfStaticH = workers.findRolesInRoom('staticHarvester', creep.room.name).length;
+        //console.log('static harvs: ' + noOfStaticH);
         pickContainer = creep.pos.findClosestByPath(FIND_STRUCTURES, {
           filter: (structure) => {
-            return ((((structure.structureType == STRUCTURE_CONTAINER /*|| structure.structureType == STRUCTURE_STORAGE*/) && (!structure.pos.inRangeTo(flag, 2))) && structure.store[RESOURCE_ENERGY] > creep.carryCapacity));
+            if (noOfStaticH < 2) {
+              return ((((structure.structureType == STRUCTURE_CONTAINER || structure.structureType == STRUCTURE_STORAGE) && (!structure.pos.inRangeTo(flag, 2))) && structure.store[RESOURCE_ENERGY] > creep.carryCapacity));
+            } else {
+              return ((((structure.structureType == STRUCTURE_CONTAINER /*|| structure.structureType == STRUCTURE_STORAGE*/ ) && (!structure.pos.inRangeTo(flag, 2))) && structure.store[RESOURCE_ENERGY] > creep.carryCapacity));
+            }
+           // return ((((structure.structureType == STRUCTURE_CONTAINER /*|| structure.structureType == STRUCTURE_STORAGE*/ ) && (!structure.pos.inRangeTo(flag, 2))) && structure.store[RESOURCE_ENERGY] > creep.carryCapacity));
           }
         });
         //console.log(pickContainer);

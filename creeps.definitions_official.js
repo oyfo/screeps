@@ -3,23 +3,23 @@ var definitions = {
   CARRIER: {
     E18N6: {
       desiredAmount: 2,
-      composition: [WORK,
+      composition: [
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
     E18N7: {
       desiredAmount: 2,
-      composition: [WORK,
+      composition: [
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
+        MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
       ]
     },
     E18N5: {
       desiredAmount: 2,
-      composition: [WORK,
-        CARRY, CARRY, CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE, MOVE
+      composition: [
+        CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
+        MOVE, MOVE, MOVE, MOVE, MOVE,
       ]
     },
     role: 'carrier'
@@ -245,21 +245,21 @@ var definitions = {
   SLAVE_RECEIVER: {
     E18N6: {
       desiredAmount: 1,
-      composition: [WORK,
+      composition: [
         MOVE,
         CARRY,
       ]
     },
     E18N7: {
       desiredAmount: 0,
-      composition: [WORK,
+      composition: [
         MOVE,
         CARRY,
       ]
     },
     E18N5: {
       desiredAmount: 0,
-      composition: [WORK,
+      composition: [
         MOVE,
         CARRY,
       ]
