@@ -147,19 +147,19 @@
     STATIC_HARVESTER: {
       W7N3: {
         desiredAmount: 2,
-        composition: [WORK, WORK, WORK, WORK, WORK,
+        composition: [WORK, WORK, WORK, WORK, WORK, WORK,
           MOVE
         ]
       },
       W8N3: {
         desiredAmount: 2,
-        composition: [WORK, WORK, WORK, WORK, WORK,
+        composition: [WORK, WORK, WORK, WORK, WORK, WORK,
           MOVE
         ]
       },
       W5N3: {
         desiredAmount: 2,
-        composition: [WORK, WORK, WORK, WORK, WORK,
+        composition: [WORK, WORK, WORK, WORK, WORK, WORK,
           MOVE
         ]
       },
