@@ -26,21 +26,21 @@ var definitions = {
   },
   BUILDER: {
     E18N6: {
-      desiredAmount: 1,
+      desiredAmount: 4,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 1,
+      desiredAmount: 4,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
     E18N5: {
-      desiredAmount: 2,
+      desiredAmount: 4,
       composition: [WORK, WORK, WORK, WORK, WORK, 
         CARRY, CARRY, CARRY, CARRY, CARRY,CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
@@ -58,9 +58,9 @@ var definitions = {
     },
     E18N7: {
       desiredAmount: 0,
-      composition: [WORK,
-        MOVE, MOVE,
-        CARRY, CARRY, //to be able to repair container
+      composition: [WORK, WORK,
+        MOVE, MOVE, MOVE,
+        CARRY, CARRY, CARRY,//to be able to repair container
       ]
     },
     E18N5: {
@@ -74,21 +74,21 @@ var definitions = {
   },
   UPGRADER: {
     E18N6: {
-      desiredAmount: 3,
+      desiredAmount: 1,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 5,
+      desiredAmount: 1,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N5: {
-      desiredAmount: 3,
+      desiredAmount: 1,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE
