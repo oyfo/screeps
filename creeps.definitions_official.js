@@ -26,21 +26,21 @@ var definitions = {
   },
   BUILDER: {
     E18N6: {
-      desiredAmount: 4,
+      desiredAmount: 2,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 4,
+      desiredAmount: 2,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
       ]
     },
     E18N5: {
-      desiredAmount: 4,
+      desiredAmount: 2,
       composition: [WORK, WORK, WORK, WORK, WORK, 
         CARRY, CARRY, CARRY, CARRY, CARRY,CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE
@@ -74,21 +74,21 @@ var definitions = {
   },
   UPGRADER: {
     E18N6: {
-      desiredAmount: 1,
+      desiredAmount: 3,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 1,
+      desiredAmount: 2,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N5: {
-      desiredAmount: 1,
+      desiredAmount: 3,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE
