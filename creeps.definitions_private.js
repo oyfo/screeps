@@ -26,14 +26,14 @@
     },
     BUILDER: {
       W7N3: {
-        desiredAmount: 1,
+        desiredAmount: 2,
         composition: [WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
         ]
       },
       W8N3: {
-        desiredAmount: 1,
+        desiredAmount: 2,
         composition: [WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, CARRY,
@@ -74,21 +74,21 @@
     },
     UPGRADER: {
       W7N3: {
-        desiredAmount: 3,
+        desiredAmount: 6,
         composition: [WORK, WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
         ]
       },
       W8N3: {
-        desiredAmount: 2,
+        desiredAmount: 6,
         composition: [WORK, WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE
         ]
       },
       W5N3: {
-        desiredAmount: 4,
+        desiredAmount: 3,
         composition: [WORK, WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE,
