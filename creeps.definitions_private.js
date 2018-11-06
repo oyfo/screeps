@@ -74,7 +74,7 @@
     },
     UPGRADER: {
       W7N3: {
-        desiredAmount: 3,
+        desiredAmount: 1,
         composition: [WORK, WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
@@ -88,7 +88,7 @@
         ]
       },
       W5N3: {
-        desiredAmount: 2,
+        desiredAmount: 4,
         composition: [WORK, WORK, WORK, WORK, WORK,
           CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
           MOVE, MOVE, MOVE, MOVE, MOVE,
@@ -283,6 +283,33 @@
         ]
       },
       role: 'attacker'
+    },
+    HEALER: {
+      W7N3: {
+        desiredAmount: 0,
+        composition: [
+          TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
+          HEAL, HEAL, HEAL, HEAL, HEAL, HEAL,
+          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+        ]
+      },
+      W8N3: {
+        desiredAmount: 0,
+        composition: [
+          TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
+          HEAL, HEAL, HEAL, HEAL, HEAL, HEAL,
+          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+        ]
+      },
+      W5N3: {
+        desiredAmount: 0,
+        composition: [
+          TOUGH, TOUGH, TOUGH, TOUGH, TOUGH,
+          HEAL, HEAL, HEAL, HEAL, HEAL, HEAL,
+          MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE, MOVE,
+        ]
+      },
+      role: 'healer'
     }
   };
 

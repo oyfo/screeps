@@ -35,8 +35,8 @@ module.exports.loop = function() {
     room2 = Game.spawns['Spawn' + 2].room.name;
     room3 = Game.spawns['Spawn' + 3].room.name;
     wallHpRoom1 = 1000000;
-    wallHpRoom2 = 1000000;
-    wallHpRoom3 = 1000000;
+    wallHpRoom2 = 1300000;
+    wallHpRoom3 = 1300000;
     workers.keepAlive(room1, 1, server);
     workers.keepAlive(room2, 2, server);
     workers.keepAlive(room3, 3, server);

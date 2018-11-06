@@ -16,8 +16,13 @@ module.exports = {
     var hostiles = Game.rooms[room].find(FIND_HOSTILE_CREEPS);
     if (hostiles.length >0){
       var numberOfDefenders = workers.findRolesInRoom('defender', room).length;
+      var numberOfHealers = workers.findRolesInRoom('healer', room).length;
       console.log(numberOfDefenders);
-      if (numberOfDefenders <2) {
+     // if (numberOfHealers < 1 ) {
+      //  workers.spawnWorker('HEALER', room, server);
+      //} 
+      //else 
+      if (numberOfDefenders < 1) {
         workers.spawnWorker('DEFENDER', room, server);
       }
     }
