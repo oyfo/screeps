@@ -57,38 +57,38 @@ var definitions = {
       ]
     },
     E18N7: {
-      desiredAmount: 0,
-      composition: [WORK, WORK,
-        MOVE, MOVE, MOVE,
-        CARRY, CARRY, CARRY,//to be able to repair container
+      desiredAmount: 2,
+      composition: [WORK,
+        MOVE, MOVE, 
+        CARRY, CARRY, //to be able to repair container
       ]
     },
     E18N5: {
-      desiredAmount: 0,
-      composition: [WORK, WORK,
-        CARRY, CARRY, CARRY,
-        MOVE, MOVE, MOVE
+      desiredAmount: 2,
+      composition: [WORK,
+        CARRY, CARRY,
+        MOVE, MOVE,
       ]
     },
     role: 'harvester'
   },
   UPGRADER: {
     E18N6: {
-      desiredAmount: 5,
+      desiredAmount: 2,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N7: {
-      desiredAmount: 5,
+      desiredAmount: 2,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE,
       ]
     },
     E18N5: {
-      desiredAmount: 5,
+      desiredAmount: 2,
       composition: [WORK, WORK, WORK, WORK, WORK,
         CARRY, CARRY, CARRY, CARRY, CARRY,
         MOVE, MOVE, MOVE, MOVE, MOVE
